@@ -11,10 +11,10 @@ const Navbar = () => {
     const pathname = usePathname();
 
     const navItems = [
-        {name: "Strona Glowna", path: "/"},
+        {name: "Strona Główna", path: "/"},
         {name: "O Nas", path: "/o-nas"},
-        {name: "Zglos Oferte", path: "/zglos-oferte"},
-        {name: 'Zglos czego szukasz', path: '/zglos-czego-szukasz' },
+        {name: "Zgłoś Ofertę ", path: "/zglos-oferte"},
+        {name: 'Zgłoś czego szukasz', path: '/zglos-czego-szukasz' },
         {name: 'Kontakt', path: '/kontakt' },
     ]
 
@@ -42,3 +42,4 @@ const Navbar = () => {
 
  
 export default Navbar;
+

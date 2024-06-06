@@ -1,0 +1,13 @@
+.layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.pageContent {
+    max-width: 1200px;
+    margin: 20px 0 80px;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
