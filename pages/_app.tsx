@@ -1,6 +1,6 @@
 "use client"
 import "@/styles/globals.css"
-import Layout from "@/components/Layout/Layout";
+import Layout from "@/components/LayoutPage/Layout";
 
 
 const App = ({Component, pageProps}:any) => {

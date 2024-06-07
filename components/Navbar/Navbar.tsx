@@ -26,6 +26,7 @@ const Navbar = () => {
       width={50}
       height={50}
       alt="logo-white"
+      fetchPriority="low"
       />
     <ul className={styles.unorderedList}>
       {navItems.map(item => (
