@@ -1,0 +1,53 @@
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    max-width: 600px;
+    margin: 20px;
+    background-color: #fff;
+}
+
+.card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.featured img {
+    width: 100%;
+    height: auto;
+}
+
+.content {
+    padding: 16px;
+}
+
+.info {
+    margin-bottom: 16px;
+}
+
+.info h4 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.info p {
+    margin: 8px 0;
+    font-size: 1.2em;
+    color: #666;
+}
+
+.actions a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #444;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.actions a:hover {
+    background-color: #333;
+}

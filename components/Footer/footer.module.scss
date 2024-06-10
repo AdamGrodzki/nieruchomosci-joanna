@@ -1,6 +1,6 @@
 .footer {
     background-color: #333;
-    color: white;
+    color: #fff;
     text-align: center;
     padding: 1.5rem 0;
 }
@@ -23,7 +23,7 @@
 .footerSection h4 {
     margin-bottom: 1rem;
     font-size: 1.2rem;
-    color: #ff7f50;
+    color: #b79d52;
 }
 
 .footerSection ul {
@@ -36,7 +36,7 @@
 }
 
 .footerSection ul li a {
-    color: white;
+    color: #fff;
     text-decoration: none;
 }
 
@@ -52,6 +52,14 @@
 }
 
 .socialMedia a {
-    color: white;
+    color: #fff;
     font-size: 1.5rem;
+}
+
+.facebookIcon {
+    font-size: 25px;
+}
+
+.facebookIcon:hover {
+    color: #0266ff;
 }

@@ -1,24 +1,15 @@
 import { createClient } from "contentful"
 import PropertyCard from "@/components/PropertyCard/PropertyCard";
+import { PropertyProps } from "@/static/data";
 
-
-interface Nieruchomosc {
-    sys: {
-        id: string;
-    };
-    fields: {
-        title: string;
-    }
-}
-
-interface PropertyProps {
-    nieruchomosci: Nieruchomosc[];
-}
+import styles from "../styles/index.module.css"
 
 export async function getStaticProps() {
     const client = createClient({
         space: "p7rgtb3cb5nz",
+        // space: process.env.CONTENTFUL_SPACE_ID,
         accessToken: "M11heMpA8FfwRHfyuVX00QDncJo5Xd6ItRXTgo0VwSs",
+        // accessToken: process.env.CONTENTFUL_ACCESS_KEY,
       })
 
     const res = await client.getEntries({content_type: "nieruchomosc"})
@@ -32,10 +23,12 @@ export async function getStaticProps() {
 const Property: React.FC<PropertyProps> = ({nieruchomosci}) => {
     console.log(nieruchomosci);
     return(
-    <div>
+        <div className={styles.container}>
+    <div className={styles.propertyList}>
         {nieruchomosci.map(nieruchomosc => (
             <PropertyCard key={nieruchomosc.sys.id} nieruchomosc={nieruchomosc}/>
         ))}
+        </div>
     </div>
     );
 }
