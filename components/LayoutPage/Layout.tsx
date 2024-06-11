@@ -2,6 +2,7 @@ import Navbar from '../Navbar/Navbar';
 import styles from "@/components/LayoutPage/layout.module.scss"
 import Footer from '../Footer/Footer';
 import LandingPage from '../LandingPage/LandingPage';
+import ArrowNavigation from '../ArrowNavigation/ArrowNavigation';
 
 const Layout = ({ children }: any) => {
   return (
@@ -14,6 +15,7 @@ const Layout = ({ children }: any) => {
       {children}
       </div>
       </div>
+      <ArrowNavigation />
     <Footer />
     </>
   );

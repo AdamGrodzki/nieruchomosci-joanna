@@ -14,7 +14,12 @@
 
 .featured img {
     width: 100%;
-    height: auto;
+    height: 300px;
+    transition: transform 0.5s ease;
+}
+
+.featured img:hover {
+    transform: scale(1.15);
 }
 
 .content {
@@ -36,18 +41,4 @@
     margin: 8px 0;
     font-size: 1.2em;
     color: #666;
-}
-
-.actions a {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #444;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-}
-
-.actions a:hover {
-    background-color: #333;
 }

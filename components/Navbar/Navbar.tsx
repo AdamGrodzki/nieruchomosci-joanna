@@ -4,11 +4,20 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from 'next/navigation';
 import logoDark from "../../images/nieruchomosci-Logo-dark.png"
+import logo from "../../images/logoDark.png"
 import styles from "@/components/Navbar/navbar.module.scss"
+import { useState } from "react";
+
+import { CiMenuBurger } from "react-icons/ci";
 
 
 const Navbar = () => {
     const pathname = usePathname();
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = ()=> {
+      setMenuOpen(!menuOpen);
+    }
 
     const navItems = [
         {name: "Strona Główna", path: "/"},
@@ -20,15 +29,20 @@ const Navbar = () => {
 
     return (
     <nav className={styles.nav}>
-      <Image  
-      className={styles.logo}
-      src={logoDark}
-      width={50}
-      height={50}
-      alt="logo-white"
-      fetchPriority="low"
-      />
-    <ul className={styles.unorderedList}>
+      <Link href="/">
+        <Image  
+        className={styles.logo}
+        src={logo}
+        width={160}
+        height={70}
+        alt="logo-white"
+        fetchPriority="high"
+        />
+      </Link>
+      <div className={styles.hamburger} onClick={toggleMenu}>
+      <CiMenuBurger  className={`${styles.bar} ${menuOpen ? styles.menuOpen : ""}`}/>
+      </div>
+    <ul className={`${styles.unorderedList} ${menuOpen ? styles.showMenu : ""}`}>
       {navItems.map(item => (
         <li key={item.path} className={pathname === item.path ? styles.active : styles.listItem}>
           <Link legacyBehavior href={item.path}>

@@ -2,37 +2,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-image: url('../../images/hobbiton.jpg');
+    // height: 50vh;
+    min-height: 600px;
+    max-height: 90vh;
+    background-image: url('../../images/kitchen.jpg');
     background-size: cover;
     background-position: center;
     color: white;
+    // color: #b79d52;
 }
 
 .heroContent {
     text-align: center;
 }
 
-.hero h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.ctaButton {
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    background-color: #444;
-    border: none;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.ctaButton:hover {
-    background-color: #333;
+.hero img {
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 1.5));
 }
