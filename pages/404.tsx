@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 import styles from "@/styles/404.module.css";
 
-export default function NotFound() {
+const NotFound = () => {
 
     const router = useRouter()
 
@@ -28,3 +28,5 @@ export default function NotFound() {
     );
     
 }
+
+export default NotFound;

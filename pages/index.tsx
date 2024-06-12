@@ -6,10 +6,8 @@ import styles from "../styles/index.module.css"
 
 export async function getStaticProps() {
     const client = createClient({
-        space: "p7rgtb3cb5nz",
-        // space: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: "M11heMpA8FfwRHfyuVX00QDncJo5Xd6ItRXTgo0VwSs",
-        // accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+        space: String(process.env.CONTENTFUL_SPACE_ID),
+        accessToken: String(process.env.CONTENTFUL_ACCESS_KEY),
       })
 
     const res = await client.getEntries({content_type: "nieruchomosc"})
