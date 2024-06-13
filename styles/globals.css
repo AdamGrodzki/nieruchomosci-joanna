@@ -12,6 +12,9 @@ body {
   scroll-behavior: smooth;
   font-family: "Merriweather", serif;
   font-weight: 400;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 a {

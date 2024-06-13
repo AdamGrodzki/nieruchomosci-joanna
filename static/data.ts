@@ -34,6 +34,7 @@ export interface Nieruchomosc {
         typeOfProperty: string;
         contact: string;
         slug: string;
+        area: number;
     };
     sys: {
         id: string;

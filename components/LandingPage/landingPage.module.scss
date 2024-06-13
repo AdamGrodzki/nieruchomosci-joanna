@@ -1,21 +1,40 @@
-.hero {
+.parentContainer {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    // height: 50vh;
-    min-height: 600px;
-    max-height: 90vh;
+}
+
+.hero {
     background-image: url('../../images/kitchen.jpg');
     background-size: cover;
     background-position: center;
-    color: white;
-    // color: #b79d52;
-}
-
-.heroContent {
-    text-align: center;
+    width: 100%;
 }
 
 .hero img {
     filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 1.5));
+}
+
+
+.heroContent {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.heroContent img {
+    width: 100%;
+    height: auto;
+    margin: 20px;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 20px;
+    }
+
+    .heroContent {
+        max-width: 90%;
+    }
+
+    .heroContent img {
+        margin: 10px;
+    }
 }

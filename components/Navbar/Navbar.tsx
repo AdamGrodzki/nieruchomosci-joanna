@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from 'next/navigation';
-import logoDark from "../../images/nieruchomosci-Logo-dark.png"
 import logo from "../../images/logoDark.png"
 import styles from "@/components/Navbar/navbar.module.scss"
 import { useState } from "react";

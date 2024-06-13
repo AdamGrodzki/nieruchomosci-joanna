@@ -10,8 +10,7 @@ const LandingPage = () => {
         <div className={styles.heroContent}>
           <Image
             src={logo}
-            height={450}
-            width={700}
+            height={400}
             alt="logo-nieruchomosci"
             priority={true}
           />

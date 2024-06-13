@@ -21,6 +21,8 @@ export async function getStaticProps() {
 const Property: React.FC<PropertyProps> = ({nieruchomosci}) => {
     console.log(nieruchomosci);
     return(
+        <div>
+            <h2 className={styles.heading}>Najnowsze Oferty</h2>
         <div className={styles.container}>
     <div className={styles.propertyList}>
         {nieruchomosci.map(nieruchomosc => (
@@ -28,7 +30,7 @@ const Property: React.FC<PropertyProps> = ({nieruchomosci}) => {
         ))}
         </div>
     </div>
-    );
+    </div>);
 }
 
 export default Property;

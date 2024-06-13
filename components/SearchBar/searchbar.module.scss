@@ -1,51 +1,122 @@
+// .searchBar {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: center;
+//     align-items: center;
+//     padding: 20px;
+//     background-color: #f7f7f7;
+//     border-bottom: 1px solid #ccc;
+// }
+
+// .searchBar svg {
+//     font-size: 50px;
+// }
+
+// .searchBar h2 {
+//     text-transform: uppercase;
+// }
+
+// .searchBar select {
+//     padding: 10px;
+//     margin: 10px;
+//     border: 1px solid #ccc;
+//     border-radius: 5px;
+//     width: 200px;
+//     font-family: inherit;
+// }
+
+// .searchBar input {
+//     padding: 10px;
+//     margin: 10px;
+//     border: 1px solid #ccc;
+//     border-radius: 5px;
+//     width: 200px;
+//     font-family: inherit;
+// }
+
+// .searchBar button {
+//     padding: 10px 20px;
+//     margin: 10px;
+//     border: none;
+//     border-radius: 5px;
+//     background-color: #444;
+//     color: #fff;
+//     cursor: pointer;
+//     font-family: inherit;
+
+// }
+
+// .searchBar button:hover {
+//     background-color: #333;
+// }
+
 .searchBar {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
     padding: 20px;
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #ccc;
-}
-
-.searchBar svg {
-    font-size: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
 }
 
 .searchBar h2 {
-    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.5rem;
 }
 
-.searchBar select {
+.searchBar select,
+.searchBar input,
+.searchBar button {
+    width: 100%;
+    max-width: 400px;
+    margin: 10px 0;
     padding: 10px;
-    margin: 10px;
+    border-radius: 4px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 200px;
-    font-family: inherit;
-}
-
-.searchBar input {
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 200px;
+    font-size: 1rem;
     font-family: inherit;
 }
 
 .searchBar button {
-    padding: 10px 20px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #444;
+    background-color: #333;
     color: #fff;
+    border: none;
     cursor: pointer;
-    font-family: inherit;
-
+    margin: 0 auto;
+    margin-top: 20px;
 }
 
 .searchBar button:hover {
-    background-color: #333;
+    background-color: #444;
+}
+
+@media (min-width: 768px) {
+    .searchBar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .searchBar h2 {
+        width: 100%;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    .searchBar select,
+    .searchBar input,
+    .searchBar button {
+        flex: 1 1 calc(33% - 20px);
+        margin: 10px;
+    }
+
+    .searchBar button {
+        flex: 1 1 100%;
+        margin: 0 auto;
+        // margin-top: 20px;
+    }
 }

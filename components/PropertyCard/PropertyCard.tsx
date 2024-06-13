@@ -1,7 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Nieruchomosc, PropertyCardProps } from "@/static/data";
+import { PropertyCardProps } from "@/static/data";
 import styles from "@/components/PropertyCard/propertyCard.module.scss"
+import { FaLocationDot } from "react-icons/fa6";
+
+
 
 
 const PropertyCard: React.FC<PropertyCardProps> = ({nieruchomosc}) => {
@@ -16,7 +19,9 @@ const {
     typeOfProperty,
     contact,
     slug,
+    area,
   } = nieruchomosc.fields;
+
 
     return (
         <div className={styles.card}>
@@ -34,7 +39,17 @@ const {
             <div className={styles.content}>
                 <div className={styles.info}>
                     <h4>{title}</h4>
-                    <p>Price: {price} zl</p>
+                    <p><FaLocationDot /> {address}</p>
+                    <p className={styles.price}>
+                      {new Intl.NumberFormat('pl-PL', 
+                      { 
+                        style: 'currency',
+                        currency: 'PLN',  
+                      }).format(price)}</p>
+                    <div>
+                      <p>powierzchnia: {area} m<sup>2</sup></p>
+                      <p>liczba pokoi: {numberOfRooms} </p>
+                    </div>
                 </div>
             </div>
         </div>

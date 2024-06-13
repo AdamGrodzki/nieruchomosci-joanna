@@ -3,7 +3,7 @@
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
-    max-width: 600px;
+    max-width: 450px;
     margin: 20px;
     background-color: #fff;
 }
@@ -14,7 +14,7 @@
 
 .featured {
     overflow: hidden;
-    width: 550px;
+    width: 400px;
     height: 300px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -51,7 +51,13 @@
 }
 
 .info p {
-    margin: 8px 0;
+    margin: 20px 0;
     font-size: 1.2em;
     color: #666;
+}
+
+.price {
+    text-align: center;
+    background-color: #ddd;
+    padding: 10px;
 }

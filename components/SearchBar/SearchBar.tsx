@@ -8,7 +8,6 @@ import { useState } from 'react';
 
 const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    // Tutaj dodaj kod do obsługi wyszukiwania
     console.log('Wyszukiwanie:', e);
 };
 
@@ -20,7 +19,7 @@ const SearchBar = ({}) => {
 
   return (
         <form className={styles.searchBar} onSubmit={handleSubmit}>
-            <IoSearchCircleOutline/>
+            <IoSearchCircleOutline size={50}/>
             <h2>Znajdź swoją wymarzoną nieruchomość</h2>
         <select className={styles.option} value={propertyType} onChange={(e) => setPropertyType(e.target.value)} required>
             <option value="">Rodzaj nieruchomosci</option>
