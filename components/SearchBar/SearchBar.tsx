@@ -22,7 +22,7 @@ const SearchBar = ({}) => {
             <IoSearchCircleOutline size={50}/>
             <h2>Znajdź swoją wymarzoną nieruchomość</h2>
         <select className={styles.option} value={propertyType} onChange={(e) => setPropertyType(e.target.value)} required>
-            <option value="">Rodzaj nieruchomosci</option>
+            <option value="">Rodzaj nieruchomości</option>
             <option value="flats">Mieszkania</option>
             <option value="houses">Domy</option>
             <option value="plots">Działki</option>

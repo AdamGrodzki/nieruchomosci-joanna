@@ -26,7 +26,7 @@ const {
     return (
         <div className={styles.card}>
             <div className={styles.featured}>
-              <Link href={`/property/ ${slug}`}>
+              <Link href={`/property/${slug}`}>
                 <Image 
                   src={"https:" + gallery.fields.file.url}
                   height={400}
@@ -40,15 +40,15 @@ const {
                 <div className={styles.info}>
                     <h4>{title}</h4>
                     <p><FaLocationDot /> {address}</p>
-                    <p className={styles.price}>
+                    <div className={styles.price}>
                       {new Intl.NumberFormat('pl-PL', 
                       { 
                         style: 'currency',
                         currency: 'PLN',  
-                      }).format(price)}</p>
+                      }).format(price)}</div>
                     <div>
-                      <p>powierzchnia: {area} m<sup>2</sup></p>
-                      <p>liczba pokoi: {numberOfRooms} </p>
+                      <p >Powierzchnia: <b>{area} m<sup>2</sup></b></p>
+                      <p>Liczba pokoi: <b>{numberOfRooms}</b></p>
                     </div>
                 </div>
             </div>

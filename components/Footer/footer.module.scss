@@ -15,14 +15,18 @@
 }
 
 .footerSection {
-    flex: 1 1 300px;
-    margin: 0.5rem;
+    // flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 10px;
 }
 
 .footerSection h4 {
     margin-bottom: 1rem;
     font-size: 1.2rem;
     color: #b79d52;
+    text-transform: uppercase;
 }
 
 .footerSection ul {

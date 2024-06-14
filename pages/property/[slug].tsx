@@ -1,5 +1,6 @@
-import { PropertyProps } from "@/static/data"
+import { PropertyCardProps } from "@/static/data"
 import { createClient } from "contentful"
+import Image from "next/image"
 
 const client = createClient({
     space: String(process.env.CONTENTFUL_SPACE_ID),
@@ -24,7 +25,7 @@ export const getStaticPaths = async () => {
     }
 }
 
-export async function getStaticProps({params}:any) {
+export async function getStaticProps({params}: any) {
     const { items } = await client.getEntries({
         content_type: "nieruchomosc",
         "fields.slug": params.slug
@@ -35,12 +36,21 @@ export async function getStaticProps({params}:any) {
     }
 }
 
-const PropertyDetails: React.FC<PropertyProps> = ({nieruchomosci}) =>{
+const PropertyDetails:  React.FC<PropertyCardProps> = ({ nieruchomosci}: any) =>{
     console.log(nieruchomosci);
     
     return (
         <div>
-            Property Details
+            <p>{nieruchomosci.fields.title}</p>
+            <p>{nieruchomosci.fields.address}</p>
+            <p>{nieruchomosci.fields.area}</p>
+            <Image 
+                  src={"https:" + nieruchomosci.fields.gallery.fields.file.url}
+                  height={400}
+                  width={600}
+                  alt="img"
+                  priority={true}
+                />
         </div>
     )
 }

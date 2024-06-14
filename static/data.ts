@@ -1,22 +1,12 @@
-// export interface Nieruchomosc {
-//     sys: {
-//         id: string;
-//     };
-//     fields: {
-//         title: string;
-//     }
-// }
-
 export interface PropertyProps {
     nieruchomosci: Nieruchomosc[];
 }
 
-
-interface GalleryItem {
+export interface GalleryItem {
     fields: any;
     file: {
         url: string;
-        details: string; // Replace with the appropriate type if known
+        details: string;
         fileName: string;
         contentType: string;
     };

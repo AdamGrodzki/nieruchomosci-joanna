@@ -9,7 +9,7 @@ const Footer = () => {
         <footer className={styles.footer}>
         <div className={styles.footerContent}>
             <div className={styles.footerSection}>
-                <h4>Contact Us</h4>
+                <h4>Skontaktuj Się Z Nami</h4>
                 <ul>
                     <li>Nieruchomosci Joanna</li>
                     <li><MdOutlineLocationOn /> Tczew, Poland 83-110</li>
@@ -21,7 +21,7 @@ const Footer = () => {
             </div>
         
             <div className={styles.footerSection}> 
-                <h4>Follow Us</h4>
+                <h4>Obserwuj nas</h4>
                 <div className={styles.socialMedia}>
                     <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                     <FaFacebookF className={styles.facebookIcon}/>
@@ -30,7 +30,7 @@ const Footer = () => {
             </div>
         </div>
         <div>
-            &copy; 2024 Estate App. All rights reserved.
+            &copy; 2024 Wszystkie prawa zastrzeżone | Joanna nieruchomości 
         </div>
     </footer>
      );
