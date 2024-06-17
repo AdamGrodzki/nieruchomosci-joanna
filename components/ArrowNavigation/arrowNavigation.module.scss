@@ -22,3 +22,10 @@
     transform: scale(0.9);
 
 }
+
+@media (max-width: 768px) {
+    .arrowUp {
+        bottom: 50px;
+        font-size: 20px;
+    }
+}

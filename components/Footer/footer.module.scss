@@ -2,29 +2,19 @@
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 1.5rem 0;
-}
-
-.footerContent {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    // max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    padding: 24px 0;
 }
 
 .footerSection {
-    // flex: 1 1 300px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-around;
+    padding: 0 20px;
     margin: 10px;
 }
 
 .footerSection h4 {
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
+    margin-bottom: 16px;
+    font-size: 20px;
     color: #b79d52;
     text-transform: uppercase;
 }
@@ -35,35 +25,107 @@
 }
 
 .footerSection ul li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 6px;
 }
 
 .footerSection ul li a {
     color: #fff;
     text-decoration: none;
+    transition: all 0.3s;
 }
 
 .footerSection ul li a:hover {
     text-decoration: underline;
+    color: #b79d52;
 }
+
+.footerLogo p {
+    margin-top: 10px;
+}
+
+.footerLogo img {
+    transition: all 0.3s ease-in-out;
+}
+
+.footerLogo img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px #b79d52);
+}
+
 
 .socialMedia {
     display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
+    flex-direction: column;
 }
 
 .socialMedia a {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 24px;
 }
 
+
 .facebookIcon {
-    font-size: 25px;
-    transition: color 0.3s;
+    color: #fff;
+    font-size: 30px;
+    transition: all 0.3s;
 }
 
 .facebookIcon:hover {
     color: #0266ff;
+    transform: scale(1.2);
+}
+
+.footerBottom {
+    color: #b79d52;
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 16px 0;
+        font-size: 14px;
+    }
+
+    .footerSection {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footerSection h4 {
+        font-size: 18px;
+        margin-top: 16px;
+    }
+
+    .footerSection ul li {
+        margin-bottom: 8px;
+    }
+
+    .footerLogo p {
+        margin-top: 8px;
+    }
+
+    .socialMedia {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 16px;
+        gap: 10px;
+    }
+
+    .socialMedia a {
+        margin: 0 8px;
+    }
+
+    .facebookIcon {
+        font-size: 24px;
+    }
+
+    .footerBottom {
+        font-size: 11px;
+    }
 }

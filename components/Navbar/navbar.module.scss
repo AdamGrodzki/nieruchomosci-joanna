@@ -4,8 +4,6 @@
     align-items: center;
     padding: 10px 20px;
     z-index: 1000;
-
-
     background-color: #333;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -16,15 +14,13 @@
 
 .logo {
     display: block;
+    transition: all 0.3s ease-in-out;
     margin-right: 10px;
-}
-
-.logo {
-    transition: transform 0.3s ease-in-out;
 }
 
 .logo:hover {
     transform: scale(1.1);
+    filter: drop-shadow(0 0 10px #b79d52);
 }
 
 .hamburger {
@@ -83,6 +79,8 @@
 
 
 .links {
+    display: flex;
+    text-align: center;
     text-decoration: none;
     color: #fff;
     padding: 10px;
