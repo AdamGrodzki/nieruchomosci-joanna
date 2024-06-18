@@ -31,29 +31,34 @@
     height: 24px;
 }
 
-.bar {
-    font-size: 28px;
-    width: 50px;
-    color: #fff;
-    transition: 0.4s;
+.menuIcon {
+    cursor: pointer;
+    animation: fadeIn 0.3s ease;
 }
 
-@keyframes rotateAndScale {
-    0% {
-        transform: rotate(0deg);
-    }
+.burgerIcon,
+.timesIcon {
+    font-size: 24px;
+    color: #fff;
+    transition: color 0.3s ease;
+    animation: fadeIn 0.4s ease;
+}
 
-    50% {
-        transform: rotate(45deg);
+.burgerIcon:hover,
+.timesIcon:hover {
+    color: #666;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
     }
 
     100% {
-        transform: rotate(90deg);
+        opacity: 1;
+        transform: translateY(0);
     }
-}
-
-.bar.menuOpen {
-    animation: rotateAndScale 0.5s ease-in-out;
 }
 
 .unorderedList {

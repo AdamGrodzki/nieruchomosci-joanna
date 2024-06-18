@@ -1,5 +1,3 @@
-"use client"
-
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from 'next/navigation';
@@ -8,6 +6,8 @@ import styles from "@/components/Navbar/navbar.module.scss"
 import { useState } from "react";
 
 import { CiMenuBurger } from "react-icons/ci";
+import { FaBars, FaTimes } from "react-icons/fa";
+
 
 
 const Navbar = () => {
@@ -39,8 +39,21 @@ const Navbar = () => {
         />
       </Link>
       <div className={styles.hamburger} onClick={toggleMenu}>
-      <CiMenuBurger  className={`${styles.bar} ${menuOpen ? styles.menuOpen : ""}`}/>
-      </div>
+      {/* <div>
+    {menuOpen ? (
+      <FaTimes className={styles.timesIcon} />
+    ) : (
+      <CiMenuBurger className={styles.burgerIcon} />
+    )}
+  </div> */}
+  <div className={styles.menuIcon}>
+  {menuOpen ? (
+    <FaTimes className={`${styles.timesIcon} ${styles.menuIconActive}`} />
+  ) : (
+    <CiMenuBurger className={`${styles.burgerIcon} ${styles.menuIconActive}`} />
+  )}
+</div>
+  </div>
     <ul className={`${styles.unorderedList} ${menuOpen ? styles.showMenu : ""}`}>
       {navItems.map(item => (
         <li key={item.path} className={pathname === item.path ? styles.active : styles.listItem}>

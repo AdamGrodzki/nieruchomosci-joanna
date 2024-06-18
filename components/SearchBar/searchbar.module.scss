@@ -1,83 +1,48 @@
-// .searchBar {
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: center;
-//     align-items: center;
-//     padding: 20px;
-//     background-color: #f7f7f7;
-//     border-bottom: 1px solid #ccc;
-// }
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #f7f7f7;
+}
 
-// .searchBar svg {
-//     font-size: 50px;
-// }
-
-// .searchBar h2 {
-//     text-transform: uppercase;
-// }
-
-// .searchBar select {
-//     padding: 10px;
-//     margin: 10px;
-//     border: 1px solid #ccc;
-//     border-radius: 5px;
-//     width: 200px;
-//     font-family: inherit;
-// }
-
-// .searchBar input {
-//     padding: 10px;
-//     margin: 10px;
-//     border: 1px solid #ccc;
-//     border-radius: 5px;
-//     width: 200px;
-//     font-family: inherit;
-// }
-
-// .searchBar button {
-//     padding: 10px 20px;
-//     margin: 10px;
-//     border: none;
-//     border-radius: 5px;
-//     background-color: #444;
-//     color: #fff;
-//     cursor: pointer;
-//     font-family: inherit;
-
-// }
-
-// .searchBar button:hover {
-//     background-color: #333;
-// }
 
 .searchBar {
     display: flex;
-    flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    background-color: #fff;
+    padding: 30px;
 }
 
-.searchBar h2 {
-    text-align: center;
-    font-size: 1.5rem;
+
+.container h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
 }
+
+.container svg {
+    font-size: 50px;
+}
+
+
 
 .searchBar select,
 .searchBar input,
 .searchBar button {
     width: 100%;
-    max-width: 400px;
-    margin: 10px 0;
+    max-width: 350px;
+    margin: 10px;
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ccc;
-    font-size: 1rem;
+    font-size: 16px;
     font-family: inherit;
 }
 
@@ -87,36 +52,46 @@
     border: none;
     cursor: pointer;
     margin: 0 auto;
-    margin-top: 20px;
+    transition: background-color 0.4s ease-in;
 }
 
 .searchBar button:hover {
-    background-color: #444;
+    background-color: #555;
 }
 
-@media (min-width: 768px) {
-    .searchBar {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
+@media (max-width: 768px) {
+    .container {
+        text-align: center;
+        padding: 25px;
     }
 
-    .searchBar h2 {
+    .searchBar {
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+
+    .container h2 {
         width: 100%;
         text-align: center;
         font-size: 24px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .searchBar svg {
+        font-size: 60px;
     }
 
     .searchBar select,
     .searchBar input,
     .searchBar button {
         flex: 1 1 calc(33% - 20px);
-        margin: 10px;
+        margin: 10px 0;
     }
 
     .searchBar button {
         flex: 1 1 100%;
-        margin: 0 auto;
-        // margin-top: 20px;
     }
 }
