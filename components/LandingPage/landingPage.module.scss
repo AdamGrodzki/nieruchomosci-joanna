@@ -1,40 +1,57 @@
 .parentContainer {
-    display: flex;
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero {
-    background-image: url('../../images/kitchen.jpg');
-    background-size: cover;
-    background-position: center;
     width: 100%;
+    height: 100%;
+    transition: opacity 0.8s ease-in-out;
 }
 
 .hero img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
     filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 1.5));
 }
 
-
 .heroContent {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-width: 700px;
-    margin: 0 auto;
+    text-align: center;
+    z-index: 1;
 }
 
 .heroContent img {
-    width: 100%;
-    height: auto;
-    margin: 20px;
+    max-width: 100%;
+    height: 400px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.heroContent img:hover {
+    transform: scale(1.05);
+}
+
+.fadeIn {
+    opacity: 1;
+}
+
+.fadeOut {
+    opacity: 0;
 }
 
 @media (max-width: 768px) {
-    .hero {
-        padding: 20px;
+    .hero img {
+        height: 200px;
     }
 
     .heroContent {
-        max-width: 90%;
-    }
-
-    .heroContent img {
-        margin: 10px;
+        max-width: 100%;
     }
 }
