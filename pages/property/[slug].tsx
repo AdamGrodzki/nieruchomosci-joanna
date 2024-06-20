@@ -41,9 +41,15 @@ const PropertyDetails:  React.FC<PropertyCardProps> = ({ nieruchomosci}: any) =>
     
     return (
         <div>
-            <p>{nieruchomosci.fields.title}</p>
+            <div>
+            <h2>Nieruchomość na {nieruchomosci.fields.tranactionType}</h2>
             <p>{nieruchomosci.fields.address}</p>
-            <p>{nieruchomosci.fields.area}</p>
+            </div>
+            <h3>{nieruchomosci.fields.title}</h3>
+            <p>{nieruchomosci.fields.price.toFixed(2)} zł</p>
+            <p>{nieruchomosci.fields.typeOfProperty}</p>
+            <p>{nieruchomosci.fields.area} m²</p>
+            <p>Cena za m²: {(nieruchomosci.fields.price / nieruchomosci.fields.area).toFixed(2)} zł</p>
             <Image 
                   src={"https:" + nieruchomosci.fields.gallery.fields.file.url}
                   height={400}
@@ -51,6 +57,7 @@ const PropertyDetails:  React.FC<PropertyCardProps> = ({ nieruchomosci}: any) =>
                   alt="img"
                   priority={true}
                 />
+                <p>{nieruchomosci.fields.description}</p>
         </div>
     )
 }

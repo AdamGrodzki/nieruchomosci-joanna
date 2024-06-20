@@ -25,6 +25,7 @@ export interface Nieruchomosc {
         contact: string;
         slug: string;
         area: number;
+        tranactionType: string;
     };
     sys: {
         id: string;
