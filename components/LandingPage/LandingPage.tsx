@@ -1,66 +1,82 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
-import styles from './landingPage.module.scss'; 
+import useEmblaCarousel from 'embla-carousel-react';
+import styles from './landingPage.module.scss';
+import logo from "../../images/logoDark.png"; 
+
 import img1 from "../../images/kitchen.jpg";
 import img2 from "../../images/living-room2.jpg";
 import img3 from "../../images/living-room3.jpg";
-import logo from "../../images/logoDark.png";
-
 
 const images = [ img1, img2, img3];
 
-const LandingPage = ({}) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [fade, setFade] = useState(false);
+const LandingPage = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi, setSelectedIndex]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setFade(true);
-      setTimeout(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        setFade(false);
-      }, 300); 
-    }, 5000); 
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on('select', onSelect);
+    
+    const intervalId = setInterval(() => {
+      if (emblaApi.canScrollNext()) {
+        emblaApi.scrollNext();
+      } else {
+        emblaApi.scrollTo(0);
+      }
+    }, 5000);
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => {
+      emblaApi.off('select', onSelect);
+      clearInterval(intervalId);
+    };
+  }, [emblaApi, onSelect]);
 
-
-  const handleDotClick = (index:number) => {
-    setFade(true);    
-    setTimeout(() => {
-      setCurrentIndex(index);
-      setFade(false);
-    }, 500); 
-  };
+  const scrollTo = useCallback(
+    (index:number) => emblaApi && emblaApi.scrollTo(index),
+    [emblaApi]
+  );
 
   return (
     <div className={styles.parentContainer}>
-      <div className={`${styles.hero} ${fade ? styles.fadeOut : styles.fadeIn}`}>
-        <Image
-          src={images[currentIndex]}
-          alt="Carousel Image"
-          layout="fill"
-          priority={true}
-        />
-        <div className={styles.heroContent}>
-          <Image
-            src={logo}
-            height={400}
-            width={400}
-            alt="logo-nieruchomosci"
-            priority={true}
-          />
+      <div className={styles.embla} ref={emblaRef}>
+        <div className={styles.emblaContainer}>
+          {images.map((src, index) => (
+            <div className={styles.emblaSlide} key={index}>
+              <Image
+                src={src}
+                alt={`Carousel Image ${index + 1}`}
+                layout="fill"
+                objectFit="cover"
+                priority={index === 0}
+              />
+            </div>
+          ))}
         </div>
       </div>
+      <div className={styles.heroContent}>
+        <Image
+          src={logo}
+          height={400}
+          width={400}
+          alt="logo-nieruchomosci"
+          priority={true}
+        />
+      </div>
       <div className={styles.pagination}>
-        {images.map((_,index) => (
+        {images.map((_, index) => (
           <span
             key={index}
-            className={`${styles.dot} ${currentIndex === index ? styles.active : ''}`}
-            onClick={() => handleDotClick(index)}
-            />
-          ))}
+            className={`${styles.dot} ${selectedIndex === index ? styles.active : ''}`}
+            onClick={() => scrollTo(index)}
+          />
+        ))}
       </div>
     </div>
   );

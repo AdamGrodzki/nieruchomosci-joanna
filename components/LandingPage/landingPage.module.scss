@@ -3,74 +3,32 @@
     height: 70vh;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
-.hero {
-    width: 100%;
-    height: 100%;
-    transition: opacity 0.8s ease-in-out;
+.embla {
+    overflow: hidden;
 }
 
-.hero img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 1.5));
+.emblaContainer {
+    display: flex;
+}
+
+.emblaSlide {
+    flex: 0 0 100%;
+    min-width: 0;
+    position: relative;
+    height: 100vh;
 }
 
 .heroContent {
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 700px;
-    text-align: center;
     z-index: 1;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 1));
 }
-
-.heroContent img {
-    max-width: 100%;
-    height: 400px;
-}
-
-.fadeIn {
-    animation: fadeIn 0.4s ease-in-out;
-}
-
-.fadeOut {
-    animation: fadeOut 0.4s ease-in-out;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0.5;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0.5;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero img {
-        height: auto;
-    }
-
-    .heroContent {
-        max-width: 100%;
-    }
-}
-
 
 .pagination {
     position: absolute;
@@ -84,10 +42,10 @@
 .dot {
     width: 15px;
     height: 15px;
-    background-color: #ccc;
     border-radius: 50%;
-    margin: 0 5px;
+    background-color: #ccc;
     cursor: pointer;
+    margin: 0 5px;
     transition: all 0.4s ease;
 }
 
@@ -97,7 +55,37 @@
 }
 
 .dot.active {
+    background-color: white;
+}
+
+.dot.active {
     background-color: #c59c58;
     transform: scale(1.5);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.heroContent img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    -webkit-user-drag: none;
+}
+
+@media (max-width: 768px) {
+    .hero img {
+        height: auto;
+    }
+
+    .heroContent {
+        width: 300px;
+    }
+
+    .dot:hover {
+        background-color: #444;
+        transform: scale(1.1);
+    }
+
+    .dot.active {
+        transform: scale(1.2);
+    }
 }
