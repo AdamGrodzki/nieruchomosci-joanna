@@ -101,3 +101,29 @@
         flex: 1 1 100%;
     }
 }
+
+
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+    .container {
+        padding: 10px;
+    }
+
+    .searchBar {
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .option {
+        margin-right: 16px;
+        margin-bottom: 0;
+    }
+
+    .searchBar input {
+        margin-right: 16px;
+    }
+
+    .searchBar button {
+        padding: 10px 20px;
+    }
+}
