@@ -21,7 +21,7 @@
 }
 
 .cardHeader h2 {
-    font-size: 24px;
+    font-size: 28px;
     margin: 0;
     color: #333;
 }
@@ -33,7 +33,7 @@
 }
 
 .cardTitle {
-    font-size: 20px;
+    font-size: 24px;
     margin: 16px 0;
     color: #555;
 }
@@ -50,15 +50,18 @@
 
 .cardDetails {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
+    text-align: center;
     gap: 16px;
-    margin: 16px 0;
+    margin: 20px 0;
 }
 
 .cardDetails p {
     font-size: 16px;
     color: #666;
     margin: 0;
+    padding: 10px 0;
 }
 
 .cardImage {

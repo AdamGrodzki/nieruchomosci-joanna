@@ -3,16 +3,33 @@ import Image from "next/image";
 import { usePathname } from 'next/navigation';
 import logo from "../../images/logoDark.png"
 import styles from "@/components/Navbar/navbar.module.scss"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { CiMenuBurger } from "react-icons/ci";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 
 
 
 const Navbar = () => {
     const pathname = usePathname();
     const [menuOpen, setMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(()=> {
+      const handleScroll = ()=> {
+        if(window.scrollY >=20) {
+          setIsScrolled(true)
+        } else {
+          setIsScrolled(false)
+        }
+      }
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll)
+      };
+    }, [])
+
 
     const toggleMenu = ()=> {
       setMenuOpen(!menuOpen);
@@ -27,7 +44,7 @@ const Navbar = () => {
     ]
 
     return (
-    <nav className={styles.nav}>
+    <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ""}`}>
       <Link href="/">
         <Image  
         className={styles.logo}
@@ -39,13 +56,6 @@ const Navbar = () => {
         />
       </Link>
       <div className={styles.hamburger} onClick={toggleMenu}>
-      {/* <div>
-    {menuOpen ? (
-      <FaTimes className={styles.timesIcon} />
-    ) : (
-      <CiMenuBurger className={styles.burgerIcon} />
-    )}
-  </div> */}
   <div className={styles.menuIcon}>
   {menuOpen ? (
     <FaTimes className={`${styles.timesIcon} ${styles.menuIconActive}`} />

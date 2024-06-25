@@ -10,6 +10,13 @@
     position: sticky;
     top: 0;
     width: 100%;
+    transition: border-bottom 0.4s ease;
+}
+
+.nav.scrolled {
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #c59c58, #f1c27d, #c59c58) 1;
+    animation: shiny-border 3s linear infinite;
 }
 
 .logo {
@@ -118,10 +125,17 @@
         width: 100%;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         z-index: 1000;
+
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+        opacity: 0;
     }
 
     .showMenu {
-        display: block;
+        display: flex;
+        max-height: 500px;
+        opacity: 1;
     }
 
     .listItem {
@@ -133,5 +147,18 @@
         display: block;
         text-align: center;
     }
+}
 
+@keyframes shiny-border {
+    0% {
+        border-image-source: linear-gradient(90deg, #c59c58, #f1c27d, #c59c58);
+    }
+
+    50% {
+        border-image-source: linear-gradient(90deg, #f1c27d, #c59c58, #f1c27d);
+    }
+
+    100% {
+        border-image-source: linear-gradient(90deg, #c59c58, #f1c27d, #c59c58);
+    }
 }

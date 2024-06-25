@@ -3,6 +3,8 @@ import { createClient } from "contentful"
 import Image from "next/image"
 
 import styles from "@/styles/slug.module.css"
+import Skeleton from "@/components/Skeleton/Skeleton"
+import { redirect } from "next/dist/server/api-utils"
 
 const client = createClient({
     space: String(process.env.CONTENTFUL_SPACE_ID),
@@ -23,7 +25,7 @@ export const getStaticPaths = async () => {
 
     return {
         paths,
-        fallback: false,
+        fallback: true,
     }
 }
 
@@ -33,14 +35,25 @@ export async function getStaticProps({params}: any) {
         "fields.slug": params.slug
     })
 
+    if(!items.length) {
+        return {
+            redirect: {
+                destination: "/",
+                permanent: false
+            }
+        }
+    }
+
     return {
-        props: {nieruchomosci: items[0]}
+        props: {nieruchomosci: items[0]},
+        revalidate: 1
     }
 }
 
 const PropertyDetails:  React.FC<PropertyCardProps> = ({ nieruchomosci}: any) =>{
-    console.log(nieruchomosci);
-    
+    if(!nieruchomosci ) return <Skeleton />
+
+    console.log(nieruchomosci); 
     return (
         <div className={styles.card}>
             <div className={styles.cardHeader}>
