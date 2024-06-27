@@ -37,10 +37,10 @@ const Navbar = () => {
 
     const navItems = [
         {name: "Strona Główna", path: "/"},
-        {name: "O Nas", path: "/o-nas"},
+        {name: "O Nas", path: "/AboutUs"},
         {name: "Zgłoś Ofertę ", path: "/zglos-oferte"},
         {name: 'Zgłoś czego szukasz', path: '/zglos-czego-szukasz' },
-        {name: 'Kontakt', path: '/kontakt' },
+        {name: 'Kontakt', path: '/Contact' },
     ]
 
     return (

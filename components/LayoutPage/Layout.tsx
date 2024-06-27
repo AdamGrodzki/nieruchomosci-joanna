@@ -9,8 +9,7 @@ const Layout = ({ children }: any) => {
   return (
     <>
     <div className={styles.layout}>
-        <Navbar />
-
+      <Navbar />
       <LandingPage />
       <SearchBar />
       <div className={styles.pageContent}>
