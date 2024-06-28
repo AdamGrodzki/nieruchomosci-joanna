@@ -1,8 +1,11 @@
+import Button from "@/components/Button/Button";
 import styles from "@/styles/aboutUs.module.css"
 
 const AboutUs = () => {
     return ( 
+
         <div className={styles.container}>
+            <Button />
             <h1>O nas</h1>
             <p>
                 Witaj na stronie biura M M Nieruchomości. Istniejemy na rynku nieruchomości od 2014 roku. Naszym priorytetem jest satysfakcja i bezpieczeństwo Klienta.

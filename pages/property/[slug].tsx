@@ -4,7 +4,7 @@ import Image from "next/image"
 
 import styles from "@/styles/slug.module.css"
 import Skeleton from "@/components/Skeleton/Skeleton"
-import { redirect } from "next/dist/server/api-utils"
+import Button from "@/components/Button/Button"
 
 const client = createClient({
     space: String(process.env.CONTENTFUL_SPACE_ID),
@@ -55,7 +55,9 @@ const PropertyDetails:  React.FC<PropertyCardProps> = ({ nieruchomosci}: any) =>
 
     console.log(nieruchomosci); 
     return (
+        <>
         <div className={styles.card}>
+        <Button/>
             <div className={styles.cardHeader}>
             <h2>Nieruchomość na {nieruchomosci.fields.tranactionType}</h2>
             <p>{nieruchomosci.fields.address}</p>
@@ -80,6 +82,7 @@ const PropertyDetails:  React.FC<PropertyCardProps> = ({ nieruchomosci}: any) =>
                 <p className={styles.description}>{nieruchomosci.fields.description}</p>
 
         </div>
+        </>
     )
 }
 

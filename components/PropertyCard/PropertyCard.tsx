@@ -5,7 +5,6 @@ import styles from "@/components/PropertyCard/propertyCard.module.scss"
 import { FaLocationDot } from "react-icons/fa6";
 
 import { useState} from 'react';
-import { useRouter } from "next/router";
 import Loader from "../Loader/Loader";
 
 
@@ -25,7 +24,6 @@ const {
   } = nieruchomosc.fields;
 
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   const handleLoaderPage = () => {
     setLoading(true);

@@ -1,0 +1,25 @@
+.prevButton {
+    font-family: inherit;
+    font-size: 15px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    padding: 10px;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.prevButton:hover {
+    background-color: #c58c57;
+    color: #fff;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+}

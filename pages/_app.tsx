@@ -2,6 +2,7 @@ import "@/styles/globals.css"
 import Layout from "@/components/LayoutPage/Layout";
 import Navbar from "@/components/Navbar/Navbar";
 import LandingPage from "@/components/LandingPage/LandingPage";
+import Footer from "@/components/Footer/Footer"
 
 import { useRouter } from "next/router";
 
@@ -11,10 +12,10 @@ const App = ({Component, pageProps}:any) => {
 
     return (
         <>
-        {/* <Navbar /> */}
-        {landingPageRoutes.includes(router.pathname) && <Layout />}
         {/* <Layout > */}
+        {landingPageRoutes.includes(router.pathname) && <Layout />}
         <Component {...pageProps} />
+        <Footer/>
         {/* </Layout> */}
         </>
      );

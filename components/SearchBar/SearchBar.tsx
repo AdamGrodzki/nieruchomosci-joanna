@@ -2,16 +2,18 @@ import styles from "./searchbar.module.scss";
 import { IoSearchCircleOutline } from "react-icons/io5";
 import { useState } from 'react';
 
-const handleSubmit = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    console.log('Wyszukiwanie:', e);
-};
 
 
 const SearchBar = ({}) => {
   const [propertyType, setPropertyType] = useState('');
   const [location, setLocation] = useState('');
   const [transactionType, setTransactionType] = useState("");
+
+
+const handleSubmit = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    console.log(propertyType, location, transactionType);
+};
 
   return (
       <div className={styles.container}>

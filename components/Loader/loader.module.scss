@@ -7,7 +7,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.6);
+    background: rgba(1, 0, 0, 0.3);
     font-size: 24px;
     z-index: 1;
 }
@@ -15,22 +16,4 @@
 .fiLoader {
     width: 70px;
     height: 70px;
-    // color: #c59c58;
-    color: #444;
-    // border: 5px solid #f3f3f3;
-    border: 5px solid #c59c58;
-    border-radius: 50%;
-    animation: spin 2s linear infinite;
 }
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-
