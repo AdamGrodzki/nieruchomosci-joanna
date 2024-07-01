@@ -40,7 +40,7 @@ const Footer = () => {
             </div>
         </footer>
             <div className={styles.footerBottom}>
-                &copy; 2024 Wszystkie prawa zastrzeżone | Joanna nieruchomości
+                &copy; {new Date().getFullYear()} Wszystkie prawa zastrzeżone | Joanna nieruchomości
             </div>
     </>
      );

@@ -1,15 +1,8 @@
-import { PropertyCardProps } from "@/static/data"
-import { createClient } from "contentful"
-import Image from "next/image"
-
+import { PropertyCardProps } from "@/static/data";
+import Image from "next/image";
 import styles from "@/styles/slug.module.css"
 import Skeleton from "@/components/Skeleton/Skeleton"
-import Button from "@/components/Button/Button"
-
-const client = createClient({
-    space: String(process.env.CONTENTFUL_SPACE_ID),
-    accessToken: String(process.env.CONTENTFUL_ACCESS_KEY),
-  })
+import { client } from "@/lib/contentful";
 
 export const getStaticPaths = async () => {
     const res = await client.getEntries({
@@ -19,7 +12,7 @@ export const getStaticPaths = async () => {
 
     const paths = res.items.map(item => {
         return {
-            params: {slug: item.fields.slug}
+            params: { slug: item.fields.slug }
         }
     })
 
@@ -29,13 +22,13 @@ export const getStaticPaths = async () => {
     }
 }
 
-export async function getStaticProps({params}: any) {
+export async function getStaticProps({ params }: any) {
     const { items } = await client.getEntries({
         content_type: "nieruchomosc",
         "fields.slug": params.slug
     })
 
-    if(!items.length) {
+    if (!items.length) {
         return {
             redirect: {
                 destination: "/",
@@ -45,10 +38,11 @@ export async function getStaticProps({params}: any) {
     }
 
     return {
-        props: {nieruchomosci: items[0]},
+        props: { nieruchomosci: items[0] },
         revalidate: 1
     }
 }
+
 
 const PropertyDetails:  React.FC<PropertyCardProps> = ({ nieruchomosci}: any) =>{
     if(!nieruchomosci ) return <Skeleton />
@@ -57,7 +51,6 @@ const PropertyDetails:  React.FC<PropertyCardProps> = ({ nieruchomosci}: any) =>
     return (
         <>
         <div className={styles.card}>
-        <Button/>
             <div className={styles.cardHeader}>
             <h2>Nieruchomość na {nieruchomosci.fields.tranactionType}</h2>
             <p>{nieruchomosci.fields.address}</p>

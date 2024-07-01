@@ -37,4 +37,3 @@ export interface PropertyCardProps {
     nieruchomosc: Nieruchomosc;
 }
 
-

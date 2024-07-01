@@ -33,7 +33,7 @@ const {
     return (
         <div className={styles.card}>
             <div className={styles.featured}>
-              <Link legacyBehavior href={`/property/${slug}`}>
+              <Link href={`/property/${slug}`} legacyBehavior>
               <a  onClick={handleLoaderPage}>
                 <Image 
                   src={"https:" + gallery.fields.file.url}

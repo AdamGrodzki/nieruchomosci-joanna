@@ -1,19 +1,32 @@
 import styles from "./searchbar.module.scss";
 import { IoSearchCircleOutline } from "react-icons/io5";
 import { useState } from 'react';
+import { useRouter } from "next/router";
 
-
-
-const SearchBar = ({}) => {
-  const [propertyType, setPropertyType] = useState('');
-  const [location, setLocation] = useState('');
+const SearchBar = () => {
+  const [propertyType, setPropertyType] = useState("");
+  const [location, setLocation] = useState("");
   const [transactionType, setTransactionType] = useState("");
+  const router = useRouter();
 
-
-const handleSubmit = (e: { preventDefault: () => void; }) => {
+ 
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(propertyType, location, transactionType);
-};
+
+
+    const query = new URLSearchParams({ propertyType, transactionType, location }).toString();
+    const slug = location;
+    const Mieszkanie = propertyType
+    router.push(`/property/${slug}?${Mieszkanie}}`);
+
+    console.log(query);
+    
+    console.log("slug", slug);
+    console.log("propertyType", propertyType);
+    console.log("transactionType", transactionType);
+    
+}
 
   return (
       <div className={styles.container}>
@@ -21,8 +34,8 @@ const handleSubmit = (e: { preventDefault: () => void; }) => {
         <form className={styles.searchBar} onSubmit={handleSubmit}>
         <select className={styles.option} value={propertyType} onChange={(e) => setPropertyType(e.target.value)} required>
             <option value="">Rodzaj nieruchomości</option>
-            <option value="flats">Mieszkania</option>
-            <option value="houses">Domy</option>
+            <option value="Mieszkanie">Mieszkania</option>
+            <option value="Dom">Domy</option>
             <option value="plots">Działki</option>
             <option value="locals">Lokale</option>
             <option value="objects">Obiekty</option>
@@ -30,8 +43,8 @@ const handleSubmit = (e: { preventDefault: () => void; }) => {
         
         <select value={transactionType} onChange={(e) => setTransactionType(e.target.value)}required>
             <option value="">Typ transakcji</option>
-            <option value="sale">Sprzedaż</option>
-            <option value="rent">Wynajem</option>
+            <option value="Sprzedaż">Sprzedaż</option>
+            <option value="Wynajem">Wynajem</option>
         </select>
 
         <input 

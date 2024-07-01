@@ -1,15 +1,9 @@
-import { createClient } from "contentful"
-import PropertyCard from "@/components/PropertyCard/PropertyCard";
 import { PropertyProps } from "@/static/data";
-
+import PropertyCard from "@/components/PropertyCard/PropertyCard";
 import styles from "../styles/index.module.css"
+import {client} from "@/lib/contentful"
 
 export async function getStaticProps() {
-    const client = createClient({
-        space: String(process.env.CONTENTFUL_SPACE_ID),
-        accessToken: String(process.env.CONTENTFUL_ACCESS_KEY),
-      })
-
     const res = await client.getEntries({content_type: "nieruchomosc"})
 
     return {
@@ -30,7 +24,8 @@ const Property: React.FC<PropertyProps> = ({nieruchomosci}) => {
         ))}
         </div>
     </div>
-    </div>);
+    </div>
+    );
 }
 
 export default Property;

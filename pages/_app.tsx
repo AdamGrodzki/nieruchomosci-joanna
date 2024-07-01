@@ -1,22 +1,23 @@
 import "@/styles/globals.css"
 import Layout from "@/components/LayoutPage/Layout";
-import Navbar from "@/components/Navbar/Navbar";
-import LandingPage from "@/components/LandingPage/LandingPage";
-import Footer from "@/components/Footer/Footer"
+
+import { AppProps } from "next/app";
 
 import { useRouter } from "next/router";
+import LandingPage from "@/components/LandingPage/LandingPage";
+import SearchBar from "@/components/SearchBar/SearchBar";
 
-const App = ({Component, pageProps}:any) => {
+const App = ({Component, pageProps}: AppProps) => {
     const router = useRouter();
-    const landingPageRoutes = ['/'];
+    const isHomePage = router.pathname === "/";
 
     return (
         <>
-        {/* <Layout > */}
-        {landingPageRoutes.includes(router.pathname) && <Layout />}
+        <Layout>
+        {isHomePage && <LandingPage />}
+        {isHomePage && <SearchBar />}
         <Component {...pageProps} />
-        <Footer/>
-        {/* </Layout> */}
+        </Layout>
         </>
      );
 }
