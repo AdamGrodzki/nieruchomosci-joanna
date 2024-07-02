@@ -14,7 +14,6 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(propertyType, location, transactionType);
 
-
     const query = new URLSearchParams({ propertyType, transactionType, location }).toString();
     const slug = location;
     const Mieszkanie = propertyType

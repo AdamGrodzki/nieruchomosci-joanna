@@ -11,8 +11,10 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.21.2",
     "@contentful/rich-text-types": "^16.5.2",
+    "@react-google-maps/api": "^2.19.3",
     "contentful": "^10.11.8",
     "embla-carousel-react": "^8.1.5",
+    "leaflet": "^1.9.4",
     "next": "14.2.3",
     "next-images": "^1.8.5",
     "react": "^18",
