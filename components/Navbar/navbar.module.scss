@@ -8,6 +8,7 @@
     text-transform: uppercase;
     letter-spacing: 1.5px;
     position: fixed;
+    // position: sticky;
     top: 0;
     width: 100%;
     transition: border-bottom 0.4s ease;
@@ -22,7 +23,6 @@
 .logo {
     display: block;
     transition: all 0.3s ease-in-out;
-    margin-right: 10px;
 }
 
 .logo:hover {
@@ -35,7 +35,7 @@
     cursor: pointer;
     flex-direction: column;
     justify-content: space-around;
-    height: 24px;
+    height: 1.5rem;
 }
 
 .menuIcon {
@@ -74,7 +74,7 @@
     justify-content: space-between;
     margin: 0;
     padding: 0;
-    gap: 10px;
+    gap: 0.4rem;
 }
 
 .hideMenu {
@@ -95,8 +95,8 @@
     text-align: center;
     text-decoration: none;
     color: #fff;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 0.6rem;
+    border-radius: 0.5rem;
     transition: background-color 0.3s ease;
 }
 
@@ -119,17 +119,17 @@
         position: absolute;
         display: none;
         flex-direction: column;
-        top: 90px;
+        top: 5.5rem;
         right: 0;
         background-color: #333;
         width: 100%;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         z-index: 1000;
-
-        max-height: 0;
-        overflow: hidden;
         transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
         opacity: 0;
+        padding: 1.5rem 0; 
+        border-radius:  0 0 0.5rem 0.5rem;
+
     }
 
     .showMenu {
@@ -139,7 +139,7 @@
     }
 
     .listItem {
-        padding: 10px;
+        padding: 0.6rem;
     }
 
     .links {

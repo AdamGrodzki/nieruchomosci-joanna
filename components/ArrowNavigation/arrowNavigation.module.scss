@@ -1,15 +1,15 @@
 .arrowUp {
     display: flex;
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 1.5rem;
+    right: 1.5rem;
     background-color: #555;
-    font-size: 24px;
+    font-size: 1.5rem;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 1);
-    padding: 8px;
+    padding: 0.5rem;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 }
@@ -25,7 +25,7 @@
 
 @media (max-width: 768px) {
     .arrowUp {
-        bottom: 50px;
-        font-size: 20px;
+        bottom: 3rem;
+        font-size: 1.25rem;
     }
 }

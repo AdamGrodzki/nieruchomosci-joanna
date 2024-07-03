@@ -38,10 +38,11 @@ const Footer = () => {
                     </Link>
                 </div>
             </div>
-        </footer>
             <div className={styles.footerBottom}>
                 &copy; {new Date().getFullYear()} Wszystkie prawa zastrzeżone | Joanna nieruchomości
             </div>
+        </footer>
+            
     </>
      );
 }

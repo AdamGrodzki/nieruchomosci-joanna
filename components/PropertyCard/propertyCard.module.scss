@@ -1,10 +1,10 @@
 .card {
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 0.8rem;
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
-    max-width: 450px;
-    margin: 20px;
+    max-width: 30rem;
+    margin: 1.2rem;
     background-color: #fff;
 }
 
@@ -14,8 +14,8 @@
 
 .featured {
     overflow: hidden;
-    width: 400px;
-    height: 300px;
+    width: 100%;
+    height: 20rem;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -36,32 +36,32 @@
 
 
 .content {
-    padding: 16px;
+    padding: 1rem;
 }
 
 .info {
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
 .info h4 {
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     color: #333;
     text-transform: uppercase;
 }
 
 .info p {
-    margin: 20px 0;
-    font-size: 15px;
+    margin: 1.2rem 0;
+    font-size: 1rem;
     color: #666;
 }
 
 .price {
     text-align: center;
     background-color: #ddd;
-    padding: 25px;
-    font-size: 20px;
+    padding: 1.6rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    border-radius: 8px;
+    border-radius: 0.5rem;
 }

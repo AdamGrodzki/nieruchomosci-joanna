@@ -1,25 +1,27 @@
 .skeleton {
+    height: 60vh;
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 4.75rem auto;
+    overflow-x: hidden;
 }
 
 .skeleton div {
     background-color: #ddd;
-    border-radius: 8px;
-    margin: 20px 0;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
 }
 
 
 .sBanner {
-    padding: 20px 0;
+    padding: 1.5rem 0;
 }
 
 .sHeader {
-    padding: 15px 0;
+    padding: 1.2rem 0;
     max-width: 1000px;
 }
 
 .sContent {
-    padding: 15px 0;
+    padding: 1.2rem 0;
     max-width: 500px;
 }

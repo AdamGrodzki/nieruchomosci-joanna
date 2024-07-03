@@ -5,9 +5,9 @@
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
-    padding: 30px;
+    padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 0.5rem;
     background-color: #f7f7f7;
 }
 
@@ -16,8 +16,8 @@
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 30px;
-    margin: 10px 0;
+    padding: 2rem;
+    margin: 0.4rem 0;
 }
 
 
@@ -30,7 +30,7 @@
 
 .container svg {
     cursor: pointer;
-    font-size: 50px;
+    font-size: 3rem;
     color: #000;
     transition: color 0.4s ease, transform 0.4s ease;
 }
@@ -44,12 +44,12 @@
 .searchBar input,
 .searchBar button {
     width: 100%;
-    max-width: 350px;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 8px;
+    max-width: 22rem;
+    margin: 0.3rem;
+    padding: 0.7rem;
+    border-radius: 0.5rem;
     border: 1px solid #ccc;
-    font-size: 16px;
+    font-size: 1rem;
     font-family: inherit;
 }
 
@@ -69,33 +69,29 @@
 @media (max-width: 768px) {
     .container {
         text-align: center;
-        padding: 25px;
+        padding: 1.6rem;
     }
 
     .searchBar {
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding: 10px 0;
+        padding: 0.3rem 0;
     }
 
     .container h2 {
         width: 100%;
         text-align: center;
-        font-size: 24px;
+        font-size: 1.5rem;
         display: flex;
         flex-direction: column;
-    }
-
-    .searchBar svg {
-        font-size: 60px;
     }
 
     .searchBar select,
     .searchBar input,
     .searchBar button {
         flex: 1 1 calc(33% - 20px);
-        margin: 10px 0;
+        margin: 0.5rem 0;
     }
 
     .searchBar button {
@@ -106,25 +102,16 @@
 
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
     .container {
-        padding: 10px;
+        padding: 2rem;
     }
 
     .searchBar {
         flex-direction: row;
         align-items: center;
-        padding: 10px;
-    }
-
-    .option {
-        margin-right: 16px;
-        margin-bottom: 0;
+        padding: 0.5rem;
     }
 
     .searchBar input {
-        margin-right: 16px;
-    }
-
-    .searchBar button {
-        padding: 10px 20px;
+        margin-right: 2rem;
     }
 }

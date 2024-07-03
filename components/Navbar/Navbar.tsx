@@ -35,6 +35,10 @@ const Navbar = () => {
       setMenuOpen(!menuOpen);
     }
 
+    const closeMenu = () => {
+      setMenuOpen(false);
+    }
+
     const navItems = [
         {name: "Strona Główna", path: "/"},
         {name: "O Nas", path: "/o-nas"},
@@ -68,7 +72,7 @@ const Navbar = () => {
       {navItems.map(item => (
         <li key={item.path} className={pathname === item.path ? styles.active : styles.listItem}>
           <Link legacyBehavior href={item.path}>
-            <a className={styles.links}>{item.name}</a>
+            <a className={styles.links} onClick={closeMenu}>{item.name}</a>
           </Link>
         </li>
       ))}

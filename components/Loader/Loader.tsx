@@ -3,7 +3,6 @@ import { FiLoader } from "react-icons/fi";
 import load from "@/images/loader.gif"
 import Image from "next/image";
 
-import { FaBuilding } from "react-icons/fa";
 
 
 const Loader = () => {
