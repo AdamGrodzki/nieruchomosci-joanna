@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { FaMobileAlt } from 'react-icons/fa';
 import { MdOutlineMail, MdOutlineLocationOn } from 'react-icons/md';
 import styles from "@/styles/contact.module.css"
-import avatar from '@/images/kid.png';
-import avatar1 from '@/images/man.png';
+import avatarJoanna from '@/images/JoannaAvatar.jpg';
+import avatarSebastian from '@/images/SebastianAvatar.png';
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -24,17 +24,19 @@ const Contact = () => {
   };
 
   return (
+    <>
+       <h1 className={styles.heading}>Kontakt</h1>
     <div className={styles.contactContainer}>
       <div className={styles.contactInfo}>
         <h2>Dane kontaktowe</h2>
         
         <div className={styles.agentInfo}>
           <Image 
-            src={avatar}
-            alt="Joanna"
-            width={100}
-            height={100}
             className={styles.agentImage}
+            src={avatarJoanna}
+            alt="Joanna"
+            width={150}
+            height={150}
           />
           <div>
             <h3>Joanna Nieruchomości</h3>
@@ -45,11 +47,11 @@ const Contact = () => {
 
         <div className={styles.agentInfo}>
           <Image 
-            src={avatar1}
-            alt="Sebastian"
-            width={100}
-            height={100}
             className={styles.agentImage}
+            src={avatarSebastian}
+            alt="Sebastian"
+            width={150}
+            height={150}
           />
           <div>
             <h3>Sebastian Nieruchomości</h3>
@@ -105,6 +107,7 @@ const Contact = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 
