@@ -14,6 +14,7 @@ export interface GalleryItem {
 }
 
 export interface Nieruchomosc {
+    length: number;
     fields: {
         title: string;
         address: string;

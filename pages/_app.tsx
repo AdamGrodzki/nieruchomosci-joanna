@@ -6,6 +6,8 @@ import { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import LandingPage from "@/components/LandingPage/LandingPage";
 import SearchBar from "@/components/SearchBar/SearchBar";
+import SearchResults from "@/components/PropertyList/searchResults";
+
 
 
 const App = ({Component, pageProps}: AppProps) => {

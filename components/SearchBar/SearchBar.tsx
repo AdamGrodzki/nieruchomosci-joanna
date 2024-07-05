@@ -1,17 +1,26 @@
 import styles from "./searchbar.module.scss";
 import { IoSearchCircleOutline } from "react-icons/io5";
 import { useState } from 'react';
+import { useRouter } from "next/router";
 
 const SearchBar = () => {
   const [propertyType, setPropertyType] = useState("");
   const [location, setLocation] = useState("");
   const [transactionType, setTransactionType] = useState("");
+  const router = useRouter();
 
- 
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(propertyType, location, transactionType);
-}
+    
+    
+    const params = new URLSearchParams();
+    if (propertyType) params.append('propertyType', propertyType);
+    if (location) params.append('location', location);
+    if (transactionType) params.append('transactionType', transactionType);
+
+    router.push(`property/?${params.toString()}`);
+  }
 
   return (
       <div className={styles.container}>
