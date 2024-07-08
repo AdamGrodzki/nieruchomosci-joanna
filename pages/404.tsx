@@ -6,13 +6,7 @@ import styles from "@/styles/404.module.css";
 
 const NotFound = () => {
 
-    const router = useRouter()
-
-    useEffect(() => {
-        setTimeout(() => {
-            router.push("/")
-        }, 4000)
-    }, [router])
+    
 
     return (
         <div className={styles.notFoundContainer}>

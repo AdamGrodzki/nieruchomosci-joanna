@@ -25,8 +25,11 @@ export const getStaticPaths = async () => {
 export async function getStaticProps({ params }: any) {
     const { items } = await client.getEntries({
         content_type: "nieruchomosc",
-        "fields.slug": params.slug
+        "fields.slug": params.slug,
     })
+
+    console.log("items", items);
+    
 
     if (!items.length) {
         return {

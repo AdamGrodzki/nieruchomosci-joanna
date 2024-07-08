@@ -7,6 +7,8 @@ const SearchBar = () => {
   const [propertyType, setPropertyType] = useState("");
   const [location, setLocation] = useState("");
   const [transactionType, setTransactionType] = useState("");
+  const [price, setPrice] = useState("");
+  const [area, setArea] = useState("");
   const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -18,15 +20,17 @@ const SearchBar = () => {
     if (propertyType) params.append('propertyType', propertyType);
     if (location) params.append('location', location);
     if (transactionType) params.append('transactionType', transactionType);
+    if (price) params.append('price', price);
+    if (area) params.append('area', area);
 
-    router.push(`property/?${params.toString()}`);
+    router.push(`searchResults/?${params.toString()}`);
   }
 
   return (
       <div className={styles.container}>
           <h2> <IoSearchCircleOutline />Znajdź swoją wymarzoną nieruchomość</h2>
         <form className={styles.searchBar} onSubmit={handleSubmit}>
-        <select className={styles.option} value={propertyType} onChange={(e) => setPropertyType(e.target.value)} required>
+        <select className={styles.option} value={propertyType} onChange={(e) => setPropertyType(e.target.value)} >
             <option value="">Rodzaj nieruchomości</option>
             <option value="Mieszkanie">Mieszkania</option>
             <option value="Dom">Domy</option>
@@ -35,14 +39,32 @@ const SearchBar = () => {
             <option value="objects">Obiekty</option>
         </select>  
         
-        <select value={transactionType} onChange={(e) => setTransactionType(e.target.value)}required>
+        <select value={transactionType} onChange={(e) => setTransactionType(e.target.value)}>
             <option value="">Typ transakcji</option>
             <option value="Sprzedaż">Sprzedaż</option>
             <option value="Wynajem">Wynajem</option>
         </select>
+   
 
         <input 
-        required
+        type="text" 
+        inputMode="numeric"
+        value={price} 
+        onChange={(e) => setPrice(e.target.value)} 
+        placeholder="Price" 
+      /> 
+
+        <input 
+        
+        type="text" 
+        inputMode="numeric"
+        value={area} 
+        onChange={(e) => setArea(e.target.value)} 
+        placeholder="area" 
+      /> 
+
+        <input 
+        
         type="text" 
         value={location} 
         onChange={(e) => setLocation(e.target.value)} 
