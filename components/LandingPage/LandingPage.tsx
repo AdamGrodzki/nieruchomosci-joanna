@@ -53,7 +53,7 @@ const LandingPage = () => {
                 src={src}
                 alt={`Carousel Image ${index + 1}`}
                 layout="fill"
-                objectFit="cover"
+                style={{ objectFit: 'cover' }}
                 priority={index === 0}
               />
             </div>

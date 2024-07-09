@@ -55,7 +55,7 @@ const PropertyDetails:  React.FC<PropertyCardProps> = ({ nieruchomosci}: any) =>
         <>
         <div className={styles.card}>
             <div className={styles.cardHeader}>
-            <h2>Nieruchomość na {nieruchomosci.fields.tranactionType}</h2>
+            <h2>Nieruchomość na {nieruchomosci.fields.transactionType}</h2>
             <p>{nieruchomosci.fields.address}</p>
         </div>
             <h3 className={styles.cardTitle}>{nieruchomosci.fields.title}</h3>
