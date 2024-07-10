@@ -1,14 +1,11 @@
 import { client } from '@/lib/contentful';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import styles from "@/styles/searchResult.module.css";
 import Image from 'next/image';
 
-// export enum PropertyType {
-//   Dom = "Dom",
-//   Mieszkanie = "Mieszkanie",
-//   Price = ""
-// }
+import { FiLoader } from "react-icons/fi";
+import { TbLoader2 } from "react-icons/tb";
 
 interface SearchParams {
   typeOfProperty: string;
@@ -31,33 +28,47 @@ const SearchResults = () => {
   const [results, setResults] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const getItems = async () => {
+  const getItems = useCallback(async () => {
     setLoading(true);
     setResults([]);
+
+    const resetSearchParams = {
+      typeOfProperty: '',
+      address: '',
+      transactionType: '',
+      price: '',
+      area: '',
+    };
 
     const query: any = {
       content_type: "nieruchomosc"
     };
-
-    if (searchParams.typeOfProperty) {
-      query['fields.typeOfProperty'] = searchParams.typeOfProperty;
+  
+    if (router.query.typeOfProperty) {
+      query['fields.typeOfProperty'] = router.query.typeOfProperty;
+      resetSearchParams.typeOfProperty = router.query.typeOfProperty as string;
     }
-
-    if (searchParams.address) {
-      query['fields.address[match]'] = searchParams.address;
+  
+    if (router.query.address) {
+      query['fields.address[match]'] = router.query.address;
+      resetSearchParams.address = router.query.address as string;
     }
-
-    if (searchParams.transactionType) {
-      query['fields.transactionType'] = searchParams.transactionType;
+  
+    if (router.query.transactionType) {
+      query['fields.transactionType'] = router.query.transactionType;
+      resetSearchParams.transactionType = router.query.transactionType as string;
     }
-
-    if (searchParams.price) {
-      query['fields.price'] = parseFloat(searchParams.price);
+  
+    if (router.query.price) {
+      query['fields.price'] = router.query.price;
+      resetSearchParams.price = router.query.price as string;
     }
-
-    if (searchParams.area) {
-      query['fields.area'] = searchParams.area;
+  
+    if (router.query.area) {
+      query['fields.area'] = router.query.area;
+      resetSearchParams.area = router.query.area as string;
     }
+  
 
     try {
       const { items } = await client.getEntries(query);
@@ -68,62 +79,53 @@ const SearchResults = () => {
     } finally {
       setLoading(false);
     }
-  };
-
-  useEffect(() => {
-    getItems();
-  }, [searchParams]);
+  }, [router.query]);
 
   useEffect(() => {
     if (router.isReady) {
-      const { typeOfProperty, address, transactionType, price, area } = router.query;
-      setSearchParams({
-        typeOfProperty: (typeOfProperty as string) || '',
-        address: (address as string) || '',
-        transactionType: (transactionType as string) || '',
-        price: (price as string) || '',
-        area: (area as string) || ''
-      });
+      getItems();
     }
-  }, [router.isReady, router.query]);
+  }, [router.isReady, getItems]);
 
   console.log("searchParams", searchParams);
 
   return (
     <>
-    <div className={styles.container}>
-      <h1 className={styles.title}>Wyniki wyszukiwania</h1>
-    </div>
-    <div className={styles.resultsContainer}>
-    {loading ? (
-          <p className={styles.loading}>Ładowanie...</p>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Wyniki wyszukiwania</h1>
+      </div>
+      <div className={styles.resultsContainer}>
+        {!loading ? (
+          <p className={styles.loading}>Ładowanie...<TbLoader2 className={styles.fiLoader} /></p>
         ) : (
-      results.length > 0 ? (
-        results.map(result => (
-          <div key={result.sys.id} className={styles.resultItem}>
-            <h2>{result.fields.title}</h2>
-            <p>Typ: {result.fields.typeOfProperty}</p>
-            <p>Lokalizacja: {result.fields.address}</p>
-            <p>Cena: {result.fields.price} zł</p>
-            <p>Powierzchnia: {result.fields.area} m<sup>2</sup></p>
-            <p>Typ transakcji: {result.fields.transactionType}</p>
-            <Image
-              src={"https:" + result.fields.gallery.fields.file.url}
-              alt="img"
-              height={200}
-              width={300}
-              priority={true}
-              style={{ objectFit: 'cover', borderRadius: '10px'}}
-            />
-          </div>
-        ))
-      ) : (
-        <p className={styles.noResults}>Brak wyników wyszukiwania.</p>
-      )
-      )}
-    </div>
-  </>
+          results.length > 0 ? (
+            results.map(result => (
+              <div key={result.sys.id} className={styles.resultItem}>
+                <h2>{result.fields.title}</h2>
+                <p>Typ: {result.fields.typeOfProperty}</p>
+                <p>Lokalizacja: {result.fields.address}</p>
+                <p>Cena: {result.fields.price} zł</p>
+                <p>Powierzchnia: {result.fields.area} m<sup>2</sup></p>
+                <p>Typ transakcji: {result.fields.transactionType}</p>
+                <Image
+                  src={"https:" + result.fields.gallery.fields.file.url}
+                  alt="img"
+                  height={200}
+                  width={300}
+                  priority={true}
+                  style={{ objectFit: 'cover', borderRadius: '10px' }}
+                />
+              </div>
+            ))
+          ) : (
+            <p className={styles.noResults}>Brak wyników wyszukiwania.</p>
+            
+          )
+        )}
+      </div>
+    </>
   );
 };
 
 export default SearchResults;
+

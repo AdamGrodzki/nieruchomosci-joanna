@@ -99,32 +99,44 @@
     }
 }
 
-.tooltip {
-    visibility: hidden;
-    width: 120px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    top: 125%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.3s;
+.container {
+    position: relative;
 }
 
-.tooltip::after {
-    content: "";
+.suggestions {
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
     position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent transparent #555 transparent;
+    top: 170px;
+    background: #fff;
+    width: calc(100% - 125px);
+    margin-top: 5px;
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+}
+
+.suggestionItem {
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+.suggestionItem:hover {
+    background-color: #f0f0f0;
+}
+
+.tooltip {
+    position: absolute;
+    right: 350px;
+    bottom: 45px;
+    background-color: #333;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
