@@ -4,7 +4,6 @@ import { useEffect, useState, useCallback } from 'react';
 import styles from "@/styles/searchResult.module.css";
 import Image from 'next/image';
 
-import { FiLoader } from "react-icons/fi";
 import { TbLoader2 } from "react-icons/tb";
 
 interface SearchParams {
@@ -24,6 +23,7 @@ const SearchResults = () => {
     price: '',
     area: '',
   });
+
 
   const [results, setResults] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
@@ -93,9 +93,9 @@ const SearchResults = () => {
     <>
       <div className={styles.container}>
         <h1 className={styles.title}>Wyniki wyszukiwania</h1>
-      </div>
+      
       <div className={styles.resultsContainer}>
-        {!loading ? (
+        {loading ? (
           <p className={styles.loading}>Ładowanie...<TbLoader2 className={styles.fiLoader} /></p>
         ) : (
           results.length > 0 ? (
@@ -110,7 +110,7 @@ const SearchResults = () => {
                 <Image
                   src={"https:" + result.fields.gallery.fields.file.url}
                   alt="img"
-                  height={200}
+                  height={180}
                   width={300}
                   priority={true}
                   style={{ objectFit: 'cover', borderRadius: '10px' }}
@@ -122,6 +122,7 @@ const SearchResults = () => {
             
           )
         )}
+      </div>
       </div>
     </>
   );

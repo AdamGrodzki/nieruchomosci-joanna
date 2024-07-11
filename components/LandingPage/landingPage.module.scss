@@ -1,6 +1,7 @@
 .parentContainer {
     width: 100%;
     height: 70vh;
+    margin-top: 40px;
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -85,24 +86,3 @@
         transform: scale(1.2);
     }
 }
-
-// @media (min-width: 1024px) and (max-width: 1440px) {
-//     .parentContainer {
-//         height: 40vh;
-//     }
-
-//     .embla {
-//         width: 100%;
-//     }
-
-//     .heroContent {
-//         width: 100%;
-//         text-align: center;
-//     }
-
-//     .pagination {
-//         width: 100%;
-//         justify-content: center;
-//         margin-top: 0.7rem;
-//     }
-// }
