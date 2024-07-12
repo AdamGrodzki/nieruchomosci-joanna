@@ -12,6 +12,10 @@ interface SearchParams {
   transactionType: string;
   price: string;
   area: string;
+  minPrice: string;
+  maxPrice: string;
+  minArea: string;
+  maxArea: string;
 }
 
 const SearchResults = () => {
@@ -22,6 +26,10 @@ const SearchResults = () => {
     transactionType: '',
     price: '',
     area: '',
+    minPrice: '',
+    maxPrice: '',
+    minArea: '',
+    maxArea: '',
   });
 
 
@@ -38,6 +46,10 @@ const SearchResults = () => {
       transactionType: '',
       price: '',
       area: '',
+      minPrice: '',
+      maxPrice: '',
+      minArea: '',
+      maxArea: '',
     };
 
     const query: any = {
@@ -59,14 +71,32 @@ const SearchResults = () => {
       resetSearchParams.transactionType = router.query.transactionType as string;
     }
   
-    if (router.query.price) {
-      query['fields.price'] = router.query.price;
-      resetSearchParams.price = router.query.price as string;
+    // if (router.query.price) {
+    //   query['fields.price'] = router.query.price;
+    //   resetSearchParams.price = router.query.price as string;
+    // }
+  
+    // if (router.query.area) {
+    //   query['fields.area'] = router.query.area;
+    //   resetSearchParams.area = router.query.area as string;
+    // }
+    if (router.query.minArea) {
+      query['fields.area[gte]'] = router.query.minArea;
+      resetSearchParams.area = router.query.minArea as string;
+    }
+    if (router.query.maxArea) {
+      query['fields.area[lte]'] = router.query.maxArea;
+      resetSearchParams.area = router.query.maxArea as string;
     }
   
-    if (router.query.area) {
-      query['fields.area'] = router.query.area;
-      resetSearchParams.area = router.query.area as string;
+    if (router.query.minPrice) {
+      query['fields.price[gte]'] = router.query.minPrice;
+      resetSearchParams.price = router.query.minPrice as string;
+    }
+  
+    if (router.query.maxPrice) {
+      query['fields.price[lte]'] = router.query.maxPrice;
+      resetSearchParams.price = router.query.maxPrice as string;
     }
   
 
@@ -129,4 +159,3 @@ const SearchResults = () => {
 };
 
 export default SearchResults;
-

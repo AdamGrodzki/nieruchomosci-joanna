@@ -1,8 +1,10 @@
-import { PropertyCardProps } from "@/static/data";
 import Image from "next/image";
 import styles from "@/styles/slug.module.css"
+import Loader from "@/components/Loader/Loader";
 import Skeleton from "@/components/Skeleton/Skeleton"
+import { PropertyCardProps } from "@/static/data";
 import { client } from "@/lib/contentful";
+import { useState, useEffect } from 'react';
 
 export const getStaticPaths = async () => {
     const res = await client.getEntries({
@@ -26,7 +28,7 @@ export async function getStaticProps({ params }: any) {
     const { items } = await client.getEntries({
         content_type: "nieruchomosc",
         "fields.slug": params.slug,
-    })
+    });
 
     console.log("items", items);
     
@@ -36,23 +38,31 @@ export async function getStaticProps({ params }: any) {
             redirect: {
                 destination: "/",
                 permanent: false
-            }
-        }
+            },
+        };
     }
 
     return {
-        props: { nieruchomosci: items[0] },
+        props: { nieruchomosci: items[0]},
         revalidate: 1
     }
 }
 
 
 const PropertyDetails:  React.FC<PropertyCardProps> = ({ nieruchomosci}: any) =>{
+    const [loading, setLoading] = useState(true);
+
+    useEffect(()=> {
+        if(nieruchomosci) {
+            setLoading(false)
+        }
+    }, [nieruchomosci])
+
+    if(loading) return <Loader />; 
     if(!nieruchomosci ) return <Skeleton />
 
     console.log(nieruchomosci); 
     return (
-        <>
         <div className={styles.card}>
             <div className={styles.cardHeader}>
             <h2>Nieruchomość na {nieruchomosci.fields.transactionType}</h2>
@@ -76,10 +86,9 @@ const PropertyDetails:  React.FC<PropertyCardProps> = ({ nieruchomosci}: any) =>
                 />
         </div>
                 <p className={styles.description}>{nieruchomosci.fields.description}</p>
-
         </div>
-        </>
     )
 }
 
 export default PropertyDetails;
+

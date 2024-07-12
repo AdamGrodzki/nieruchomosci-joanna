@@ -4,10 +4,6 @@ import { PropertyCardProps } from "@/static/data";
 import styles from "@/components/PropertyCard/propertyCard.module.scss"
 import { FaLocationDot } from "react-icons/fa6";
 
-import { useState} from 'react';
-import Loader from "../Loader/Loader";
-
-
 
 const PropertyCard: React.FC<PropertyCardProps> = ({nieruchomosc}) => {
 const {
@@ -23,18 +19,12 @@ const {
     area,
   } = nieruchomosc.fields;
 
-  const [loading, setLoading] = useState(false);
-
-  const handleLoaderPage = () => {
-    setLoading(true);
-  };
-
 
     return (
         <div className={styles.card}>
             <div className={styles.featured}>
               <Link href={`/property/${slug}`} legacyBehavior>
-              <a  onClick={handleLoaderPage}>
+              <a>
                 <Image 
                   src={"https:" + gallery.fields.file.url}
                   height={400}
@@ -61,8 +51,6 @@ const {
                     </div>
                 </div>
             </div>
-            {loading && <Loader />}
-            {/* {<Loader />} */}
         </div>
      );
 }
