@@ -170,7 +170,9 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
     background-color: #f7f7f7;
-
+}
+.container svg {
+    font-size: 50px;
 }
 
 .title {
@@ -281,5 +283,32 @@
 @media (max-width: 768px) {
     .formRow {
         flex-direction: column;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    .container svg {
+        font-size: 50px;
+    }
+
+    .title {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .formRow {
+        flex-direction: column;
+    }
+
+    .formGroup {
+        width: 100%;
     }
 }

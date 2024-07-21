@@ -5,6 +5,8 @@ import styles from "@/components/PropertyCard/propertyCard.module.scss"
 import { FaLocationDot } from "react-icons/fa6";
 
 
+import React from 'react';
+
 const PropertyCard: React.FC<PropertyCardProps> = ({nieruchomosc}) => {
 const {
     title,
@@ -23,7 +25,7 @@ const {
     return (
         <div className={styles.card}>
             <div className={styles.featured}>
-              <Link href={`/property/${slug}`} legacyBehavior>
+              <Link href={`/oferta/${slug}`} legacyBehavior>
               <a>
                 <Image 
                   src={"https:" + gallery.fields.file.url}

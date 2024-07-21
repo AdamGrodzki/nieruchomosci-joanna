@@ -4,6 +4,7 @@ import Footer from '../Footer/Footer';
 import ArrowNavigation from '../ArrowNavigation/ArrowNavigation';
 import Head from 'next/head';
 
+
 const Layout = ({ children }: any) => {
   return (
     <>
@@ -15,7 +16,6 @@ const Layout = ({ children }: any) => {
       <header>
       <Navbar />
       </header>
-
       <div className={styles.pageContent}>
       {children}
       </div>

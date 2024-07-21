@@ -71,15 +71,6 @@ const SearchResults = () => {
       resetSearchParams.transactionType = router.query.transactionType as string;
     }
   
-    // if (router.query.price) {
-    //   query['fields.price'] = router.query.price;
-    //   resetSearchParams.price = router.query.price as string;
-    // }
-  
-    // if (router.query.area) {
-    //   query['fields.area'] = router.query.area;
-    //   resetSearchParams.area = router.query.area as string;
-    // }
     if (router.query.minArea) {
       query['fields.area[gte]'] = router.query.minArea;
       resetSearchParams.area = router.query.minArea as string;
