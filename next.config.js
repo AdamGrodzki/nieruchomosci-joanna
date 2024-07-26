@@ -1,6 +1,12 @@
 module.exports = {
     images: {
-        domains: ['images.ctfassets.net'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'images.ctfassets.net',
+                pathname: '/**',
+            },
+        ],
     },
     env: {
         CONTENTFUL_SPACE_ID: "p7rgtb3cb5nz",

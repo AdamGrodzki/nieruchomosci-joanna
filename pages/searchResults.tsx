@@ -113,7 +113,7 @@ const SearchResults = () => {
   return (
     <>
       <div className={styles.container}>
-        <h1 className={styles.title}>Wyniki wyszukiwania</h1>
+        <h1 className={styles.title}>Wyniki wyszukiwania: </h1>
       
       <div className={styles.resultsContainer}>
         {loading ? (

@@ -1,0 +1,50 @@
+.carouselContainer {
+    position: relative;
+    padding: 0 20px;
+    cursor: grab;
+}
+
+.customDots {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px
+}
+
+.customDots li button::before {
+    color: #b79d52;
+    font-size: 20px;
+}
+
+.customDots li button:hover::before {
+    color: #333;
+}
+
+.arrowLeft {
+    left: -50px;
+    font-size: 30px;
+    padding: 5px 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 3px #ccc;
+    display: flex;
+    width: 50px;
+    position: absolute;
+    top: 300px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.arrowRight {
+    right: -50px;
+    font-size: 30px;
+    padding: 5px 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 3px #ccc;
+    display: flex;
+    width: 50px;
+    position: absolute;
+    top: 300px;
+    z-index: 1;
+    cursor: pointer;
+}

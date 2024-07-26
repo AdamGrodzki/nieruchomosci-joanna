@@ -23,7 +23,7 @@ const LandingPage = () => {
     if (!emblaApi) return;
     onSelect();
     emblaApi.on('select', onSelect);
-    
+  
     const intervalId = setInterval(() => {
       if (emblaApi.canScrollNext()) {
         emblaApi.scrollNext();

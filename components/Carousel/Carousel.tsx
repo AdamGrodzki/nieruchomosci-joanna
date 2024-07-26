@@ -1,53 +1,60 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import styles from "@/styles/carousel.module.css"
+import styles from "@/components/Carousel/slick.module.scss";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 
-
-function NextArrowButton(props:any) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className} 
-      style={{ ...style, display: "block", background: "black"  }}
-      onClick={onClick}
-    />
-  );
+interface ArrowButtonProps {
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: () => void;
 }
 
-function PrevArrowButton(props:any) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className} 
-      style={{ ...style, display: "block", background: "black" }}
-      onClick={onClick}
-    />
-  );
+interface CarouselProps {
+  children: ReactNode;
 }
 
 
-const Carousel = ({ children }:any) => {
+const PrevArrowButton: React.FC<ArrowButtonProps> = ({onClick}) => {  
+  return (
+  <>
+    <div className={styles.arrowLeft} onClick={onClick}>
+      <FaArrowLeft />
+    </div>
+    </>
+  );
+}
+
+
+const NextArrowButton: React.FC<ArrowButtonProps> = ({onClick}) => {
+  return (
+    <>
+    <div className={styles.arrowRight} onClick={onClick}>
+      <FaArrowRight />
+    </div>
+    </>
+  );
+}
+
+const Carousel: React.FC<CarouselProps> = ({ children }) => {
   const settings = {
     dots: true,
-    initialSlide: 0,
     arrows: true,
     infinite: true,
     speed: 4000,
     slidesToShow: 3,
     slidesToScroll: 1,
+    initialSlide: 0,
     autoplay: true,
     autoplaySpeed: 4000,
     cssEase: "linear",
     pauseOnHover: true,
     dotsClass: `slick-dots ${styles.customDots}`,
-
-    nextArrow: <NextArrowButton />,
     prevArrow: <PrevArrowButton />,
+    nextArrow: <NextArrowButton />,
     responsive: [
       {
         breakpoint: 1024,
@@ -70,7 +77,6 @@ const Carousel = ({ children }:any) => {
     ]
 
   };
-
 
 
   return (
