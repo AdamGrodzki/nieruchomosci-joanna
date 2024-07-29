@@ -1,11 +1,9 @@
+import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
 import { PropertyCardProps } from "@/static/data";
 import styles from "@/components/PropertyCard/propertyCard.module.scss"
 import { FaLocationDot } from "react-icons/fa6";
-
-
-import React from 'react';
 
 const PropertyCard: React.FC<PropertyCardProps> = ({nieruchomosc}) => {
 const {

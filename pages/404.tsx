@@ -1,7 +1,4 @@
 import Link from "next/link";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-
 import styles from "@/styles/404.module.css";
 
 const NotFound = () => {

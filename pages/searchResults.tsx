@@ -3,8 +3,9 @@ import { useRouter } from 'next/router';
 import { useEffect, useState, useCallback } from 'react';
 import styles from "@/styles/searchResult.module.css";
 import Image from 'next/image';
-
 import { TbLoader2 } from "react-icons/tb";
+
+import Link from 'next/link';
 
 interface SearchParams {
   typeOfProperty: string;
@@ -128,6 +129,8 @@ const SearchResults = () => {
                 <p>Cena: {result.fields.price} zł</p>
                 <p>Powierzchnia: {result.fields.area} m<sup>2</sup></p>
                 <p>Typ transakcji: {result.fields.transactionType}</p>
+                <Link href={`/oferta/${result.fields.slug}`} legacyBehavior> 
+                <a>
                 <Image
                   src={"https:" + result.fields.gallery.fields.file.url}
                   alt="img"
@@ -136,6 +139,8 @@ const SearchResults = () => {
                   priority={true}
                   style={{ objectFit: 'cover', borderRadius: '10px' }}
                 />
+              </a>
+              </Link>
               </div>
             ))
           ) : (

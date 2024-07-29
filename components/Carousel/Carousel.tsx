@@ -49,7 +49,7 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
     slidesToScroll: 1,
     initialSlide: 0,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 2500,
     cssEase: "linear",
     pauseOnHover: true,
     dotsClass: `slick-dots ${styles.customDots}`,

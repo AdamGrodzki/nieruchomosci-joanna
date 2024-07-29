@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from "@/components/PropertyTiles/propertyTiles.module.scss";
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -11,36 +11,41 @@ import obiekt from "@/images/obiekt.png"
 
 const PropertyTiles = () => {
     const router = useRouter();
+    const [hoveredTile, setHoveredTile] = useState<string>();
 
-    const handleTileClick = (propertyType: string) => {
+    const handleTileClick = (propertyType: string, transactionType: string) => {
         const currentParams = new URLSearchParams(window.location.search);
         currentParams.set('typeOfProperty', propertyType);
+        currentParams.set('transactionType', transactionType);
         router.push(`/searchResults?${currentParams.toString()}`);
     };
 
     return (
         <div className={styles.container}>
-            <div className={styles.tile} onClick={() => handleTileClick('Mieszkanie')}>
-                <Image src={blok} alt='src' />
-                <h2>Mieszkania</h2>
+        {[
+            { type: 'Mieszkania', img: blok },
+            { type: 'Dom', img: dom },
+            { type: 'Działka', img: działka },
+            { type: 'Lokal', img: lokal },
+            { type: 'Obiekt', img: obiekt }
+        ].map(({ type, img }) => (
+            <div
+                key={type}
+                className={styles.tile}
+                onMouseEnter={() => setHoveredTile(type)}
+                onMouseLeave={() => setHoveredTile("")}
+            >
+                <Image src={img} alt={`${type} cards`} />
+                <h2>{type}</h2>
+                {hoveredTile === type && (
+                    <div className={styles.searchBox}>
+                        <button onClick={() => handleTileClick(type, 'Wynajem')}>Wynajem</button>
+                        <button onClick={() => handleTileClick(type, 'Sprzedaż')}>Sprzedaż</button>
+                    </div>
+                )}
             </div>
-            <div className={styles.tile} onClick={() => handleTileClick('Dom')}>
-                <Image src={dom} alt='src' />
-                <h2>Domy</h2>
-            </div>
-            <div className={styles.tile} onClick={() => handleTileClick('Działka')}>
-                <Image src={działka} alt='src' />
-                <h2>Działki</h2>
-            </div>
-            <div className={styles.tile} onClick={() => handleTileClick('Lokal')}>
-                <Image src={lokal} alt='src' />
-                <h2>Lokale</h2>
-            </div>
-            <div className={styles.tile} onClick={() => handleTileClick('Obiekt')}>
-                <Image src={obiekt} alt='src' />
-                <h2>Obiekty</h2>
-            </div>
-        </div>
+        ))}
+    </div>
     );
 };
 
