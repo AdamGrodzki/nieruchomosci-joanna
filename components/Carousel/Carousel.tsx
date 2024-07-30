@@ -15,6 +15,7 @@ interface ArrowButtonProps {
 
 interface CarouselProps {
   children: ReactNode;
+  className?: string;
 }
 
 

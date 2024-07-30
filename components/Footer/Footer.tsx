@@ -33,7 +33,7 @@ const Footer = () => {
                 </ul>
                 <div className={styles.socialMedia}>
             <h4>Obserwuj nas</h4>
-                    <Link href="https://facebook.com" aria-label="Facebook" target="_blank">
+                    <Link href="https://www.facebook.com/p/Nieruchomo%C5%9Bci-Joanna-100076776466957/" aria-label="Facebook" target="_blank">
                         <FaFacebook  className={styles.facebookIcon} />
                     </Link>
                 </div>

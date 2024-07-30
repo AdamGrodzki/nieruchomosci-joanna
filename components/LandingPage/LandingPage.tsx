@@ -30,7 +30,7 @@ const LandingPage = () => {
       } else {
         emblaApi.scrollTo(0);
       }
-    }, 5000);
+    }, 6000);
 
     return () => {
       emblaApi.off('select', onSelect);

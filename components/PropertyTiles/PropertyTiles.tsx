@@ -35,14 +35,15 @@ const PropertyTiles = () => {
                 onMouseEnter={() => setHoveredTile(type)}
                 onMouseLeave={() => setHoveredTile("")}
             >
+                <div className={styles.front}>
                 <Image src={img} alt={`${type} cards`} />
                 <h2>{type}</h2>
-                {hoveredTile === type && (
-                    <div className={styles.searchBox}>
+                </div>
+                
+                <div className={styles.back}>
                         <button onClick={() => handleTileClick(type, 'Wynajem')}>Wynajem</button>
                         <button onClick={() => handleTileClick(type, 'Sprzedaż')}>Sprzedaż</button>
                     </div>
-                )}
             </div>
         ))}
     </div>
