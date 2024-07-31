@@ -23,7 +23,7 @@ const PropertyTiles = () => {
     return (
         <div className={styles.container}>
         {[
-            { type: 'Mieszkania', img: blok },
+            { type: 'Mieszkanie', img: blok },
             { type: 'Dom', img: dom },
             { type: 'Działka', img: działka },
             { type: 'Lokal', img: lokal },
@@ -36,7 +36,10 @@ const PropertyTiles = () => {
                 onMouseLeave={() => setHoveredTile("")}
             >
                 <div className={styles.front}>
-                <Image src={img} alt={`${type} cards`} />
+                <Image 
+                    src={img} 
+                    alt={`${type} cards`}
+                />
                 <h2>{type}</h2>
                 </div>
                 

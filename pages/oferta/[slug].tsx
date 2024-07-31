@@ -62,15 +62,40 @@ const PropertyDetails = ({ nieruchomosci }: any) => {
     const { fields } = nieruchomosci;
     const { photos = [] } = fields;
 
-        const settingsPhotos = {
-          dots: true,
-          infinite: true,
-          speed: 500,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          autoplay: true,
-          autoplaySpeed: 3000,
-        };
+    const formatPrice = (price: number) => {
+        return new Intl.NumberFormat('pl-PL', {
+            style: 'currency',
+            currency: 'PLN',
+            minimumFractionDigits: 2,
+        }).format(price);
+    };
+
+    const settingsPhotos = {
+        customPaging: function(i: string | number) {
+            return (
+                <a>
+                    <Image
+                        src={"https:" + photos[i].fields.file.url}
+                        alt={photos[i].fields.title}
+                        width={50}
+                        height={50}
+                        objectFit="cover"
+                    />
+                </a>
+            );
+        },
+        dots: true,
+        arrows: false,
+        dotsClass: "slick-dots slick-thumb",
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+    };
+
+    const formattedPrice = formatPrice(fields.price);
 
     return (
         <div className={styles.card}>
@@ -79,28 +104,28 @@ const PropertyDetails = ({ nieruchomosci }: any) => {
                 <p>{fields.address}</p>
             </div>
             <h3 className={styles.cardTitle}>{fields.title}</h3>
-            <p className={styles.price}>{fields.price.toFixed(2)} zł</p>
+            <p className={styles.price}>{formattedPrice}</p>
 
             <div className={styles.cardDetails}>
                 <p>Typ budynku: <b>{fields.typeOfProperty}</b></p>
                 <p>Powierzchnia: <b>{fields.area} m²</b></p>
-                <p>Cena za m²: <b>{(fields.price / fields.area).toFixed(2)} zł</b></p>
+                <p>Cena za m²: <b>{formatPrice(fields.price / fields.area)}</b></p>
             </div>
 
             <div className={styles.cardImage}>
-            <Slider {...settingsPhotos}>
-                {photos.map((photo: any, index: number) => (
-                    <div key={index} className={styles.imageWrapper}>
-                        <Image
-                            src={"https:" + photo.fields.file.url}
-                            height={400}
-                            width={600}
-                            alt={photo.fields.title}
-                            priority={index === 0}
-                        />
-                    </div>
-                ))}
-                 </Slider>
+                <Slider {...settingsPhotos}>
+                    {photos.map((photo: any, index: number) => (
+                        <div key={index} className={styles.imageWrapper}>
+                            <Image
+                                src={"https:" + photo.fields.file.url}
+                                height={400}
+                                width={600}
+                                alt={photo.fields.title}
+                                priority={index === 0}
+                            />
+                        </div>
+                    ))}
+                </Slider>
             </div>
 
             <p className={styles.description}>{fields.description}</p>
