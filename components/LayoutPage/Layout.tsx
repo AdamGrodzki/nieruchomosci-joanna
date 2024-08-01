@@ -1,11 +1,15 @@
+import { ReactNode, FC } from 'react';
 import Navbar from '../Navbar/Navbar';
 import styles from "@/components/LayoutPage/layout.module.scss"
 import Footer from '../Footer/Footer';
 import ArrowNavigation from '../ArrowNavigation/ArrowNavigation';
 import Head from 'next/head';
 
+interface LayoutProps {
+  children: ReactNode;
+}
 
-const Layout = ({ children }: any) => {
+  const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <>
        <Head>

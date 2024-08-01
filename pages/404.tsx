@@ -3,8 +3,6 @@ import styles from "@/styles/404.module.css";
 
 const NotFound = () => {
 
-    
-
     return (
         <div className={styles.notFoundContainer}>
         <div className={styles.notFoundContent}>

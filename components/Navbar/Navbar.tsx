@@ -4,16 +4,14 @@ import { usePathname } from 'next/navigation';
 import logo from "../../images/logoDark.png"
 import styles from "@/components/Navbar/navbar.module.scss"
 import { useEffect, useState } from "react";
-
 import { CiMenuBurger } from "react-icons/ci";
 import { FaTimes } from "react-icons/fa";
 
 
-
 const Navbar = () => {
     const pathname = usePathname();
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
+    const [menuOpen, setMenuOpen] = useState<boolean>(false);
+    const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
     useEffect(()=> {
       const handleScroll = ()=> {

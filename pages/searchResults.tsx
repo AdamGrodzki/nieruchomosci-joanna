@@ -111,6 +111,15 @@ const SearchResults = () => {
 
   console.log("searchParams", searchParams);
 
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('pl-PL', {
+        style: 'currency',
+        currency: 'PLN',
+        minimumFractionDigits: 2,
+    }).format(price);
+};
+
+
   return (
     <>
       <div className={styles.container}>
@@ -126,7 +135,7 @@ const SearchResults = () => {
                 <h2>{result.fields.title}</h2>
                 <p>Typ: {result.fields.typeOfProperty}</p>
                 <p>Lokalizacja: {result.fields.address}</p>
-                <p>Cena: {result.fields.price} zł</p>
+                <p>Cena: {formatPrice(result.fields.price)} zł</p>
                 <p>Powierzchnia: {result.fields.area} m<sup>2</sup></p>
                 <p>Typ transakcji: {result.fields.transactionType}</p>
                 <Link href={`/oferta/${result.fields.slug}`} legacyBehavior> 

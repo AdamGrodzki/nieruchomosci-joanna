@@ -4,7 +4,7 @@ import { FaArrowUp } from "react-icons/fa";
 
 
 const ArrowNavigation = () => {
-    const [showButton, setShowButton] = useState(false);
+    const [showButton, setShowButton] = useState<boolean>(false);
 
     useEffect(() => {
         const handleScroll = () => {

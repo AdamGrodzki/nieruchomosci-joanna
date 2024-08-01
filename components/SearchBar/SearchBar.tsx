@@ -4,20 +4,21 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 import { useRouter } from "next/router";
 import { client } from '@/lib/contentful';
 
+
 const SearchBar = () => {
-  const [typeOfProperty, setTypeOfProperty] = useState("");
-  const [address, setAddress] = useState("");
-  const [transactionType, setTransactionType] = useState("");
-  const [price, setPrice] = useState("");
-  const [area, setArea] = useState("");
-  const [showTooltip, setShowTooltip] = useState(false);
-  const [addressSuggestions, setAddressSuggestions] = useState<any[]>([]);
+  const [typeOfProperty, setTypeOfProperty] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
+  const [transactionType, setTransactionType] = useState<string>("");
+  const [price, setPrice] = useState<string>("");
+  const [area, setArea] = useState<string>("");
+  const [showTooltip, setShowTooltip] = useState<boolean>(false);
+  const [addressSuggestions, setAddressSuggestions] = useState<string[]>([]);
   const router = useRouter();
 
-  const [minPrice, setMinPrice] = useState("");
-  const [maxPrice, setMaxPrice] = useState("");
-  const [minArea, setMinArea] = useState("")
-  const [maxArea, setMaxArea] = useState("")
+  const [minPrice, setMinPrice] = useState<string>("");
+  const [maxPrice, setMaxPrice] = useState<string>("");
+  const [minArea, setMinArea] = useState<string>("");
+  const [maxArea, setMaxArea] = useState<string>("");
 
   const suggestionsRef = useRef<HTMLUListElement>(null);
 
@@ -26,21 +27,19 @@ const SearchBar = () => {
     e.preventDefault();
     
     const params = new URLSearchParams();    
-    if (typeOfProperty) params.append('typeOfProperty', typeOfProperty);
-    if (address) params.append('address', address);
-    if (transactionType) params.append('transactionType', transactionType);
-    if (price) params.append('price', price);
-    if (area) params.append('area', area);
+    typeOfProperty ? params.append('typeOfProperty', typeOfProperty) : null;
+    address ? params.append('address', address) : null;
+    transactionType ? params.append('transactionType', transactionType) : null;
+    price ? params.append('price', price.toString()) : null;
+    area ? params.append('area', area.toString()) : null;
+    minPrice ? params.append('minPrice', minPrice.toString()) : null;
+    maxPrice ? params.append('maxPrice', maxPrice.toString()) : null;
+    minArea ? params.append('minArea', minArea.toString()) : null;
+    maxArea ? params.append('maxArea', maxArea.toString()) : null;
 
-    if (minPrice) params.append('minPrice', minPrice);
-    if (maxPrice) params.append('maxPrice', maxPrice);
-
-    if (minArea) params.append('minArea', minArea);
-    if (maxArea) params.append('maxArea', maxArea);
 
     router.push(`searchResults/?${params.toString()}`);
   }
-
 
 
   const fetchAddressSuggestions = useCallback(async (address: string) => {
@@ -49,14 +48,19 @@ const SearchBar = () => {
       return;
     }
 
-    const query: any = {
+    const query: {
+      content_type: string;
+      'fields.address[match]': string;
+
+    }= {
       content_type: "nieruchomosc",
       'fields.address[match]': address,
-    };
+    }
+
 
     try {
       const { items } = await client.getEntries(query);
-      const suggestions = items.map(item => item.fields.address);
+      const suggestions = items.map(item => item.fields.address as string);
       setAddressSuggestions(suggestions);
     } catch (error) {
       console.error("Error fetching address suggestions:", error);

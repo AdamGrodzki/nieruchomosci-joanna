@@ -13,6 +13,17 @@ export interface GalleryItem {
     title: string;
 }
 
+export interface GalleryPhoto {
+    fields: any;
+    file: {
+        url: string;
+        details: string;
+        fileName: string;
+        contentType: string;
+    };
+    title: string;
+}
+
 export interface Nieruchomosc {
     length: number;
     fields: {
@@ -20,6 +31,7 @@ export interface Nieruchomosc {
         address: string;
         description: string;
         gallery: GalleryItem;
+        photos: GalleryPhoto;
         price: number;
         numberOfRooms: number;
         typeOfProperty: string;
@@ -32,7 +44,6 @@ export interface Nieruchomosc {
         id: string;
     }
 };
-
 
 export interface PropertyCardProps {
     nieruchomosc: Nieruchomosc;

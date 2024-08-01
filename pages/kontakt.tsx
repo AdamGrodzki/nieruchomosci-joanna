@@ -6,19 +6,26 @@ import styles from "@/styles/contact.module.css"
 import avatarJoanna from '@/images/JoannaAvatar.jpg';
 import avatarSebastian from '@/images/SebastianAvatar.png';
 
+interface FormState {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}
+
 const Contact = () => {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<FormState>({
     name: '',
     email: '',
     phone: '',
     message: ''
   });
 
-  const handleChange = (e:any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e:any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(form);
   };
@@ -37,6 +44,7 @@ const Contact = () => {
             alt="Joanna"
             width={150}
             height={150}
+            priority={true}
           />
           <div>
             <h3>Joanna Nieruchomości</h3>
@@ -52,6 +60,8 @@ const Contact = () => {
             alt="Sebastian"
             width={150}
             height={150}
+            priority={true}
+
           />
           <div>
             <h3>Sebastian Nieruchomości</h3>

@@ -4,7 +4,8 @@
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
-    height: 100vh;
+    /* height: 100vh; */
+    height: auto;
 }
 
 .title {
@@ -87,8 +88,9 @@
 
 .resultItem img {
     margin-top: 15px;
-    max-width: 100%;
-    height: auto;
+    /* max-width: 100%; */
+    width: 300px;
+    height: 200px;
 }
 
 .noResults {
@@ -104,7 +106,9 @@
 @media (max-width: 768px) {
     .container {
         padding: 10px;
-        height: 100vh;
+        /* height: 100vh; */
+        height: auto;
+
     }
 
     .title {
