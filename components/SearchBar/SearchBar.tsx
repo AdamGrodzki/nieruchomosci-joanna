@@ -176,7 +176,7 @@ return (
       </div>
     </div>
 
-    <div className={styles.formGroup}>
+    <div className={styles.formGroupLocation}>
       <label htmlFor="address">Lokalizacja</label>
       <div className={styles.addressInputWrapper}>
         <input 
@@ -204,9 +204,9 @@ return (
             ))}
           </ul>
         )}
+          <button type="submit" className={styles.searchButton}>Szukaj</button>
       </div>
     </div>
-    <button type="submit" className={styles.searchButton}>Szukaj</button>
   </form>
 </div>
 

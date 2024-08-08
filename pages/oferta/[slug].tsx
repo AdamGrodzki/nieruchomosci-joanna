@@ -9,6 +9,8 @@ import Skeleton from "@/components/Skeleton/Skeleton";
 import { client } from "@/lib/contentful";
 import { useState, useEffect } from 'react';
 
+
+
 export const getStaticPaths = async () => {
     const res = await client.getEntries({
         content_type: "nieruchomosc"
@@ -73,27 +75,27 @@ const PropertyDetails = ({ nieruchomosci }: any) => {
     const settingsPhotos = {
         customPaging: function(i: string | number) {
             return (
-                <a>
+                    <a>
                     <Image
+                        className={styles.imageGallery}
                         src={"https:" + photos[i].fields.file.url}
                         alt={photos[i].fields.title}
-                        width={50}
-                        height={50}
                         objectFit="cover"
+                        width={75}
+                        height={60}
                     />
-                </a>
+                    </a>
             );
         },
         dots: true,
         arrows: false,
-        dotsClass: "slick-dots slick-thumb",
+        dotsClass: `slick-dots ${styles.customGallery}`,
         infinite: true,
-        speed: 500,
+        speed: 1500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
     };
+
 
     const formattedPrice = formatPrice(fields.price);
 
@@ -126,9 +128,11 @@ const PropertyDetails = ({ nieruchomosci }: any) => {
                         </div>
                     ))}
                 </Slider>
+                
             </div>
 
             <p className={styles.description}>{fields.description}</p>
+            <p className={styles.contact}>Kontakt: <a href={`tel:${fields.contact}`}>{fields.contact}</a></p>
         </div>
     );
 }

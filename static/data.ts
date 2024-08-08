@@ -4,24 +4,43 @@ export interface PropertyProps {
 
 export interface GalleryItem {
     fields: any;
-    file: {
-        url: string;
-        details: string;
-        fileName: string;
-        contentType: string;
-    };
-    title: string;
+    // fields: any;
+    // file: {
+    //     url: string;
+    //     details: string;
+    //     fileName: string;
+    //     contentType: string;
+    // };
+    // title: string;
+    photos: Array<{
+        fields: {
+            title: string;
+            file: {
+                url: string;
+            };
+        };
+    }>;
 }
 
 export interface GalleryPhoto {
-    fields: any;
-    file: {
-        url: string;
-        details: string;
-        fileName: string;
-        contentType: string;
-    };
-    title: string;
+    //     fields: any;
+    //     file: {
+    //         url: string;
+    //         details: string;
+    //         fileName: string;
+    //         contentType: string;
+    //     };
+    //     title: string;
+    // }
+    photos: Array<{
+        fields: {
+            details: string,
+            title: string;
+            file: {
+                url: string;
+            };
+        };
+    }>;
 }
 
 export interface Nieruchomosc {

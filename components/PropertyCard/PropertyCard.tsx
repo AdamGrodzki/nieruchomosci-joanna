@@ -9,12 +9,9 @@ const PropertyCard: React.FC<PropertyCardProps> = ({nieruchomosc}) => {
 const {
     title,
     address,
-    description,
     gallery,
     price,
     numberOfRooms,
-    typeOfProperty,
-    contact,
     slug,
     area,
   } = nieruchomosc.fields;
@@ -47,7 +44,9 @@ const {
                       }).format(price)}</div>
                     <div>
                       <p >Powierzchnia: <b>{area} m<sup>2</sup></b></p>
-                      <p>Liczba pokoi: <b>{numberOfRooms}</b></p>
+                      <p>
+                        Liczba pokoi: <b>{numberOfRooms > 0 ? numberOfRooms : '❌'}</b>
+                      </p>
                     </div>
                 </div>
             </div>

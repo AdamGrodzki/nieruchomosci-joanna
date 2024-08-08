@@ -70,13 +70,13 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className={styles.officeInfo}>
+        {/* <div className={styles.officeInfo}>
           <h3>Biuro</h3>
           <p><MdOutlineLocationOn />Pomorska 1, 83-110 Tczew</p>
           <h4>Godziny otwarcia biura:</h4>
           <p>Poniedziałek-Piątek: 9.00-17.00</p>
           <p>Weekendy: ustalane telefonicznie</p>
-        </div>
+        </div> */}
       </div>
 
       <div className={styles.contactForm}>

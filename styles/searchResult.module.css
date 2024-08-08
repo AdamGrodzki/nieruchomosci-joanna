@@ -66,10 +66,11 @@
     width: 100%;
     max-width: 450px;
     align-items: center;
+    text-align: justify;
 }
 
 .resultItem:hover {
-    transform: translateY(-5px);
+    /* transform: translateY(-5px); */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -84,13 +85,48 @@
     font-size: 0.9rem;
     color: #666;
     margin-bottom: 10px;
+    line-height: 1.5; 
 }
 
 .resultItem img {
-    margin-top: 15px;
-    /* max-width: 100%; */
-    width: 300px;
-    height: 200px;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.detailsButton {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: 10px;
+    padding: 10px 20px;
+    color: white;
+    background: linear-gradient(135deg, #333, #555);
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease-in;
+    font-size: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.detailsButton:hover {
+    background: linear-gradient(135deg, #333, #666, #333);
+    background-size: 200% 200%;
+    animation: gradient-animation 3s ease infinite;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.detailsButton:active {
+    transform: scale(0.9);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.detailsButton svg {
+    margin-left: 5px;
+    font-size: 28px;
 }
 
 .noResults {
@@ -103,6 +139,21 @@
     justify-content: center;
 }
 
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 10px;
@@ -113,6 +164,7 @@
 
     .title {
         font-size: 1.5rem;
+        margin-top: 1.2rem;
     }
 
     .resultsContainer {
@@ -131,7 +183,7 @@
     }
 
     .resultItem p {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .loading {

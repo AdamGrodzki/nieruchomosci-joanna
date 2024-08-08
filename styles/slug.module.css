@@ -6,31 +6,31 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 20px auto;
-    max-width: 800px;
+    max-width: 700px;
     position: relative;
     top: 4rem;
+
 }
 
 .cardHeader {
     text-align: center;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
+    border-bottom: 1.5px solid #ddd;
+    padding-bottom: 15px;
     margin-bottom: 20px;
 }
 
 .cardHeader h2 {
-    margin: 0;
     font-size: 24px;
     color: #333;
 }
 
 .cardHeader p {
-    margin: 5px 0 0;
+    margin: 5px 0;
     color: #777;
 }
 
 .cardTitle {
-    font-size: 22px;
+    font-size: 24px;
     margin: 10px 0;
     color: #333;
     text-align: center;
@@ -42,7 +42,7 @@
     padding: 1.6rem;
     font-size: 1.5rem;
     font-weight: bold;
-    border-radius: 0.5rem;
+    border-radius: 10px;
 }
 
 .cardDetails {
@@ -62,10 +62,10 @@
 }
 
 .cardImage {
-    margin: 0 auto;
+    margin: 10px auto;
     border-radius: 10px;
     width: 600px;
-    height: 400px;
+    height: 450px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -94,7 +94,7 @@
             rgba(255, 255, 255, 0) 0%,
             rgba(255, 255, 255, 0.3) 100%);
     transform: skewX(-25deg);
-    animation: shine 4s infinite;
+    animation: shine 2s infinite ease-in;
 }
 
 @keyframes shine {
@@ -108,7 +108,7 @@
     font-size: 16px;
     color: #555;
     line-height: 1.6;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     text-align: justify;
 }
 
@@ -116,4 +116,122 @@
     font-size: 1.5rem;
     font-weight: bold;
     color: #000;
+}
+
+.contact {
+    margin-bottom: 30px;
+}
+
+.contact a {
+    transition: all ease 0.4s;
+    color: #555;
+}
+
+.contact:hover a {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+    .card {
+        padding: 15px;
+        margin: 15px auto;
+    }
+
+    .cardHeader h2 {
+        font-size: 20px;
+    }
+
+    .cardHeader p {
+        font-size: 14px;
+    }
+
+    .cardTitle {
+        font-size: 20px;
+    }
+
+    .price {
+        font-size: 1.2rem;
+        padding: 1.2rem;
+    }
+
+    .cardDetails {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 5px 0;
+    }
+
+    .cardImage {
+        width: 100%;
+    }
+
+    .cardImage img {
+        width: 100%;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .contact {
+        padding: 10px 0;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 10px;
+        margin: 10px auto;
+        top: 5rem;
+    }
+
+    .cardHeader h2 {
+        font-size: 18px;
+    }
+
+    .cardHeader p {
+        font-size: 12px;
+    }
+
+    .cardTitle {
+        font-size: 18px;
+    }
+
+    .price {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .cardImage {
+        width: 100%;
+    }
+
+    .cardImage img {
+        width: 100%;
+    }
+
+
+    .description {
+        font-size: 12px;
+    }
+}
+
+.customGallery {
+    border-radius: 0 0 10px 10px;
+    border-top: 2px solid #444;
+    margin: -30px 0;
+    padding: 10px 0;
+    background-color: #ddd;
+}
+
+.customGallery li {
+    width: 60px;
+    height: 60px;
+}
+
+.customGallery li img {
+    padding: 5px;
+    margin: 5px;
 }

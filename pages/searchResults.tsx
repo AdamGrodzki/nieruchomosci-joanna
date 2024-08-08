@@ -1,11 +1,11 @@
 import { client } from '@/lib/contentful';
 import { useRouter } from 'next/router';
 import { useEffect, useState, useCallback } from 'react';
-import styles from "@/styles/searchResult.module.css";
+import Link from 'next/link';
 import Image from 'next/image';
 import { TbLoader2 } from "react-icons/tb";
-
-import Link from 'next/link';
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import styles from "@/styles/searchResult.module.css";
 
 interface SearchParams {
   typeOfProperty: string;
@@ -123,8 +123,13 @@ const SearchResults = () => {
   return (
     <>
       <div className={styles.container}>
-        <h1 className={styles.title}>Wyniki wyszukiwania: </h1>
-      
+    {loading ? (
+      <h1 className={styles.title}><TbLoader2 className={styles.fiLoader}/></h1>
+    ) : (
+      <h1 className={styles.title}>
+        Wyniki wyszukiwania: <span>{results.length}</span>
+      </h1>
+)}
       <div className={styles.resultsContainer}>
         {loading ? (
           <p className={styles.loading}>Ładowanie...<TbLoader2 className={styles.fiLoader} /></p>
@@ -133,23 +138,22 @@ const SearchResults = () => {
             results.map(result => (
               <div key={result.sys.id} className={styles.resultItem}>
                 <h2>{result.fields.title}</h2>
-                <p>Typ: {result.fields.typeOfProperty}</p>
-                <p>Lokalizacja: {result.fields.address}</p>
-                <p>Cena: {formatPrice(result.fields.price)} zł</p>
-                <p>Powierzchnia: {result.fields.area} m<sup>2</sup></p>
-                <p>Typ transakcji: {result.fields.transactionType}</p>
-                <Link href={`/oferta/${result.fields.slug}`} legacyBehavior> 
-                <a>
+                <p>Typ: <b>{result.fields.typeOfProperty}</b></p>
+                <p>Lokalizacja: <b>{result.fields.address}</b></p>
+                <p>Cena: <b>{formatPrice(result.fields.price)}</b></p>
+                <p>Powierzchnia: <b>{result.fields.area}m<sup>2</sup></b></p>
+                <p>Typ transakcji: <b>{result.fields.transactionType}</b></p>
+
                 <Image
                   src={"https:" + result.fields.gallery.fields.file.url}
                   alt="img"
-                  height={180}
+                  height={200}
                   width={300}
                   priority={true}
-                  style={{ objectFit: 'cover', borderRadius: '10px' }}
                 />
-              </a>
-              </Link>
+              <Link legacyBehavior href={`/oferta/${result.fields.slug}`}>
+              <button className={styles.detailsButton}>Szczegóły <MdKeyboardDoubleArrowRight /></button>
+              </Link> 
               </div>
             ))
           ) : (
