@@ -83,7 +83,9 @@
     }
 
     .featured img {
+        background-repeat: no;
         object-fit: cover;
+        height: 500px;
     }
 
     .info p {

@@ -7,8 +7,10 @@ import styles from "@/styles/slug.module.css";
 import Loader from "@/components/Loader/Loader";
 import Skeleton from "@/components/Skeleton/Skeleton";
 import { client } from "@/lib/contentful";
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
 
+
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 
 export const getStaticPaths = async () => {
@@ -130,8 +132,7 @@ const PropertyDetails = ({ nieruchomosci }: any) => {
                 </Slider>
                 
             </div>
-
-            <p className={styles.description}>{fields.description}</p>
+            <p className={styles.description}>{documentToReactComponents(fields.description)}</p>
             <p className={styles.contact}>Kontakt: <a href={`tel:${fields.contact}`}>{fields.contact}</a></p>
         </div>
     );
