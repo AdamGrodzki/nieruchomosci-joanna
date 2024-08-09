@@ -46,7 +46,8 @@ const Navbar = () => {
     ]
 
     return (
-    <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ""}`}>
+    // <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ""}`}>
+    <nav className={styles.nav}>
       <Link href="/">
         <Image  
         className={styles.logo}

@@ -5,6 +5,7 @@ import { PropertyCardProps } from "@/static/data";
 import styles from "@/components/PropertyCard/propertyCard.module.scss"
 import { FaLocationDot } from "react-icons/fa6";
 
+
 const PropertyCard: React.FC<PropertyCardProps> = ({nieruchomosc}) => {
 const {
     title,
@@ -16,11 +17,10 @@ const {
     area,
   } = nieruchomosc.fields;
 
-
     return (
         <div className={styles.card}>
             <div className={styles.featured}>
-              <Link href={`/oferta/${slug}`} legacyBehavior>
+              <Link href={`/oferta/${slug}`} prefetch={true} legacyBehavior>
               <a>
                 <Image 
                   src={"https:" + gallery.fields.file.url}
@@ -32,6 +32,7 @@ const {
                  </a>
               </Link>
             </div>
+
             <div className={styles.content}>
                 <div className={styles.info}>
                     <h4>{title}</h4>

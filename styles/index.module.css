@@ -12,7 +12,7 @@
 .container {
     display: flex;
     justify-content: center;
-    padding: 1.5rem;
+    padding: 2.5rem;
     background-color: #f7f7f7;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
