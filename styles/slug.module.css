@@ -83,6 +83,7 @@
     height: 450px;
 }
 
+/* 
 .imageWrapper::before {
     content: '';
     position: absolute;
@@ -102,7 +103,7 @@
     100% {
         left: 125%;
     }
-}
+} */
 
 .description {
     /* padding: 2.6rem 0; */
@@ -149,6 +150,7 @@
 .customGallery li img {
     padding: 5px;
     margin: 5px;
+    border-radius: 10px;
 }
 
 @media (max-width: 768px) {
@@ -192,6 +194,7 @@
     .description {
         font-size: 14px;
     }
+
     .contact {
         margin-bottom: 65px;
     }
@@ -245,6 +248,7 @@
         background-repeat: no-repeat;
         object-fit: cover;
     }
+
     .contact {
         margin-bottom: 65px;
     }

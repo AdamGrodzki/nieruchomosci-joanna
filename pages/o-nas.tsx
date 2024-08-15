@@ -1,31 +1,61 @@
+import TeamMember from "@/components/TeamMember/TeamMember";
+import img1 from "../images/JoannaAvatar.jpg"
+import img2 from "../images/SebastianAvatar.png"
+
+import heroGraphic from "@/images/businessman.jpg";
+
+import Image from "next/image";
 import styles from "@/styles/aboutUs.module.css"
 
-const aboutUs = () => {
-    return ( 
-
-        <div className={styles.container}>
-            <h1>O nas</h1>
-            <p>
-                Witaj na stronie biura M M Nieruchomości. Istniejemy na rynku nieruchomości od 2014 roku. Naszym priorytetem jest satysfakcja i bezpieczeństwo Klienta.
-            </p>
-            <p>
-                Każdego klienta traktujemy indywidualnie i pragniemy sprostać jego oczekiwaniom. Zapewniamy profesjonalną opiekę nad całym przebiegiem transakcji począwszy od przyjęcia oferty, aż do jej finalizacji. Nasza współpraca z klientami opiera się na wzajemnym zrozumieniu i zaufaniu. Pragniemy, aby zawód pośrednika budził pozytywne emocje i robimy wszystko, aby nasi klienci byli zadowoleni z naszych usług.
-            </p>
-            <p>
-                W trosce o komfort Klientów gwarantujemy pełne bezpieczeństwo (firma posiada ubezpieczenie w zakresie odpowiedzialności cywilnej w związku z wykonywaniem czynności pośrednictwa w obrocie nieruchomościami).
-            </p>
-            <p>
-                Współpracujemy wyłącznie ze sprawdzonymi specjalistami, wśród których znajdują się kancelarie notarialne, deweloperzy, rzeczoznawcy oraz doradcy inwestycyjni i kredytowi.
-            </p>
-            <p>
-                Wszystkie transakcje realizowane są pod nadzorem pośrednika posiadającego licencję zawodową nr 21605.
-            </p>
-            <p>
-                Zapraszamy do współpracy z naszym biurem.
-            </p>
-
+const teamMembers = [
+    {
+      name: 'Joanna ',
+      title: 'Właściciel, pośrednik w obrocie nieruchomościami, obsługa nieruchomości, marketing, sprzedaż, dialog z klientem',
+      description: 'Ludzkość w połączeniu z profesjonalizmem to podstawa sukcesu. Zgodnie z tą dewizą do każdej sprzedaży nieruchomości podchodzimy bardzo indywidualnie i z sercem. Dokładamy wszelkich starań, aby sprzedaż Twojej nieruchomości była wspaniałym doświadczeniem.',
+      email: 'joanna@estateapp.com',
+      phone: '123 456 789',
+      image: img1,
+      license: '21605'
+    },
+    {
+      name: 'Sebastian',
+      title: 'Właściciel, pośrednik w obrocie nieruchomościami, obsługa nieruchomości, marketing, sprzedaż, dialog z klientem',
+      description: 'Z doświadczenia wiem jak ważny jest stały kontakt z właścicielem i zainteresowanymi stronami. Cieszę się, że jestem łącznikiem między nimi i dbam o to, aby każdy miał pod ręką wszystkie istotne informacje, aby osiągnąć możliwie najlepszy wynik dla obu stron',
+      email: 'sebastian@estateapp.com',
+      phone: '987 654 321',
+      image: img2,
+      license: '10101'
+    },
+  ];
+  
+const teamMember = () => {  
+return (
+  <div className={styles.container}>
+    <div className={styles.heroWrapper}>
+      <Image src={heroGraphic} alt='Hero Graphic' />
+      <div className={styles.overlay}>
+        <div className={styles.content}>
+          <h1>O NAS</h1>
+          <p>Witamy na stronie naszego zespołu. Tutaj możesz dowiedzieć się więcej o naszych oddanych profesjonalistach.</p>
         </div>
-     );
-}
- 
-export default aboutUs;
+      </div>
+    </div>
+    <div className={styles.cardContainer}>
+    {teamMembers.map(member => (
+      <TeamMember
+        key={member.name}
+        name={member.name}
+        title={member.title}
+        description={member.description}
+        email={member.email}
+        phone={member.phone}
+        image={member.image}
+        license={member.license}
+      />
+    ))}
+    </div>
+  </div>
+);
+};
+
+export default teamMember;

@@ -1,0 +1,79 @@
+.teamMember {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    background: #fff;
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    margin: 20px;
+
+
+
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+
+        margin: 0;
+    }
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.imageWrapper {
+    position: relative;
+    flex: 0 0 250px;
+    margin-right: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.info h2 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.info h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #666;
+}
+
+.info p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 5px;
+}
+
+.info a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+        text-decoration: underline;
+        color: #b79d52;
+    }
+}
+
+.license {
+    font-style: italic;
+    color: #888;
+}

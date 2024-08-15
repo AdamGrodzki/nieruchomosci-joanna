@@ -51,6 +51,7 @@ export async function getStaticProps({ params }: any) {
     };
 }
 
+
 const PropertyDetails = ({ nieruchomosci }: any) => {
     const [loading, setLoading] = useState(true);
 

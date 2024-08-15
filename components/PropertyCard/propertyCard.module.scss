@@ -78,19 +78,23 @@
     }
 
     .featured {
-        height: 200px;
+        height: 225px;
         width: auto;
     }
 
     .featured img {
-        background-repeat: no;
         object-fit: cover;
-        height: 500px;
     }
 
     .info p {
         margin: 0.8rem 0;
         font-size: 0.8rem;
+
+        display: flex;
+        justify-content: center;
+
+
+
     }
 
     .info h4 {
