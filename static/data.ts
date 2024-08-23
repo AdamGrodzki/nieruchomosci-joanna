@@ -4,14 +4,6 @@ export interface PropertyProps {
 
 export interface GalleryItem {
     fields: any;
-    // fields: any;
-    // file: {
-    //     url: string;
-    //     details: string;
-    //     fileName: string;
-    //     contentType: string;
-    // };
-    // title: string;
     photos: Array<{
         fields: {
             title: string;
@@ -23,15 +15,6 @@ export interface GalleryItem {
 }
 
 export interface GalleryPhoto {
-    //     fields: any;
-    //     file: {
-    //         url: string;
-    //         details: string;
-    //         fileName: string;
-    //         contentType: string;
-    //     };
-    //     title: string;
-    // }
     photos: Array<{
         fields: {
             details: string,
@@ -60,6 +43,7 @@ export interface Nieruchomosc {
         transactionType: string;
     };
     sys: {
+        createdAt: string;
         id: string;
     }
 };

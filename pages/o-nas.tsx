@@ -2,14 +2,14 @@ import TeamMember from "@/components/TeamMember/TeamMember";
 import img1 from "../images/JoannaAvatar.jpg"
 import img2 from "../images/SebastianAvatar.png"
 
-import heroGraphic from "@/images/businessman.jpg";
+import heroGraphic from "@/images/desk.jpg";
 
 import Image from "next/image";
 import styles from "@/styles/aboutUs.module.css"
 
 const teamMembers = [
     {
-      name: 'Joanna ',
+      name: 'Joanna Kowalska',
       title: 'Właściciel, pośrednik w obrocie nieruchomościami, obsługa nieruchomości, marketing, sprzedaż, dialog z klientem',
       description: 'Ludzkość w połączeniu z profesjonalizmem to podstawa sukcesu. Zgodnie z tą dewizą do każdej sprzedaży nieruchomości podchodzimy bardzo indywidualnie i z sercem. Dokładamy wszelkich starań, aby sprzedaż Twojej nieruchomości była wspaniałym doświadczeniem.',
       email: 'joanna@estateapp.com',
@@ -18,7 +18,7 @@ const teamMembers = [
       license: '21605'
     },
     {
-      name: 'Sebastian',
+      name: 'Sebastian Kowalski',
       title: 'Właściciel, pośrednik w obrocie nieruchomościami, obsługa nieruchomości, marketing, sprzedaż, dialog z klientem',
       description: 'Z doświadczenia wiem jak ważny jest stały kontakt z właścicielem i zainteresowanymi stronami. Cieszę się, że jestem łącznikiem między nimi i dbam o to, aby każdy miał pod ręką wszystkie istotne informacje, aby osiągnąć możliwie najlepszy wynik dla obu stron',
       email: 'sebastian@estateapp.com',
@@ -35,7 +35,7 @@ return (
       <Image src={heroGraphic} alt='Hero Graphic' />
       <div className={styles.overlay}>
         <div className={styles.content}>
-          <h1>O NAS</h1>
+          <h1>O nas</h1>
           <p>Witamy na stronie naszego zespołu. Tutaj możesz dowiedzieć się więcej o naszych oddanych profesjonalistach.</p>
         </div>
       </div>

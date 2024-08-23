@@ -6,7 +6,7 @@ const TeamMember = ({ name, title, description, email, phone, image, license }:a
   return (
     <div className={styles.teamMember}>
       <div className={styles.imageWrapper}>
-        <Image src={image} alt={name} width={250} height={325} />
+        <Image src={image} alt={name} width={300} height={325} />
       </div>
       <div className={styles.info}>
         <h2>{name}</h2>
