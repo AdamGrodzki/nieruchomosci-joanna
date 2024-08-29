@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { FaMobileAlt } from 'react-icons/fa';
 import styles from "@/styles/contact.module.css";
-import img1 from "../images/JoannaAvatar.jpg";
-
+import img1 from "../images/logoDark.png";
+import emailjs from 'emailjs-com';
 
 interface FormState {
   name: string;
@@ -12,13 +12,12 @@ interface FormState {
   message: string;
 }
 
-
 const Contact = () => {
   const [form, setForm] = useState<FormState>({
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -27,8 +26,35 @@ const Contact = () => {
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    console.log(form)
     e.preventDefault();
-    console.log(form);
+  
+    const serviceID = String(process.env.SERVICE_ID);
+    const templateID = String(process.env.TEMPLATE_ID);
+    const userID = String(process.env.USER_ID);
+
+    const templateParams: Record<string, unknown> = {
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      message: form.message,
+    };
+  
+    emailjs.send(serviceID, templateID, templateParams, userID)
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        alert('Wiadomość została wysłana pomyślnie!');
+        setForm({
+          name: '',
+          email: '',
+          phone: '',
+          message: ''
+        });
+      })
+      .catch((err) => {
+        console.error('FAILED...', err);
+        alert('Błąd podczas wysyłania wiadomości. Spróbuj ponownie.');
+      });
   };
 
   return (
@@ -44,7 +70,7 @@ const Contact = () => {
 
       <div className={styles.contactContent}>
         <form onSubmit={handleSubmit} className={styles.contactForm}>
-        <input
+          <input
             type="text"
             name="name"
             value={form.name}
@@ -52,7 +78,7 @@ const Contact = () => {
             placeholder="Imię i Nazwisko"
             required
           />
-        <input
+          <input
             type="tel"
             name="phone"
             value={form.phone}
