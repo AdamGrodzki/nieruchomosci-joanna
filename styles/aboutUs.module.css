@@ -37,8 +37,8 @@
     font-size: 18px;
     padding: 30px;
     border-radius: 10px;
-    backdrop-filter: blur(9px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(30px);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
     background-color: rgba(255, 255, 255, 0.4);
     color: #fff;
     color: #333;
@@ -50,7 +50,6 @@
 
 
 .cardContainer {
-    /* margin: 50px; */
     padding: 20px;
     display: flex;
     justify-content: center;

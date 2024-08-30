@@ -1,44 +1,75 @@
 import { useState } from 'react';
 import styles from "@/styles/zglosOferte.module.css";
+import emailjs from 'emailjs-com';
 
 const SubmitOfferForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
+    location: '',
+    numberOfRooms: '',
     description: '',
     propertyType: '',
     transactionType: '',
     price: '',
     area: '',
-    location: '',
-    numberOfRooms: '',
-    images: null,
+    images: [],
   });
 
   const handleChange = (e:any) => {
-    const { name, value, type } = e.target;
-
-if (type === 'file') {
-      setFormData({ ...formData, images: e.target.files });
+    const { name, value, type, files } = e.target;
+    if (type === 'file') {
+      setFormData({ ...formData, images: files });
     } else {
       setFormData({ ...formData, [name]: value });
     }
   };
 
+
   const handleSubmit = async (e:any) => {
     e.preventDefault();
+    console.log(formData);
+    
+    
     try {
-      const response = await fetch('/api/submitOffer', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
 
-      if (response.ok) {
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      location: formData.location,
+      numberOfRooms: formData.numberOfRooms,
+      description: formData.description,
+      propertyType: formData.propertyType,
+      transactionType: formData.transactionType,
+      price: formData.price,
+      area: formData.area,
+      images: formData.images.length,
+    };
+
+    const serviceID = String(process.env.SERVICE_ID);
+    const templateOfferID = String(process.env.TEMPLATE_OFFER_ID);
+    const userID = String(process.env.USER_ID);
+
+
+      const response = await emailjs.send(serviceID, templateOfferID, templateParams, userID);
+
+      if (response.status === 200) {
         alert('Oferta została zgłoszona pomyślnie!');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          location: '',
+          numberOfRooms: '',
+          description: '',
+          propertyType: '',
+          transactionType: '',
+          price: '',
+          area: '',
+          images: [],
+        });
       } else {
         alert('Wystąpił błąd podczas zgłaszania oferty.');
       }
@@ -51,7 +82,7 @@ if (type === 'file') {
   return (
     <form className={styles.formContainer} onSubmit={handleSubmit}>
       <h2 className={styles.heading}>Zgłoś ofertę</h2>
-      
+
       <div className={styles.formGroup}>
         <label className={styles.label}>Imię i nazwisko</label>
         <input

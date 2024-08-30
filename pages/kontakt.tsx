@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { FaMobileAlt } from 'react-icons/fa';
 import styles from "@/styles/contact.module.css";
@@ -19,6 +19,9 @@ const Contact = () => {
     phone: '',
     message: '',
   });
+  
+  const [alertMessage, setAlertMessage] = useState<string | null>(null);
+  const [alertType, setAlertType] = useState<'success' | 'error' | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -31,7 +34,7 @@ const Contact = () => {
   
     const serviceID = String(process.env.SERVICE_ID);
     const templateID = String(process.env.TEMPLATE_ID);
-    const userID = String(process.env.USER_ID);
+    const userID = String(process.env.USER_I);
 
     const templateParams: Record<string, unknown> = {
       name: form.name,
@@ -43,7 +46,8 @@ const Contact = () => {
     emailjs.send(serviceID, templateID, templateParams, userID)
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
-        alert('Wiadomość została wysłana pomyślnie!');
+        setAlertMessage('Wiadomość została wysłana pomyślnie!');
+        setAlertType('success');
         setForm({
           name: '',
           email: '',
@@ -53,9 +57,21 @@ const Contact = () => {
       })
       .catch((err) => {
         console.error('FAILED...', err);
-        alert('Błąd podczas wysyłania wiadomości. Spróbuj ponownie.');
+        setAlertMessage('Błąd podczas wysyłania wiadomości. Spróbuj ponownie.');
+        setAlertType('error');
       });
   };
+
+  useEffect(() => {
+    if (alertMessage) {
+      const timer = setTimeout(() => {
+        setAlertMessage(null);
+        setAlertType(null);
+      }, 3000); 
+
+      return () => clearTimeout(timer); 
+    }
+  }, [alertMessage]);
 
   return (
     <div className={styles.contactContainer}>
@@ -67,6 +83,12 @@ const Contact = () => {
           <a href="tel:123 456 789"> 123 456 789</a>
         </p>
       </div>
+
+      {alertMessage && alertType && (
+        <div className={alertType === 'success' ? styles.alertSuccess : styles.alertError}>
+          {alertMessage}
+        </div>
+      )}
 
       <div className={styles.contactContent}>
         <form onSubmit={handleSubmit} className={styles.contactForm}>
@@ -118,3 +140,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
+

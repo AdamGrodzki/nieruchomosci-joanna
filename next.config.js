@@ -14,5 +14,6 @@ module.exports = {
         SERVICE_ID: 'service_sskfddg',
         TEMPLATE_ID: 'template_i3ebqpj',
         USER_ID: 'ySQc0idZbxPiZkbLB',
+        TEMPLATE_OFFER_ID: 'template_m128m5e',
     }
 }
