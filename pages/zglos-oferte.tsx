@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import styles from "@/styles/zglosOferte.module.css";
+import { useEffect, useState } from 'react';
+import styles from '@/styles/zglosOferte.module.css';
 import emailjs from 'emailjs-com';
+import Modal from '@/components/Modal/Modal';
 
 const SubmitOfferForm = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +17,9 @@ const SubmitOfferForm = () => {
     area: '',
     images: [],
   });
+
+  const [modalMessage, setModalMessage] = useState<string | null>(null);
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
   const handleChange = (e:any) => {
     const { name, value, type, files } = e.target;
@@ -50,13 +54,14 @@ const SubmitOfferForm = () => {
 
     const serviceID = String(process.env.SERVICE_ID);
     const templateOfferID = String(process.env.TEMPLATE_OFFER_ID);
-    const userID = String(process.env.USER_ID);
+    const userID = String(process.env.USER_DI);
 
 
       const response = await emailjs.send(serviceID, templateOfferID, templateParams, userID);
 
       if (response.status === 200) {
-        alert('Oferta została zgłoszona pomyślnie!');
+        setModalMessage('Oferta została zgłoszona pomyślnie!');
+        setIsSuccess(true);
         setFormData({
           name: '',
           email: '',
@@ -71,15 +76,42 @@ const SubmitOfferForm = () => {
           images: [],
         });
       } else {
-        alert('Wystąpił błąd podczas zgłaszania oferty.');
+        setModalMessage('Wystąpił błąd podczas zgłaszania oferty.');
+        setIsSuccess(false);
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Wystąpił błąd podczas zgłaszania oferty.');
+      setModalMessage('Wystąpił błąd podczas zgłaszania oferty.');
+      setIsSuccess(false);
     }
   };
 
+  const handleCloseModal = () => {
+    setModalMessage(null); 
+  };
+
+  useEffect(() => {
+    if (modalMessage) {
+      const timer = setTimeout(() => {
+        setModalMessage(null);
+        setIsSuccess(Boolean);
+      }, 2000); 
+
+      return () => clearTimeout(timer); 
+    }
+  }, [modalMessage]);
+
   return (
+    <>
+    {modalMessage && (
+      <Modal 
+        message={modalMessage} 
+        onClose={handleCloseModal}
+        color={isSuccess ? '#155724' : '#721c24'}
+        background={isSuccess ? '#c3e6cb' : '#f5c6cb'}
+      />
+    )}
+
     <form className={styles.formContainer} onSubmit={handleSubmit}>
       <h2 className={styles.heading}>Zgłoś ofertę</h2>
 
@@ -228,6 +260,7 @@ const SubmitOfferForm = () => {
         Wyślij zgłoszenie
       </button>
     </form>
+    </>
   );
 };
 

@@ -4,6 +4,7 @@ import { FaMobileAlt } from 'react-icons/fa';
 import styles from "@/styles/contact.module.css";
 import img1 from "../images/logoDark.png";
 import emailjs from 'emailjs-com';
+import Modal from "@/components/Modal/Modal";
 
 interface FormState {
   name: string;
@@ -34,7 +35,7 @@ const Contact = () => {
   
     const serviceID = String(process.env.SERVICE_ID);
     const templateID = String(process.env.TEMPLATE_ID);
-    const userID = String(process.env.USER_I);
+    const userID = String(process.env.USER_DI);
 
     const templateParams: Record<string, unknown> = {
       name: form.name,
@@ -56,10 +57,15 @@ const Contact = () => {
         });
       })
       .catch((err) => {
-        console.error('FAILED...', err);
+        console.error('Error', err);
         setAlertMessage('Błąd podczas wysyłania wiadomości. Spróbuj ponownie.');
         setAlertType('error');
       });
+  };
+
+  const handleCloseModal = () => {
+    setAlertMessage(null);
+    setAlertType(null);
   };
 
   useEffect(() => {
@@ -67,7 +73,7 @@ const Contact = () => {
       const timer = setTimeout(() => {
         setAlertMessage(null);
         setAlertType(null);
-      }, 3000); 
+      }, 2000); 
 
       return () => clearTimeout(timer); 
     }
@@ -84,10 +90,14 @@ const Contact = () => {
         </p>
       </div>
 
-      {alertMessage && alertType && (
-        <div className={alertType === 'success' ? styles.alertSuccess : styles.alertError}>
-          {alertMessage}
-        </div>
+ 
+{alertMessage && (
+        <Modal 
+        message={alertMessage} 
+        onClose={handleCloseModal}
+        color={alertType === 'success' ? '#155724' : '#721c24'}
+        background={alertType === 'success' ? '#c3e6cb' : '#f5c6cb'}
+        />
       )}
 
       <div className={styles.contactContent}>

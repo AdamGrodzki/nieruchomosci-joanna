@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import styles from "../../components/TeamMember/TeamMember.module.scss"
-
+import styles from "../../components/TeamMember/TeamMember.module.scss";
 
 const TeamMember = ({ name, title, description, email, phone, image, license }:any) => {
   return (
