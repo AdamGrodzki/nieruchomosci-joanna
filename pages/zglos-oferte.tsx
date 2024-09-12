@@ -35,6 +35,12 @@ const SubmitOfferForm = () => {
     e.preventDefault();
     console.log(formData);
     
+
+    const imageUrls = Array.from(formData.images).map(file => {
+      return URL.createObjectURL(file);
+    });
+  
+
     
     try {
 
@@ -49,12 +55,13 @@ const SubmitOfferForm = () => {
       transactionType: formData.transactionType,
       price: formData.price,
       area: formData.area,
-      images: formData.images.length,
+      // images: formData.images.length,
+      images: imageUrls.join(', '),
     };
 
     const serviceID = String(process.env.SERVICE_ID);
     const templateOfferID = String(process.env.TEMPLATE_OFFER_ID);
-    const userID = String(process.env.USER_DI);
+    const userID = String(process.env.DI);
 
 
       const response = await emailjs.send(serviceID, templateOfferID, templateParams, userID);

@@ -61,7 +61,7 @@
 
  .contactForm input,
  .contactForm textarea {
-     margin-bottom: 15px;
+     margin-bottom: 25px;
      padding: 15px;
      border-radius: 10px;
      border: 1px solid #ccc;
@@ -129,3 +129,34 @@
      }
  }
 
+ .error {
+     color: #d9534f;
+     background-color: #f9d6d5;
+     border: 1px solid #d9534f;
+     padding: 5px;
+     margin-bottom: 5px;
+     border-radius: 10px;
+     font-size: 10px;
+     font-weight: 500;
+     text-align: left;
+     width: fit-content;
+     display: inline-block;
+     opacity: 0;
+ }
+
+ .errorVisible {
+    opacity: 1;
+    position: absolute;
+    top: -18px;
+    left: 0;
+    transform: translateY(0);
+    animation: shake 0.5s ease-in;
+ }
+
+ @keyframes shake {
+    0% { transform: translateX(-5px); }
+    25% { transform: translateX(5px); }
+    50% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+  }

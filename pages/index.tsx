@@ -33,3 +33,7 @@ const Property: React.FC<PropertyProps> = ({nieruchomosci}) => {
 }
 
 export default Property;
+
+
+
+
