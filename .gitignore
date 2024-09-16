@@ -27,7 +27,6 @@ yarn-error.log*
 
 # local env files
 .env*.local
-.env
 
 # vercel
 .vercel
@@ -37,7 +36,7 @@ yarn-error.log*
 next-env.d.ts
 
 # Ignore environment variables
-/pages/.env
+pages/.env
 
 # Ignore Next.js configuration file
 next.config.js
