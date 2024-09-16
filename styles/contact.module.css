@@ -138,16 +138,13 @@
      border-radius: 10px;
      font-size: 10px;
      font-weight: 500;
-     text-align: left;
-     width: fit-content;
-     display: inline-block;
      opacity: 0;
  }
 
  .errorVisible {
     opacity: 1;
     position: absolute;
-    top: -18px;
+    top: -15px;
     left: 0;
     transform: translateY(0);
     animation: shake 0.5s ease-in;

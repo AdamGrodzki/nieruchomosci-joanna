@@ -3,15 +3,17 @@ import Image from 'next/image';
 import { FaMobileAlt } from 'react-icons/fa';
 import { useFormik } from 'formik';
 import styles from '@/styles/contact.module.css';
-import img1 from '../images/logoDark.png';
+import logoDark from '../images/logoDark.png';
 import emailjs from 'emailjs-com';
 import Modal from '@/components/Modal/Modal';
 
 import {ContactFormSchema} from '@/static/contactFormSchema'
 
+
 const Contact = () => {
-  const [alertMessage, setAlertMessage] = useState<string | null>(null);
+  const [alertMessage, setAlertMessage] = useState<string>('');
   const [alertType, setAlertType] = useState<'success' | 'error' | null>(null);
+
 
   const formik = useFormik({
     initialValues: {
@@ -24,10 +26,9 @@ const Contact = () => {
     onSubmit: (values, { resetForm }) => {
       const serviceID = String(process.env.SERVICE_ID);
       const templateID = String(process.env.TEMPLATE_ID);
-      const userID = String(process.env.USER_DI);
+      const userID = String(process.env.USER_ID);
 
-
-
+  
       const templateParams = {
         name: values.name,
         email: values.email,
@@ -51,21 +52,31 @@ const Contact = () => {
     },
   });
 
+  const {
+    values,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    touched,
+    errors
+  } = formik;
+
   const handleCloseModal = () => {
-    setAlertMessage(null);
+    setAlertMessage('');
     setAlertType(null);
   };
 
   useEffect(() => {
     if (alertMessage) {
       const timer = setTimeout(() => {
-        setAlertMessage(null);
+        setAlertMessage('');
         setAlertType(null);
       }, 2000);
 
       return () => clearTimeout(timer);
     }
   }, [alertMessage]);
+
 
   return (
     <div className={styles.contactContainer}>
@@ -88,62 +99,19 @@ const Contact = () => {
       )}
 
       <div className={styles.contactContent}>
-        {/* <form onSubmit={formik.handleSubmit} className={styles.contactForm}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Imię i Nazwisko"
-            value={formik.values.name}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.name && formik.errors.name && <div className={styles.error}>{formik.errors.name}</div>}
-
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Telefon kontaktowy"
-            value={formik.values.phone}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.phone && formik.errors.phone && <div className={styles.error}>{formik.errors.phone}</div>}
-
-          <input
-            type="email"
-            name="email"
-            placeholder="Adres Email"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.email && formik.errors.email && <div className={styles.error}>{formik.errors.email}</div>}
-
-          <textarea
-            name="message"
-            placeholder="Treść wiadomości"
-            value={formik.values.message}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.message && formik.errors.message && <div className={styles.error}>{formik.errors.message}</div>}
-
-          <button type="submit">Wyślij</button>
-        </form> */}
-
-<form onSubmit={formik.handleSubmit} className={styles.contactForm}>
+<form onSubmit={handleSubmit} className={styles.contactForm}>
   <div style={{ position: 'relative' }}>
     <input
       type="text"
       name="name"
       placeholder="Imię i Nazwisko"
-      value={formik.values.name}
-      onChange={formik.handleChange}
-      onBlur={formik.handleBlur}
+      value={values.name}
+      onChange={handleChange}
+      onBlur={handleBlur}
     />
-    {formik.touched.name && formik.errors.name && (
+    {touched.name && errors.name && (
       <div className={`${styles.error} ${styles.errorVisible}`}>
-        {formik.errors.name}
+        {errors.name}
       </div>
     )}
   </div>
@@ -153,13 +121,13 @@ const Contact = () => {
       type="tel"
       name="phone"
       placeholder="Telefon kontaktowy"
-      value={formik.values.phone}
-      onChange={formik.handleChange}
-      onBlur={formik.handleBlur}
+      value={values.phone}
+      onChange={handleChange}
+      onBlur={handleBlur}
     />
-    {formik.touched.phone && formik.errors.phone && (
+    {touched.phone && errors.phone && (
       <div className={`${styles.error} ${styles.errorVisible}`}>
-        {formik.errors.phone}
+        {errors.phone}
       </div>
     )}
   </div>
@@ -169,13 +137,13 @@ const Contact = () => {
       type="email"
       name="email"
       placeholder="Adres Email"
-      value={formik.values.email}
-      onChange={formik.handleChange}
-      onBlur={formik.handleBlur}
+      value={values.email}
+      onChange={handleChange}
+      onBlur={handleBlur}
     />
-    {formik.touched.email && formik.errors.email && (
+    {touched.email && errors.email && (
       <div className={`${styles.error} ${styles.errorVisible}`}>
-        {formik.errors.email}
+        {errors.email}
       </div>
     )}
   </div>
@@ -184,13 +152,13 @@ const Contact = () => {
     <textarea
       name="message"
       placeholder="Treść wiadomości"
-      value={formik.values.message}
-      onChange={formik.handleChange}
-      onBlur={formik.handleBlur}
+      value={values.message}
+      onChange={handleChange}
+      onBlur={handleBlur}
     />
-    {formik.touched.message && formik.errors.message && (
+    {touched.message && errors.message && (
       <div className={`${styles.error} ${styles.errorVisible}`}>
-        {formik.errors.message}
+        {errors.message}
       </div>
     )}
   </div>
@@ -201,7 +169,7 @@ const Contact = () => {
 
         <div className={styles.contactImage}>
           <Image
-            src={img1}
+            src={logoDark}
             alt="Kontakt"
             width={500}
             height={300}
