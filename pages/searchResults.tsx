@@ -119,7 +119,6 @@ const SearchResults = () => {
     }).format(price);
 };
 
-
   return (
     <>
       <div className={styles.container}>

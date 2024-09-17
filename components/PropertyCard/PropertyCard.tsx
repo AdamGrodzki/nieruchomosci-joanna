@@ -1,12 +1,9 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import Link from "next/link";
 import Image from "next/image";
 import { PropertyCardProps } from "@/static/data";
 import styles from "@/components/PropertyCard/propertyCard.module.scss"
 import { FaLocationDot } from "react-icons/fa6";
-
-
-
 
 const PropertyCard: React.FC<PropertyCardProps> = ({nieruchomosc}) => {
 const {
@@ -19,18 +16,22 @@ const {
     area,
   } = nieruchomosc.fields;
 
-  const createdAt = new Date(nieruchomosc.sys.createdAt);
-  const today = new Date();
-  const timeDiff = Math.abs(today.getTime() - createdAt.getTime());
-  const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+  const createdAt = useMemo(() => new Date(nieruchomosc.sys.createdAt), [nieruchomosc.sys.createdAt]);
+  const diffDays = useMemo(() => {
+    const today = new Date();
+    const timeDiff = Math.abs(today.getTime() - createdAt.getTime());
+    return Math.ceil(timeDiff / (1000 * 3600 * 24));
+  }, [createdAt]);
 
   const isNewOffer = diffDays <= 7;
   
-  const formattedDate = new Intl.DateTimeFormat('pl-PL', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }).format(new Date(createdAt));
+  const formattedDate = useMemo(() => {
+    return new Intl.DateTimeFormat('pl-PL', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }).format(createdAt);
+  }, [createdAt]);
 
 
     return (
@@ -43,8 +44,8 @@ const {
                   src={"https:" + gallery.fields.file.url}
                   height={400}
                   width={600}
-                  alt={gallery.fields.title}
-                  priority={true}
+                  alt={gallery.fields.title || "Property Image"}
+                  priority={false}
                 />
                  </a>
               </Link>

@@ -1,14 +1,18 @@
 import styles from "@/components/Loader/loader.module.scss"
-import load from "@/images/loader.gif"
+import loader from "@/images/loader.gif"
 import Image from "next/image";
 
 const Loader = () => {
     return (
-        <>
-        <div className={styles.loader}>
-        <Image className={styles.fiLoader} src={load} alt="loader gif" />
+        <div className={styles.loader} aria-live="polite" aria-busy="true">
+            <Image 
+                src={loader}
+                width={70}
+                height={70}
+                alt="Ładowanie treści, proszę czekać..." 
+                priority
+            />
         </div>
-        </>
      );
 }
  

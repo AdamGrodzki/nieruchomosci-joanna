@@ -1,14 +1,14 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import Image from 'next/image';
 import useEmblaCarousel from 'embla-carousel-react';
+import Image, { StaticImageData } from 'next/image';
 import styles from './landingPage.module.scss';
+
 import logo from "../../images/logoDark.png"; 
+import carouselImage1 from "../../images/kitchen.jpg";
+import carouselImage2 from "../../images/living-room2.jpg";
+import carouselImage3 from "../../images/living-room3.jpg";
 
-import img1 from "../../images/kitchen.jpg";
-import img2 from "../../images/living-room2.jpg";
-import img3 from "../../images/living-room3.jpg";
-
-const images = [ img1, img2, img3];
+const images: StaticImageData[]= [ carouselImage1, carouselImage2, carouselImage3];
 
 const LandingPage = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
@@ -17,19 +17,16 @@ const LandingPage = () => {
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi, setSelectedIndex]);
+  }, [emblaApi]);
 
   useEffect(() => {
     if (!emblaApi) return;
+
     onSelect();
     emblaApi.on('select', onSelect);
   
     const intervalId = setInterval(() => {
-      if (emblaApi.canScrollNext()) {
-        emblaApi.scrollNext();
-      } else {
-        emblaApi.scrollTo(0);
-      }
+      emblaApi?.canScrollNext() ? emblaApi.scrollNext() : emblaApi.scrollTo(0);
     }, 6000);
 
     return () => {
@@ -53,7 +50,7 @@ const LandingPage = () => {
                 src={src}
                 alt={`Carousel Image ${index + 1}`}
                 layout="fill"
-                style={{ objectFit: 'cover' }}
+                className={styles.emblaImage}
                 priority={index === 0}
               />
             </div>
@@ -65,8 +62,8 @@ const LandingPage = () => {
           src={logo}
           height={400}
           width={400}
-          alt="logo-nieruchomosci"
-          priority={true}
+          alt="Logo Joanna Nieruchomości"
+          priority
         />
       </div>
       <div className={styles.pagination}>

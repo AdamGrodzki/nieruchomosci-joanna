@@ -21,22 +21,18 @@ interface CarouselProps {
 
 const PrevArrowButton: React.FC<ArrowButtonProps> = ({onClick}) => {  
   return (
-  <>
     <div className={styles.arrowLeft} onClick={onClick}>
       <FaArrowLeft />
     </div>
-    </>
   );
 }
 
 
 const NextArrowButton: React.FC<ArrowButtonProps> = ({onClick}) => {
   return (
-    <>
     <div className={styles.arrowRight} onClick={onClick}>
       <FaArrowRight />
     </div>
-    </>
   );
 }
 
@@ -49,7 +45,6 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
-    // autoplay: true,
     autoplay: false,
     autoplaySpeed: 3000,
     cssEase: "linear",
@@ -83,7 +78,9 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
 
   return (
     <div className={styles.carouselContainer}>
-    <Slider {...settings}>{children}</Slider>
+      <Slider {...settings}>
+        {children}
+      </Slider>
   </div>
   )    
 };

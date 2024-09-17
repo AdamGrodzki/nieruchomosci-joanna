@@ -1,9 +1,8 @@
-import styles from "./searchbar.module.scss";
-import { IoSearchCircleOutline } from "react-icons/io5";
 import { useState, useCallback, useRef, useEffect } from 'react';
-import { useRouter } from "next/router";
 import { client } from '@/lib/contentful';
-
+import { useRouter } from "next/router";
+import { IoSearchCircleOutline } from "react-icons/io5";
+import styles from "./searchbar.module.scss";
 
 const SearchBar = () => {
   const [typeOfProperty, setTypeOfProperty] = useState<string>("");

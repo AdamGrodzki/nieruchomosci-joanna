@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface PropertyProps {
     nieruchomosci: Nieruchomosc[];
 }
@@ -55,3 +57,38 @@ export interface PropertyCardProps {
 
 
 
+export interface Photo {
+    fields: {
+        file: {
+            url: string;
+        };
+        title: string;
+    };
+}
+
+export interface PropertyDetailsProps {
+    nieruchomosci: {
+        fields: {
+            address: string;
+            area: number;
+            contact: string;
+            description: any;
+            photos: Photo[];
+            price: number;
+            title: string;
+            transactionType: string;
+            typeOfProperty: string;
+        };
+    };
+}
+
+//interface for teamMember and o-nas component.
+export interface TeamMemberProps {
+    name: string;
+    title: string;
+    description: string;
+    email: string;
+    phone: string;
+    image: StaticImageData;
+    license: string;
+}

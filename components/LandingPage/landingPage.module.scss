@@ -22,6 +22,12 @@
     height: 100vh;
 }
 
+.emblaImage {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
 .heroContent {
     position: absolute;
     top: 50%;

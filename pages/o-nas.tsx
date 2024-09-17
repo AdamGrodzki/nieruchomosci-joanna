@@ -1,20 +1,19 @@
 import TeamMember from "@/components/TeamMember/TeamMember";
-import img1 from "../images/JoannaAvatar.jpg"
-import img2 from "../images/SebastianAvatar.png"
-
+import joannaAvatar from "../images/JoannaAvatar.jpg"
+import sebastianAvatar from "../images/SebastianAvatar.png"
 import heroGraphic from "@/images/desk.jpg";
-
 import Image from "next/image";
 import styles from "@/styles/aboutUs.module.css"
+import { TeamMemberProps } from "@/static/data";
 
-const teamMembers = [
+const teamMembers: TeamMemberProps[] = [
     {
       name: 'Joanna Kowalska',
       title: 'Właściciel, pośrednik w obrocie nieruchomościami, obsługa nieruchomości, marketing, sprzedaż, dialog z klientem',
       description: 'Ludzkość w połączeniu z profesjonalizmem to podstawa sukcesu. Zgodnie z tą dewizą do każdej sprzedaży nieruchomości podchodzimy bardzo indywidualnie i z sercem. Dokładamy wszelkich starań, aby sprzedaż Twojej nieruchomości była wspaniałym doświadczeniem.',
       email: 'joanna@estateapp.com',
       phone: '123 456 789',
-      image: img1,
+      image: joannaAvatar,
       license: '21605'
     },
     {
@@ -23,39 +22,42 @@ const teamMembers = [
       description: 'Z doświadczenia wiem jak ważny jest stały kontakt z właścicielem i zainteresowanymi stronami. Cieszę się, że jestem łącznikiem między nimi i dbam o to, aby każdy miał pod ręką wszystkie istotne informacje, aby osiągnąć możliwie najlepszy wynik dla obu stron',
       email: 'sebastian@estateapp.com',
       phone: '987 654 321',
-      image: img2,
+      image: sebastianAvatar,
       license: '10101'
     },
   ];
   
-const teamMember = () => {  
-return (
-  <div className={styles.container}>
-    <div className={styles.heroWrapper}>
-      <Image src={heroGraphic} alt='Hero Graphic' />
+const teamMember: React.FC = () => {  
+  return (
+    <div className={styles.container}>
+      <div className={styles.heroWrapper}>
+        <Image 
+          src={heroGraphic} 
+          alt='Hero Graphic'
+        />
       <div className={styles.overlay}>
         <div className={styles.content}>
           <h1>O nas</h1>
           <p>Witamy na stronie naszego zespołu. Tutaj możesz dowiedzieć się więcej o naszych oddanych profesjonalistach.</p>
         </div>
       </div>
+      </div>
+      <div className={styles.cardContainer}>
+      {teamMembers.map(member => (
+        <TeamMember
+          key={member.email}
+          name={member.name}
+          title={member.title}
+          description={member.description}
+          email={member.email}
+          phone={member.phone}
+          image={member.image}
+          license={member.license}
+        />
+      ))}
+      </div>
     </div>
-    <div className={styles.cardContainer}>
-    {teamMembers.map(member => (
-      <TeamMember
-        key={member.name}
-        name={member.name}
-        title={member.title}
-        description={member.description}
-        email={member.email}
-        phone={member.phone}
-        image={member.image}
-        license={member.license}
-      />
-    ))}
-    </div>
-  </div>
-);
-};
+  );
+  };
 
 export default teamMember;

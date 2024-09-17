@@ -1,6 +1,5 @@
 .container {
     background-color: #f7f7f7;
-
 }
 
 .heroWrapper {
@@ -17,7 +16,6 @@
     height: 100%;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-
 }
 
 .overlay {
@@ -47,7 +45,6 @@
 .content h1 {
     text-transform: uppercase;
 }
-
 
 .cardContainer {
     padding: 20px;

@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import styles from "@/components/ArrowNavigation/arrowNavigation.module.scss"
 import { FaArrowUp } from "react-icons/fa";
-
 
 const ArrowNavigation = () => {
     const [showButton, setShowButton] = useState<boolean>(false);
@@ -19,17 +18,21 @@ const ArrowNavigation = () => {
         };
     }, []);
 
-    const scrollToTop = () => {
+    const scrollToTop = useCallback(() => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth',
         });
-    };
+    }, []);
 
     return ( 
         <>
             {showButton && (
-                <button className={styles.arrowUp} onClick={scrollToTop}>
+                <button 
+                    className={styles.arrowUp} 
+                    onClick={scrollToTop}
+                    aria-label="Scroll to top"
+                >
                     <FaArrowUp /> 
                 </button>
             )}

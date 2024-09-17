@@ -60,14 +60,11 @@
     cursor: pointer;
     transition: background-color 0.3s;
     font-family: inherit;
-
 }
 
 .submitButton:hover {
     background-color: #444;
 }
-
-
 
 .fileInput {
     border-radius: 5px;

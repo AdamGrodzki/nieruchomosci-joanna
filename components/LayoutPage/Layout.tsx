@@ -1,11 +1,11 @@
+import Head from 'next/head';
 import { ReactNode, FC} from 'react';
 import Navbar from '../Navbar/Navbar';
-import styles from "@/components/LayoutPage/layout.module.scss"
 import Footer from '../Footer/Footer';
 import ArrowNavigation from '../ArrowNavigation/ArrowNavigation';
-import Head from 'next/head';
 import PageTransition from '../PageTransition/PageTransition';
 import ScrollProgressBar from '../ScrollProgressBar/ScrollProgressBar';
+import styles from "@/components/LayoutPage/layout.module.scss"
 
 interface LayoutProps {
   children: ReactNode;
@@ -16,20 +16,28 @@ interface LayoutProps {
     <>
        <Head>
         <title>Joanna Nieruchomości</title>
+        <meta name="description" content="Joanna Nieruchomości - Nieruchomości w Tczewie" />
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
+
       <ScrollProgressBar />
+
     <div className={styles.layout}>
       <header>
-      <Navbar />
+        <Navbar />
       </header>
+      <main className={styles.pageContent}>
       <PageTransition>
-      <div className={styles.pageContent}>
       {children}
-      </div>
-      </PageTransition>
+        </PageTransition>
+      </main>
+
       <ArrowNavigation />
-    <Footer />
-      </div>
+      <footer>
+        <Footer />
+      </footer>
+    </div>
     </>
   );
 };

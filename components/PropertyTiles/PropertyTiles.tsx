@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from "@/components/PropertyTiles/propertyTiles.module.scss";
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { useRouter } from 'next/router';
 
 import dom from "@/images/dom1.png"
@@ -9,37 +9,42 @@ import działka from "@/images/działka.png"
 import lokal from "@/images/lokal.png"
 import obiekt from "@/images/obiekt.png"
 
-const PropertyTiles = () => {
+interface Property {
+    type: string;
+    img: StaticImageData;
+}
+
+const properties: Property[] = [
+    { type: 'Mieszkanie', img: blok },
+    { type: 'Dom', img: dom },
+    { type: 'Działka', img: działka },
+    { type: 'Lokal', img: lokal },
+    { type: 'Obiekt', img: obiekt }
+];
+
+const PropertyTiles: React.FC = () => {
     const router = useRouter();
-    const [hoveredTile, setHoveredTile] = useState<string>();
 
     const handleTileClick = (propertyType: string, transactionType: string) => {
-        const currentParams = new URLSearchParams(window.location.search);
-        currentParams.set('typeOfProperty', propertyType);
-        currentParams.set('transactionType', transactionType);
-        router.push(`/searchResults?${currentParams.toString()}`);
+        router.push({
+            pathname: '/searchResults',
+            query: {typeOfProperty: propertyType, transactionType}
+        });
     };
 
     return (
         <div className={styles.container}>
-        {[
-            { type: 'Mieszkanie', img: blok },
-            { type: 'Dom', img: dom },
-            { type: 'Działka', img: działka },
-            { type: 'Lokal', img: lokal },
-            { type: 'Obiekt', img: obiekt }
-        ].map(({ type, img }) => (
-            <div
-                key={type}
-                className={styles.tile}
-                onMouseEnter={() => setHoveredTile(type)}
-                onMouseLeave={() => setHoveredTile("")}
-            >
-                <div className={styles.front}>
-                <Image 
-                    src={img} 
-                    alt={`${type} cards`}
-                />
+            {properties.map(({type, img}) => (
+                <div
+                    key={type}
+                    className={styles.tile}
+                >
+                    <div className={styles.front}>
+                        <Image
+                        src={img}
+                        alt={`${type} card`}
+                        />
+            
                 <h2>{type}</h2>
                 </div>
                 

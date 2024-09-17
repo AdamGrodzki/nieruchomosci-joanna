@@ -159,4 +159,8 @@
         font-size: 10px;
         text-align: center;
     }
+
+    .tile:last-child {
+        grid-column: span 2;
+    }
 }

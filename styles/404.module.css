@@ -5,7 +5,7 @@
     width: 100%;
     height: 100vh;
     background-color: #f5f5f5;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 .notFoundContent {
@@ -16,16 +16,45 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.notFoundContent p {
+    font-size: 1.2rem;
+}
+
 .headingOne {
     font-size: 4rem;
     color: #333;
     margin-bottom: 1rem;
+    animation: pulse 1.5s infinite;
 }
 
 .headingTwo {
     font-size: 2rem;
     color: #555;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+}
+
+.homeLink {
+    color: #3498db;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.homeLink:hover {
+    color: #2980b9;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 @media (max-width: 768px) {

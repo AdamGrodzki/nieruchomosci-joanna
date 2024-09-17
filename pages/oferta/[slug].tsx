@@ -1,17 +1,14 @@
+import { useState, useEffect} from 'react';
+import { client } from "@/lib/contentful";
+import Image from "next/image";
+import Loader from "@/components/Loader/Loader";
+import Skeleton from "@/components/Skeleton/Skeleton";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { PropertyDetailsProps } from '@/static/data';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-import Image from "next/image";
 import styles from "@/styles/slug.module.css";
-import Loader from "@/components/Loader/Loader";
-import Skeleton from "@/components/Skeleton/Skeleton";
-import { client } from "@/lib/contentful";
-import { useState, useEffect} from 'react';
-
-
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-
 
 export const getStaticPaths = async () => {
     const res = await client.getEntries({
@@ -30,7 +27,7 @@ export const getStaticPaths = async () => {
     };
 }
 
-export async function getStaticProps({ params }: any) {
+export async function getStaticProps({ params }: { params: { slug: string } }) {
     const { items } = await client.getEntries({
         content_type: "nieruchomosc",
         "fields.slug": params.slug,
@@ -51,8 +48,7 @@ export async function getStaticProps({ params }: any) {
     };
 }
 
-
-const PropertyDetails = ({ nieruchomosci }: any) => {
+const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -76,17 +72,18 @@ const PropertyDetails = ({ nieruchomosci }: any) => {
     };
 
     const settingsPhotos = {
-        customPaging: function(i: string | number) {
+        customPaging: function(i: number) {
             return (
                     <a>
-                    <Image
+                        <Image
                         className={styles.imageGallery}
                         src={"https:" + photos[i].fields.file.url}
                         alt={photos[i].fields.title}
                         objectFit="cover"
                         width={75}
                         height={60}
-                    />
+                        priority
+                        />
                     </a>
             );
         },
@@ -98,7 +95,6 @@ const PropertyDetails = ({ nieruchomosci }: any) => {
         slidesToShow: 1,
         slidesToScroll: 1,
     };
-
 
     const formattedPrice = formatPrice(fields.price);
 
@@ -119,7 +115,7 @@ const PropertyDetails = ({ nieruchomosci }: any) => {
 
             <div className={styles.cardImage}>
                 <Slider {...settingsPhotos}>
-                    {photos.map((photo: any, index: number) => (
+                    {photos.map((photo, index) => (
                         <div key={index} className={styles.imageWrapper}>
                             <Image
                                 src={"https:" + photo.fields.file.url}
@@ -131,7 +127,6 @@ const PropertyDetails = ({ nieruchomosci }: any) => {
                         </div>
                     ))}
                 </Slider>
-                
             </div>
             <p className={styles.description}>{documentToReactComponents(fields.description)}</p>
             <p className={styles.contact}>Kontakt: <a href={`tel:${fields.contact}`}>{fields.contact}</a></p>

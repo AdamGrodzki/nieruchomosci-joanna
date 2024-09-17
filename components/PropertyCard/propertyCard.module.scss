@@ -93,12 +93,8 @@
     .info p {
         margin: 0.8rem 0;
         font-size: 0.8rem;
-
         display: flex;
         justify-content: center;
-
-
-
     }
 
     .info h4 {
@@ -123,7 +119,6 @@
     font-size: 15px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    transform: rotate(340deg);
+    transform: rotate(340deg) translateZ(0);
     background: linear-gradient(135deg, #c59c58 0%, #e3c49c 50%, #c59c58 100%);
-
 }
