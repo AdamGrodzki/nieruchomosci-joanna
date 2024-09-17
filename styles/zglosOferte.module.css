@@ -16,7 +16,7 @@
 }
 
 .formGroup {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .label {
@@ -111,7 +111,7 @@
     color: #d9534f;
     background-color: #f9d6d5;
     border: 1px solid #d9534f;
-    padding: 3px;
+    padding: 5px;
     border-radius: 10px;
     font-size: 10px;
     font-weight: 500;
@@ -121,7 +121,7 @@
 .errorVisible {
     opacity: 1;
     position: absolute;
-    top: 30px;
+    top: -15px;
     left: 0;
     transform: translateY(0);
     animation: shake 0.5s ease-in;

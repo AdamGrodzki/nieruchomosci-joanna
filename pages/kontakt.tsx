@@ -151,7 +151,7 @@ const Contact = () => {
   <div style={{ position: 'relative' }}>
     <textarea
       name="message"
-      placeholder="Treść wiadomości"
+      placeholder="Treść wiadomości..."
       value={values.message}
       onChange={handleChange}
       onBlur={handleBlur}

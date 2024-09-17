@@ -38,7 +38,7 @@ const SubmitOfferForm = () => {
 
         const serviceID = String(process.env.SERVICE_ID);
         const templateOfferID = String(process.env.TEMPLATE_OFFER_ID);
-        const userID = String(process.env.USER_I);
+        const userID = String(process.env.USER_ID);
 
         const response = await emailjs.send(
           serviceID,
@@ -105,9 +105,10 @@ const SubmitOfferForm = () => {
 <h2 className={styles.heading}>Zgłoś ofertę</h2>
 
 <div className={styles.formGroup}>
-    <label className={styles.label}>Imię i nazwisko</label>
+    {/* <label className={styles.label}>Imię i nazwisko</label> */}
     <div style={{ position: 'relative' }}>
     <input
+      placeholder='Imię i Nazwisko'
       className={styles.input}
       type="text"
       name="name"
@@ -124,9 +125,10 @@ const SubmitOfferForm = () => {
   </div>
 
 <div className={styles.formGroup}>
-  <label className={styles.label}>Email</label>
+  {/* <label className={styles.label}>Email</label> */}
   <div style={{ position: 'relative' }}>
   <input
+    placeholder='Adres email'
     className={styles.input}
     type="email"
     name="email"
@@ -143,9 +145,10 @@ const SubmitOfferForm = () => {
 </div>
 
 <div className={styles.formGroup}>
-  <label className={styles.label}>Telefon kontaktowy</label>
+  {/* <label className={styles.label}>Telefon kontaktowy</label> */}
   <div style={{ position: 'relative' }}>
   <input
+    placeholder='Telefon kontaktowy'
     className={styles.input}
     type="text"
     name="phone"
@@ -162,8 +165,9 @@ const SubmitOfferForm = () => {
 </div>
 
 <div className={styles.formGroup}>
-  <label className={styles.label}>Lokalizacja</label>
+  {/* <label className={styles.label}>Lokalizacja</label> */}
   <input
+    placeholder='Lokalizacja'
     className={styles.input}
     type="text"
     name="location"
@@ -174,8 +178,9 @@ const SubmitOfferForm = () => {
 </div>
 
  <div className={styles.formGroup}>
-   <label className={styles.label}>Liczba pokoi</label>
+   {/* <label className={styles.label}>Liczba pokoi</label> */}
   <input
+    placeholder='Liczba pokoi'
     className={styles.input}
     type="number"
     name="numberOfRooms"
@@ -186,8 +191,9 @@ const SubmitOfferForm = () => {
 </div>
 
 <div className={styles.formGroup}>
-  <label className={styles.label}>Opis</label>
+  {/* <label className={styles.label}>Opis</label> */}
   <textarea
+    placeholder='Opis...'
     className={styles.textarea}
     name="description"
     value={values.description}
