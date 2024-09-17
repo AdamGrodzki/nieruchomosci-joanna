@@ -1,19 +1,16 @@
 import { StaticImageData } from "next/image";
-
+import { Document } from '@contentful/rich-text-types';
 export interface PropertyProps {
     nieruchomosci: Nieruchomosc[];
 }
 
 export interface GalleryItem {
-    fields: any;
-    photos: Array<{
-        fields: {
-            title: string;
-            file: {
-                url: string;
-            };
+    fields: {
+        title: string;
+        file: {
+            url: string;
         };
-    }>;
+    };
 }
 
 export interface GalleryPhoto {
@@ -54,9 +51,6 @@ export interface PropertyCardProps {
     nieruchomosc: Nieruchomosc;
 }
 
-
-
-
 export interface Photo {
     fields: {
         file: {
@@ -72,7 +66,7 @@ export interface PropertyDetailsProps {
             address: string;
             area: number;
             contact: string;
-            description: any;
+            description: Document;
             photos: Photo[];
             price: number;
             title: string;
