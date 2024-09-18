@@ -44,7 +44,8 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 
     return {
         props: { nieruchomosci: items[0] },
-        revalidate: 1
+        revalidate: 60,
+        // revalidate: 1,
     };
 }
 

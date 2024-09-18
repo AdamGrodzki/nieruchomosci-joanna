@@ -1,6 +1,6 @@
  .contactContainer {
      max-width: 1400px;
-     margin: 50px auto;
+     margin: 100px auto;
      padding: 50px;
      display: flex;
      flex-direction: column;
@@ -8,6 +8,7 @@
      background-color: #f7f7f7;
      border-radius: 10px;
      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+     min-height: 70vh;
  }
 
  .contactHeader {

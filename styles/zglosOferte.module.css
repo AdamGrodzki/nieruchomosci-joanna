@@ -1,11 +1,12 @@
 .formContainer {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 100px auto;
     padding: 50px;
     border: 1px solid #ddd;
     border-radius: 10px;
     background-color: #f7f7f7;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    min-height: 70vh;
 }
 
 .heading {
