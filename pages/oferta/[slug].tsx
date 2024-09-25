@@ -3,12 +3,12 @@ import { client } from "@/lib/contentful";
 import Image from "next/image";
 import Loader from "@/components/Loader/Loader";
 import Skeleton from "@/components/Skeleton/Skeleton";
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { PropertyDetailsProps } from '@/static/data';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "@/styles/slug.module.css";
+import RichTextRenderer from '@/components/RichTextRenderer/RichTextRenderer';
 
 export const getStaticPaths = async () => {
     const res = await client.getEntries({
@@ -99,6 +99,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
 
     const formattedPrice = formatPrice(fields.price);
 
+
     return (
         <div className={styles.card}>
             <div className={styles.cardHeader}>
@@ -129,7 +130,8 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
                     ))}
                 </Slider>
             </div>
-            <p className={styles.description}>{documentToReactComponents(fields.description)}</p>
+            {/* <p className={styles.description}>{documentToReactComponents(fields.description)}</p> */}
+            <RichTextRenderer content={fields.description} />
             <p className={styles.contact}>Kontakt: <a href={`tel:${fields.contact}`}>{fields.contact}</a></p>
         </div>
     );
