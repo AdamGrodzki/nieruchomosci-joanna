@@ -1,19 +1,19 @@
 .teamMember {
     position: relative;
+
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+    background: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     margin: 20px 0;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    background: #fff;
     max-width: 600px;
     width: 100%;
-    padding: 20px;
+    overflow: hidden;
     margin: 20px;
+    padding: 20px;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 
 
@@ -24,16 +24,16 @@
     }
 
     &:hover {
-        transform: translateY(-10px);
         box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+        transform: translateY(-10px);
     }
 }
 
 .imageWrapper {
     position: relative;
-    width: 100%;
-    max-width: 300px;
     margin-bottom: 20px;
+    max-width: 300px;
+    width: 100%;
 }
 
 .imageWrapper img {
@@ -43,14 +43,13 @@
 }
 
 .info {
-    flex: 1;
     display: flex;
-    flex-wrap: wrap;
+    flex: 1;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .info h2 {
-    font-size: 1.5rem;
     color: #333;
     font-size: 2rem;
     transition: color 0.4s ease;
@@ -61,25 +60,25 @@
 }
 
 .info h3 {
-    font-size: 1.2rem;
     color: #666;
-    margin: 10px 0;
+    font-size: 1.2rem;
     font-weight: normal;
+    margin: 10px 0;
 }
 
 .info p {
-    font-size: 1rem;
     color: #444;
+    font-size: 1rem;
     margin-bottom: 5px;
     line-height: 1.7;
 }
 
 .info a {
     position: relative;
-    transition: color 0.3s ease;
+
     color: #b79d52;
-    text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
     transition: color 0.3s ease;
 
     &:hover {
@@ -92,9 +91,10 @@
     position: absolute;
     left: 0;
     bottom: -2px;
-    width: 0;
-    height: 2px;
+
     background-color: #b79d52;
+    height: 2px;
+    width: 0;
     transition: width 0.3s ease;
 }
 
@@ -103,8 +103,8 @@
 }
 
 .license {
-    font-style: italic;
     color: #888;
+    font-style: italic;
     margin-top: 20px;
     text-align: end;
 }

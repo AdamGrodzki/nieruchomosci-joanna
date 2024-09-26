@@ -66,16 +66,16 @@ const Contact = () => {
     setAlertType(null);
   };
 
-  useEffect(() => {
-    if (alertMessage) {
-      const timer = setTimeout(() => {
-        setAlertMessage('');
-        setAlertType(null);
-      }, 2000);
+  // useEffect(() => {
+  //   if (alertMessage) {
+  //     const timer = setTimeout(() => {
+  //       setAlertMessage('');
+  //       setAlertType(null);
+  //     }, 2000);
 
-      return () => clearTimeout(timer);
-    }
-  }, [alertMessage]);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [alertMessage]);
 
 
   return (

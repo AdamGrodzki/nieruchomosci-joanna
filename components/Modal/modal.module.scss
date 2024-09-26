@@ -2,24 +2,28 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1000;
+
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
+
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5);
+
     animation: fadeIn 0.4s ease-in-out;
 }
 
 .modalContent {
     background-color: #fff;
-    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    padding: 20px;
     max-width: 500px;
     width: 100%;
     text-align: center;
+
     animation: slideIn 0.4s ease-in-out;
 }
 

@@ -3,16 +3,25 @@
     position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;
+
     background-color: #555;
-    font-size: 1.5rem;
     color: white;
+    font-size: 1.5rem;
+    padding: 0.5rem;
     border: none;
     border-radius: 0.5rem;
+
     box-shadow: 0 0 10px rgba(0, 0, 1);
-    padding: 0.5rem;
+
     transition: all 0.3s ease-in-out;
     cursor: pointer;
+
     z-index: 9999;
+
+    @media (max-width: 768px) {
+        bottom: 3rem;
+        font-size: 1.25rem;
+    }
 }
 
 .arrowUp:hover {
@@ -22,11 +31,4 @@
 .arrowUp:active {
     transform: scale(0.9);
 
-}
-
-@media (max-width: 768px) {
-    .arrowUp {
-        bottom: 3rem;
-        font-size: 1.25rem;
-    }
 }

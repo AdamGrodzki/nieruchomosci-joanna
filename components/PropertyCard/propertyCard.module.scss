@@ -1,12 +1,13 @@
 .card {
+    position: relative;
+    overflow: hidden;
+    margin: 1.2rem;
+    max-width: 30rem;
+
+    background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 0.8rem;
-    overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
-    max-width: 30rem;
-    margin: 1.2rem;
-    background-color: #fff;
-    position: relative;
 }
 
 .card:hover {
@@ -15,15 +16,17 @@
 
 .featured {
     overflow: hidden;
-    width: 100%;
     height: 300px;
+    width: 100%;
+
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .featured img {
-    width: 100%;
     height: 100%;
+    width: 100%;
     object-fit: cover;
+
     transition: transform 0.3s;
 }
 
@@ -50,7 +53,6 @@
     font-size: 1.05rem;
     color: #333;
     text-transform: uppercase;
-
     // height: 50px
 }
 
@@ -62,12 +64,12 @@
 
 
 .price {
-    text-align: center;
     background-color: #ddd;
-    padding: 1.6rem;
+    border-radius: 0.5rem;
     font-size: 1rem;
     font-weight: bold;
-    border-radius: 0.5rem;
+    text-align: center;
+    padding: 1.6rem;
 }
 
 
@@ -91,10 +93,10 @@
     }
 
     .info p {
-        margin: 0.8rem 0;
-        font-size: 0.8rem;
         display: flex;
         justify-content: center;
+        margin: 0.8rem 0;
+        font-size: 0.8rem;
     }
 
     .info h4 {
@@ -107,18 +109,19 @@
 }
 
 .newOfferBadge {
-    background-color: #c59c58;
-    padding: 10px;
     position: absolute;
     top: 15px;
     left: 0px;
-    font-weight: bold;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 0 5px rgba(255, 255, 255, 0.6);
     z-index: 10;
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transform: rotate(340deg) translateZ(0);
+
+    background-color: #c59c58;
     background: linear-gradient(135deg, #c59c58 0%, #e3c49c 50%, #c59c58 100%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 0 5px rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transform: rotate(340deg) translateZ(0);
 }

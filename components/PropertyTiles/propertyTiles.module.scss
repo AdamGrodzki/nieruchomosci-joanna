@@ -1,20 +1,21 @@
 .container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 100px;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px;
     padding-top: 30px;
 }
 
 .tile {
-    width: 160px;
-    height: 160px;
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     text-align: center;
+
+    height: 160px;
+    width: 160px;
     padding: 10px;
     border-radius: 10px;
     transform: scale(1);
@@ -32,14 +33,14 @@
 }
 
 .tile img {
-    width: 120px;
     height: 120px;
+    width: 120px;
     transition: transform 0.3s ease;
 }
 
 .tile h2 {
-    font-size: 18px;
     color: #333;
+    font-size: 18px;
 }
 
 .tile:hover {
@@ -51,20 +52,21 @@
     transform: scale(1.05);
 }
 
-
 .front,
 .back {
+    position: absolute;
     width: 100%;
     height: 100%;
-    position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
     backface-visibility: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.6s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 .front {
@@ -79,13 +81,13 @@
 
 .back button {
     background-color: #444;
-    color: #fff;
-    padding: 10px 15px;
     border: none;
     border-radius: 10px;
-    cursor: pointer;
+    color: #fff;
+    padding: 10px 15px;
     margin: 10px;
     transition: background-color 0.2s;
+    cursor: pointer;
 
     &:hover {
         background-color: #333;
@@ -102,17 +104,17 @@
     }
 
     .tile {
-        width: 140px;
-        height: 140px;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
+        height: 140px;
+        width: 140px;
     }
 
     .tile img {
-        width: 100px;
         height: 100px;
+        width: 100px;
     }
 
     .tile h2 {
@@ -137,17 +139,17 @@
     }
 
     .tile {
-        width: 140px;
-        height: 140px;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
+        height: 140px;
+        width: 140px;
     }
 
     .tile img {
-        width: 90px;
         height: 90px;
+        width: 90px;
     }
 
     .tile h2 {

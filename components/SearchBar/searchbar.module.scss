@@ -67,32 +67,33 @@
 }
 
 .addressInputWrapper {
+    position: relative;
+
     display: flex;
     align-items: center;
-    position: relative;
     margin-top: 10px;
     gap: 10px;
 }
 
 .addressInputWrapper input {
     flex: 1;
-    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    padding: 10px;
 }
 
 .searchButton {
-    padding: 10px 15px;
     background-color: #333;
-    border: 1px solid #ccc;
-    color: #fff;
-    font-size: 18px;
     border: none;
+    border: 1px solid #ccc;
     border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    color: #fff;
     font-family: inherit;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 .searchButton:hover {
@@ -110,12 +111,13 @@
 .tooltip {
     position: absolute;
     top: 100%;
+
+    background-color: #333;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 12px;
     margin-top: 5px;
     padding: 10px;
-    background-color: #333;
-    color: #fff;
-    border-radius: 10px;
-    font-size: 12px;
 }
 
 .suggestions {
@@ -135,10 +137,10 @@
 }
 
 .suggestionItem {
-    cursor: pointer;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
     background-color: white;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .suggestionItem:last-child {

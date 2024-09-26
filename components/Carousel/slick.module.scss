@@ -21,31 +21,26 @@
     color: #333;
 }
 
-.arrowLeft {
-    left: -50px;
-    font-size: 30px;
-    padding: 5px 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 5px 3px #ccc;
-    display: flex;
-    width: 50px;
+.arrowLeft,
+.arrowRight {
     position: absolute;
     top: 300px;
     z-index: 1;
+
+    width: 50px;
+    display: flex;
+    padding: 5px 15px;
+
+    font-size: 30px;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px 3px #ccc;
     cursor: pointer;
+}
+
+.arrowLeft {
+    left: -50px;
 }
 
 .arrowRight {
     right: -50px;
-    font-size: 30px;
-    padding: 5px 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 5px 3px #ccc;
-    display: flex;
-    width: 50px;
-    position: absolute;
-    top: 300px;
-    z-index: 1;
-    cursor: pointer;
 }
-

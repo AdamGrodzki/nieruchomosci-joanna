@@ -1,25 +1,24 @@
 .richTextContent {
-    line-height: 1.6;
     color: #333;
-    padding: 20px;
+    line-height: 1.6;
     margin-top: 20px;
+    padding: 20px;
 
     @media (max-width: 480px) {
-        padding: 15px;
         margin-top: 70px;
+        padding: 15px;
     }
 }
 
 .paragraph {
+    color: #555;
     font-size: 16px;
     margin-bottom: 24px;
     text-align: justify;
-    color: #555;
 
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
         font-size: 15px;
         margin-bottom: 16px;
-        text-align: justify;
     }
 }
 
@@ -30,66 +29,65 @@
 // }
 
 .heading1 {
+    color: #222;
+    border-left: 5px solid #b79d52;
     font-size: 40px;
     font-weight: bold;
-    color: #222;
     margin-bottom: 19px;
     padding-bottom: 8px;
-    border-left: 5px solid #ffd700;
 
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
         font-size: 32px;
         margin-bottom: 16px;
     }
 }
 
 .heading2 {
+    color: #444;
+    border-left: 5px solid #b79d52;
     font-size: 32px;
     font-weight: bold;
-    color: #444;
     margin-bottom: 16px;
-    border-left: 5px solid #ffd700;
     padding-left: 10px;
 
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
         font-size: 24px;
         margin-bottom: 12px;
     }
 }
 
 .list {
+    color: #b79d52;
     list-style: disc;
-    color: #ffd700;
     padding: 20px;
 
-
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
         padding-left: 16px;
     }
 }
 
 .listItem {
-    padding: 20px;
+    color: #b79d52;
     margin-bottom: 8px;
+    padding: 20px;
     list-style: decimal;
-    color: #ffd700;
 
-    @media (max-width: 480px) {
-        padding-left: 8px;
+    @media (max-width: 768px) {
         margin-bottom: 5px;
+        padding-left: 8px;
     }
 }
 
 .quote {
+    color: #666;
+    background-color: #f9f9f9;
+    border-left: 5px solid #ccc;
     font-size: 24px;
     font-style: italic;
-    color: #666;
     margin: 24px 0;
     padding: 16px 24px;
-    border-left: 5px solid #ccc;
-    background-color: #f9f9f9;
 
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
         font-size: 20px;
         margin: 16px 0;
     }

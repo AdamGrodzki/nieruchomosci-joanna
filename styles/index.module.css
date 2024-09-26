@@ -1,27 +1,29 @@
 .heading {
-    font-size: 2rem;
     color: #333;
-    text-align: center;
-    padding: 1.5rem;
-    margin: 0.5rem;
+    font-size: 2rem;
     font-weight: bold;
-    text-transform: uppercase;
     letter-spacing: 2px;
+    margin: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .container {
     display: flex;
     justify-content: center;
-    padding: 2.5rem;
+
     background-color: #f7f7f7;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
 }
 
 .propertyList {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.25rem;
+
+    margin: 0 auto;
     width: 100%;
     max-width: 1600px;
-    margin: 0 auto;
 }

@@ -1,11 +1,12 @@
 .footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 1.7rem 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
 }
 
 .footerSection {
@@ -73,7 +74,8 @@
 }
 
 .facebookIcon:hover {
-    color: #0266ff;
+    // color: #0266ff;
+    color: #b79d52;
     transform: scale(1.2);
 }
 
