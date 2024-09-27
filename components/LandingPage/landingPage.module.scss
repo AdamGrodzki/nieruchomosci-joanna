@@ -5,7 +5,7 @@
 
     height: 70vh;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 2.5rem;
 }
 
 .embla {
@@ -36,7 +36,7 @@
     transform: translate(-50%, -50%);
     z-index: 1;
 
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 1));
+    filter: drop-shadow(0 0.25rem 0.375rem rgba(0, 0, 0, 1));
 }
 
 .pagination {
@@ -52,7 +52,7 @@
 .dot {
     width: 1rem;
     height: 1rem;
-    margin: 0 5px;
+    margin: 0 0.3rem;
     border-radius: 50%;
     cursor: pointer;
 
@@ -68,7 +68,7 @@
 .dot.active {
     background-color: #c59c58;
     transform: scale(1.5);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.3);
 }
 
 .heroContent img {
@@ -83,7 +83,7 @@
     }
 
     .heroContent {
-        width: 300px;
+        width: 18.75rem;
     }
 
     .dot:hover {

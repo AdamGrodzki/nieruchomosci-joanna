@@ -13,8 +13,7 @@
 }
 
 .heroWrapper img {
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.4);
     height: 100%;
     width: 100%;
 }
@@ -36,11 +35,11 @@
 .content {
     color: #333;
     background-color: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(30px);
-    border-radius: 10px;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
-    font-size: 18px;
-    padding: 30px;
+    backdrop-filter: blur(1.875rem);
+    border-radius: 0.5rem;
+    box-shadow: 0.625rem 0.625rem 1.25rem rgba(0, 0, 0, 0.4);
+    font-size: 1.125rem;
+    padding: 1.875rem;
 }
 
 .content h1 {
@@ -51,7 +50,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 1.25rem;
 }
 
 @media (max-width: 768px) {
@@ -71,8 +70,8 @@
     }
 
     .content {
-        font-size: 16px;
-        margin: 0 50px;
-        padding: 20px;
+        font-size: 1rem;
+        margin: 0 3.125rem;
+        padding: 1.25rem;
     }
 }

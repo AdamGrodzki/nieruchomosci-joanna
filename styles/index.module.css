@@ -2,7 +2,7 @@
     color: #333;
     font-size: 2rem;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 0.125rem;
     margin: 0.5rem;
     padding: 1.5rem;
     text-align: center;
@@ -14,7 +14,7 @@
     justify-content: center;
 
     background-color: #f7f7f7;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     padding: 2.5rem;
 }
 

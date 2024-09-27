@@ -7,15 +7,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem;
     background-color: #333;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.095rem;
     transition: border-bottom 0.4s ease;
 }
 
 .nav.scrolled {
-    border-bottom: 4px solid;
+    border-bottom: 0.25rem solid;
     border-image: linear-gradient(90deg, #c59c58, #f1c27d, #c59c58) 1;
     animation: shiny-border 3s linear infinite;
 }
@@ -27,7 +27,7 @@
 
 .logo:hover {
     transform: scale(1.1);
-    filter: drop-shadow(0 0 10px #b79d52);
+    filter: drop-shadow(0 0 0.625rem #b79d52);
 }
 
 .hamburger {
@@ -45,7 +45,7 @@
 
 .burgerIcon,
 .timesIcon {
-    font-size: 24px;
+    font-size: 1.5rem;
     color: #fff;
     transition: color 0.3s ease;
     animation: fadeIn 0.4s ease;
@@ -114,7 +114,7 @@
         flex-direction: column;
         background-color: #333;
         width: 100%;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
         border-radius: 0 0 0.5rem 0.5rem;
 
         opacity: 0;
@@ -125,7 +125,7 @@
 
     .showMenu {
         display: flex;
-        max-height: 500px;
+        max-height: 31.25rem;
         opacity: 1;
     }
 
@@ -143,7 +143,7 @@
 @keyframes fadeIn {
     0% {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-0.625rem);
     }
 
     100% {

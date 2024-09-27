@@ -1,94 +1,94 @@
 .richTextContent {
     color: #333;
     line-height: 1.6;
-    margin-top: 20px;
-    padding: 20px;
+    margin-top: 1.25rem;
+    padding: 1.25rem;
 
     @media (max-width: 480px) {
-        margin-top: 70px;
-        padding: 15px;
+        margin-top: 4.375rem;
+        padding: 1rem;
     }
 }
 
 .paragraph {
     color: #555;
-    font-size: 16px;
-    margin-bottom: 24px;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
     text-align: justify;
 
     @media (max-width: 768px) {
-        font-size: 15px;
-        margin-bottom: 16px;
+        font-size: 1rem;
+        margin-bottom: 1rem;
     }
 }
 
 // .paragraph::first-letter {
-//     font-size: 20px;
+//     font-size: 1.25rem;
 //     font-weight: bold;
 //     color: #000;
 // }
 
 .heading1 {
     color: #222;
-    border-left: 5px solid #b79d52;
-    font-size: 40px;
+    border-left: 0.3rem solid #b79d52;
+    font-size: 2.5rem;
     font-weight: bold;
-    margin-bottom: 19px;
-    padding-bottom: 8px;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.5rem;
 
     @media (max-width: 768px) {
-        font-size: 32px;
-        margin-bottom: 16px;
+        font-size: 2rem;
+        margin-bottom: 1rem;
     }
 }
 
 .heading2 {
     color: #444;
-    border-left: 5px solid #b79d52;
-    font-size: 32px;
+    border-left: 0.5rem solid #b79d52;
+    font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 16px;
-    padding-left: 10px;
+    margin-bottom: 1rem;
+    padding-left: 0.625rem;
 
     @media (max-width: 768px) {
-        font-size: 24px;
-        margin-bottom: 12px;
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
     }
 }
 
 .list {
     color: #b79d52;
     list-style: disc;
-    padding: 20px;
+    padding: 1.25rem;
 
     @media (max-width: 768px) {
-        padding-left: 16px;
+        padding-left: 1rem;
     }
 }
 
 .listItem {
     color: #b79d52;
-    margin-bottom: 8px;
-    padding: 20px;
+    margin-bottom: 0.5rem;
+    padding: 1.25rem;
     list-style: decimal;
 
     @media (max-width: 768px) {
-        margin-bottom: 5px;
-        padding-left: 8px;
+        margin-bottom: 0.3rem;
+        padding-left: 0.5rem;
     }
 }
 
 .quote {
     color: #666;
     background-color: #f9f9f9;
-    border-left: 5px solid #ccc;
-    font-size: 24px;
+    border-left: 0.3rem solid #ccc;
+    font-size: 1.5rem;
     font-style: italic;
-    margin: 24px 0;
-    padding: 16px 24px;
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
 
     @media (max-width: 768px) {
-        font-size: 20px;
-        margin: 16px 0;
+        font-size: 1.25rem;
+        margin: 1rem 0;
     }
 }

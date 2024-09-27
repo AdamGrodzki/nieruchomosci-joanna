@@ -1,29 +1,29 @@
 .formContainer {
     background-color: #f7f7f7;
     border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 100px auto;
-    max-width: 800px;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+    margin: 6.25rem auto;
+    max-width: 50rem;
     min-height: 70vh;
-    padding: 50px;
+    padding: 3.125rem;
 }
 
 .heading {
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     text-align: center;
     text-transform: uppercase;
 }
 
 .formGroup {
-    margin-bottom: 25px;
+    margin-bottom: 1.6rem;
 }
 
 .label {
     display: block;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 0.3rem;
     color: #555;
 }
 
@@ -31,9 +31,9 @@
 .select,
 .textarea {
     width: 100%;
-    padding: 10px;
+    padding: 0.625rem;
     border: 1px solid #ccc;
-    border-radius: 10px;
+    border-radius: 0.5rem;
     transition: border-color 0.3s;
 }
 
@@ -46,18 +46,18 @@
 
 .textarea {
     resize: vertical;
-    min-height: 100px;
+    min-height: 6.25rem;
     font-family: inherit;
 }
 
 .submitButton {
     width: 100%;
-    padding: 10px;
+    padding: 0.625rem;
     background-color: #333;
     color: white;
     border: none;
-    border-radius: 10px;
-    font-size: 16px;
+    border-radius: 0.5rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
     font-family: inherit;
@@ -68,23 +68,22 @@
 }
 
 .fileInput {
-    border-radius: 5px;
     background-color: #f8f9fa;
     color: #333;
     cursor: pointer;
-    font-size: 14px;
-    margin: 10px 0;
+    font-size: 0.875rem;
+    margin: 0.625rem 0;
     font-family: inherit;
 }
 
 .fileInput::-webkit-file-upload-button {
     background-color: #333;
     color: #fff;
-    padding: 8px 15px;
+    padding: 0.5rem 1rem;
     border: none;
-    border-radius: 10px;
+    border-radius: 0.5rem;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 0.875rem;
     transition: background-color 0.3s ease;
 }
 
@@ -95,23 +94,23 @@
 
 
 .note {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #666;
 }
 
 .formGroup>div {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 0.3rem;
 }
 
 .error {
     color: #d9534f;
     background-color: #f9d6d5;
     border: 1px solid #d9534f;
-    padding: 5px;
-    border-radius: 10px;
-    font-size: 10px;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    font-size: 0.625rem;
     font-weight: 500;
     opacity: 0;
 }
@@ -119,7 +118,7 @@
 .errorVisible {
     opacity: 1;
     position: absolute;
-    top: -15px;
+    top: -1rem;
     left: 0;
     transform: translateY(0);
     animation: shake 0.5s ease-in;
@@ -127,19 +126,19 @@
 
 @keyframes shake {
     0% {
-        transform: translateX(-5px);
+        transform: translateX(-0.3rem);
     }
 
     25% {
-        transform: translateX(5px);
+        transform: translateX(0.3rem);
     }
 
     50% {
-        transform: translateX(-5px);
+        transform: translateX(-0.3rem);
     }
 
     75% {
-        transform: translateX(5px);
+        transform: translateX(0.3rem);
     }
 
     100% {
