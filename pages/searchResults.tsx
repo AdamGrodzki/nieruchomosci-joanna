@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { TbLoader2 } from "react-icons/tb";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
-import styles from "@/styles/searchResult.module.css";
+import styles from "@/styles/searchResult.module.scss";
 
 interface SearchParams {
   typeOfProperty: string;

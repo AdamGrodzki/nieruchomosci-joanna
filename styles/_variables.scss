@@ -1,0 +1,82 @@
+//Colors
+$Dark-gray: #333;
+$Neutral-gray: #444;
+$Medium-gray: #555;
+$Gray: #666;
+
+$Golden-bronze: #c59c58;
+$Golden-sand: #b79d52;
+$Warm-crimson: #d9534f;
+
+$Link-blue: #3498db;
+$Hover-blue: #2980b9;
+
+//Background Colors 
+$Light-gray: #f5f5f5;
+$Pale-gray: #f7f7f7;
+$Soft-White: #f8f9fa;
+$Overlay-gray: rgba(50, 50, 50, 0.7);
+$Light-overlay: rgba(255, 255, 255, 0.4);
+$Warm-Rose: #f9d6d5;
+
+
+// Neutral 
+$White: #fff;
+$Black: #000;
+
+//Border-Radius 
+$Border-radius: 0.5rem; // 8px
+
+//Media Queries  
+$MediumWidth: 768px;
+$DesktopWidth: 992px;
+
+$breakpoint-xsmall: 400px;
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 1024px;
+$breakpoint-xlarge: 1300px;
+
+
+
+@mixin desktop {
+    @media (min-width: #{$DesktopWidth}) {
+        @content;
+    }
+}
+
+@mixin medium {
+    @media (min-width: #{$MediumWidth}) {
+        @content;
+    }
+}
+
+@mixin xsmall {
+    @media (min-width: #{$breakpoint-xsmall}) {
+        @content;
+    }
+}
+
+@mixin small {
+    @media (min-width: #{$breakpoint-small}) {
+        @content;
+    }
+}
+
+@mixin medium {
+    @media (min-width: #{$breakpoint-medium}) {
+        @content;
+    }
+}
+
+@mixin large {
+    @media (min-width: #{$breakpoint-large}) {
+        @content;
+    }
+}
+
+@mixin xlarge {
+    @media (min-width: #{$breakpoint-xlarge}) {
+        @content;
+    }
+}

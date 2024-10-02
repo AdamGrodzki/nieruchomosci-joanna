@@ -7,7 +7,7 @@ import { PropertyDetailsProps } from '@/static/data';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styles from "@/styles/slug.module.css";
+import styles from "@/pages/oferta/slug.module.scss"
 import RichTextRenderer from '@/components/RichTextRenderer/RichTextRenderer';
 
 export const getStaticPaths = async () => {

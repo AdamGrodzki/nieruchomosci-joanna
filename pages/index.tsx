@@ -1,7 +1,7 @@
 import { PropertyProps } from "@/static/data";
 import PropertyCard from "@/components/PropertyCard/PropertyCard";
 import Carousel from "@/components/Carousel/Carousel";
-import styles from "../styles/index.module.css"
+import styles from "../styles/index.module.scss"
 import {client} from "@/lib/contentful"
 
 export async function getStaticProps() {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { FaMobileAlt } from 'react-icons/fa';
 import { useFormik } from 'formik';
-import styles from '@/styles/contact.module.css';
+import styles from '@/styles/contact.module.scss';
 import logoDark from '../images/logoDark.png';
 import emailjs from 'emailjs-com';
 import Modal from '@/components/Modal/Modal';
@@ -65,7 +65,7 @@ const Contact = () => {
     setAlertMessage('');
     setAlertType(null);
   };
-
+  //CLEAR COMPONENT 404 AFTER 2SEC. 
   // useEffect(() => {
   //   if (alertMessage) {
   //     const timer = setTimeout(() => {

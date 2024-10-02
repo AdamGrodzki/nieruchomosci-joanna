@@ -1,5 +1,7 @@
+@import './variables';
+
 .container {
-    background-color: #f7f7f7;
+    background-color: $Pale-gray;
 }
 
 .heroWrapper {
@@ -26,15 +28,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(50, 50, 50, 0.7);
+    background-color: $Overlay-gray;
     height: 100%;
     width: 100%;
     text-align: center;
 }
 
 .content {
-    color: #333;
-    background-color: rgba(255, 255, 255, 0.4);
+    color: $Dark-gray;
+    background-color: $Light-overlay;
     backdrop-filter: blur(1.875rem);
     border-radius: 0.5rem;
     box-shadow: 0.625rem 0.625rem 1.25rem rgba(0, 0, 0, 0.4);

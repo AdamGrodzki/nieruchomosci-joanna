@@ -3,7 +3,7 @@ import joannaAvatar from "../images/JoannaAvatar.jpg"
 import sebastianAvatar from "../images/SebastianAvatar.png"
 import heroGraphic from "@/images/desk.jpg";
 import Image from "next/image";
-import styles from "@/styles/aboutUs.module.css"
+import styles from "@/styles/aboutUs.module.scss"
 import { TeamMemberProps } from "@/static/data";
 
 const teamMembers: TeamMemberProps[] = [

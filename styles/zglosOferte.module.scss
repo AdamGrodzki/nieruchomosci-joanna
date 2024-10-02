@@ -1,5 +1,7 @@
+@import './variables';
+
 .formContainer {
-    background-color: #f7f7f7;
+    background-color: $Pale-gray;
     border: 1px solid #ddd;
     border-radius: 0.5rem;
     box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
@@ -10,7 +12,7 @@
 }
 
 .heading {
-    color: #333;
+    color: $Dark-gray;
     margin-bottom: 1.25rem;
     text-align: center;
     text-transform: uppercase;
@@ -24,7 +26,7 @@
     display: block;
     font-weight: bold;
     margin-bottom: 0.3rem;
-    color: #555;
+    color: $Medium-gray;
 }
 
 .input,
@@ -40,7 +42,7 @@
 .input:focus,
 .select:focus,
 .textarea:focus {
-    border-color: #c59c58;
+    border-color: $Golden-bronze;
     outline: none;
 }
 
@@ -53,8 +55,8 @@
 .submitButton {
     width: 100%;
     padding: 0.625rem;
-    background-color: #333;
-    color: white;
+    background-color: $Dark-gray;
+    color: $White;
     border: none;
     border-radius: 0.5rem;
     font-size: 1rem;
@@ -64,12 +66,12 @@
 }
 
 .submitButton:hover {
-    background-color: #444;
+    background-color: $Neutral-gray;
 }
 
 .fileInput {
-    background-color: #f8f9fa;
-    color: #333;
+    background-color: $Soft-White;
+    color: $Dark-gray;
     cursor: pointer;
     font-size: 0.875rem;
     margin: 0.625rem 0;
@@ -77,8 +79,8 @@
 }
 
 .fileInput::-webkit-file-upload-button {
-    background-color: #333;
-    color: #fff;
+    background-color: $Dark-gray;
+    color: $White;
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 0.5rem;
@@ -89,13 +91,13 @@
 
 
 .fileInput::-webkit-file-upload-button:hover {
-    background-color: #444;
+    background-color: $Neutral-gray;
 }
 
 
 .note {
     font-size: 0.875rem;
-    color: #666;
+    color: $Gray;
 }
 
 .formGroup>div {
@@ -105,9 +107,9 @@
 }
 
 .error {
-    color: #d9534f;
-    background-color: #f9d6d5;
-    border: 1px solid #d9534f;
+    color: $Warm-crimson;
+    background-color: $Warm-Rose;
+    border: 1px solid $Warm-crimson;
     padding: 0.3rem;
     border-radius: 0.5rem;
     font-size: 0.625rem;
