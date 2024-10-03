@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .carouselContainer {
     position: relative;
     padding: 0 0.625rem;
@@ -13,26 +15,26 @@
 }
 
 .customDots li button::before {
-    color: #b79d52;
+    color: $Golden-sand;
     font-size: 1.25rem;
 }
 
 .customDots li button:hover::before {
-    color: #333;
+    color: $Dark-gray;
 }
 
 .arrowLeft,
 .arrowRight {
     position: absolute;
     top: 18.75rem;
-    z-index: 1;
+    z-index: $z-Index-low;
 
     width: 3.125rem;
     display: flex;
     padding: 0.3rem 1rem;
 
     font-size: 1.875rem;
-    border-radius: 0.5rem;
+    border-radius: $Border-radius;
     box-shadow: 0 0 0.3rem 0.2rem #ccc;
     cursor: pointer;
 }

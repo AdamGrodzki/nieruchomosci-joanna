@@ -6,12 +6,14 @@ $Gray: #666;
 
 $Golden-bronze: #c59c58;
 $Golden-sand: #b79d52;
+$Light-amber: #f1c27d;
 $Warm-crimson: #d9534f;
 
 $Link-blue: #3498db;
 $Hover-blue: #2980b9;
 
-//Background Colors 
+//Background Colors
+$Light-silver: #ccc;
 $Light-gray: #f5f5f5;
 $Pale-gray: #f7f7f7;
 $Soft-White: #f8f9fa;
@@ -26,6 +28,12 @@ $Black: #000;
 
 //Border-Radius 
 $Border-radius: 0.5rem; // 8px
+$Border-radius-circle: 50%; //circle shape
+
+
+//Z-Index
+$z-Index-low: 1;
+$z-Index-high: 9999;
 
 //Media Queries  
 $MediumWidth: 768px;

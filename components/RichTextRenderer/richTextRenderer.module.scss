@@ -1,5 +1,7 @@
+@import '../../styles/variables';
+
 .richTextContent {
-    color: #333;
+    color: $Dark-gray;
     line-height: 1.6;
     margin-top: 1.25rem;
     padding: 1.25rem;
@@ -11,7 +13,7 @@
 }
 
 .paragraph {
-    color: #555;
+    color: $Medium-gray;
     font-size: 1rem;
     margin-bottom: 1.5rem;
     text-align: justify;
@@ -30,7 +32,7 @@
 
 .heading1 {
     color: #222;
-    border-left: 0.3rem solid #b79d52;
+    border-left: 0.3rem solid $Golden-sand;
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 1.2rem;
@@ -43,8 +45,8 @@
 }
 
 .heading2 {
-    color: #444;
-    border-left: 0.5rem solid #b79d52;
+    color: $Neutral-gray;
+    border-left: 0.5rem solid $Golden-sand;
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 1rem;
@@ -57,7 +59,7 @@
 }
 
 .list {
-    color: #b79d52;
+    color: $Golden-sand;
     list-style: disc;
     padding: 1.25rem;
 
@@ -67,7 +69,7 @@
 }
 
 .listItem {
-    color: #b79d52;
+    color: $Golden-sand;
     margin-bottom: 0.5rem;
     padding: 1.25rem;
     list-style: decimal;
@@ -79,9 +81,9 @@
 }
 
 .quote {
-    color: #666;
-    background-color: #f9f9f9;
-    border-left: 0.3rem solid #ccc;
+    color: $Gray;
+    background-color: $Soft-White;
+    border-left: 0.3rem solid $Light-silver;
     font-size: 1.5rem;
     font-style: italic;
     margin: 1.5rem 0;

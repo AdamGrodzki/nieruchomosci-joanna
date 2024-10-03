@@ -1,3 +1,5 @@
+@import "../../styles//variables";
+
 .card {
     position: relative;
     top: 4rem;
@@ -5,8 +7,8 @@
     display: flex;
     flex-direction: column;
 
-    background-color: #fff;
-    border-radius: 0.5rem;
+    background-color: $White;
+    border-radius: $Border-radius;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     padding: 1.25rem;
     margin: 4.375rem auto;
@@ -22,25 +24,25 @@
 }
 
 .cardHeader h2 {
-    color: #333;
+    color: $Dark-gray;
     font-size: 1.5rem;
 }
 
 .cardHeader p {
-    color: #777;
+    color: $Gray;
     margin: 0.3rem 0;
 }
 
 .cardTitle {
-    color: #333;
+    color: $Dark-gray;
     font-size: 1.5rem;
     margin: 0.625rem 0;
     text-align: center;
 }
 
 .price {
-    background-color: #ddd;
-    border-radius: 0.5rem;
+    background-color: $Light-silver;
+    border-radius: $Border-radius;
     font-size: 1.5rem;
     font-weight: bold;
     padding: 1.6rem;
@@ -55,16 +57,16 @@
 }
 
 .cardDetails p {
-    color: #555;
+    color: $Medium-gray;
     margin: 0.3rem 0;
 }
 
 .cardDetails b {
-    color: #000;
+    color: $Black;
 }
 
 .cardImage {
-    border-radius: 0.5rem;
+    border-radius: $Border-radius;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     margin: 0.625rem auto;
     height: 28.125rem;
@@ -78,7 +80,7 @@
 }
 
 .imageWrapper img {
-    border-radius: 0.5rem;
+    border-radius: $Border-radius;
     object-fit: cover;
     cursor: grab;
     height: 28.125rem;
@@ -89,7 +91,7 @@
 }
 
 .contact a {
-    color: #555;
+    color: $Medium-gray;
     transition: all ease 0.4s;
 }
 
@@ -98,10 +100,10 @@
 }
 
 .customGallery {
-    background-color: #ddd;
-    border-top: 2px solid #444;
-    border-bottom-right-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
+    background-color: $Light-silver;
+    border-top: 2px solid $Neutral-gray;
+    border-bottom-right-radius: $Border-radius;
+    border-bottom-left-radius: $Border-radius;
     margin: -1rem 0;
     padding: 0.625rem 0;
 }
@@ -112,7 +114,7 @@
 }
 
 .customGallery li img {
-    border-radius: 0.5rem;
+    border-radius: $Border-radius;
     margin: 0.3rem;
     padding: 0.3rem;
 }

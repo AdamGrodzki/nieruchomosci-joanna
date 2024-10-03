@@ -12,20 +12,15 @@ interface LayoutProps {
   children: ReactNode;
 }
 
-export const metadata = {
-  title: "Joanna Nieruchomości - Nieruchomości w Tczewie",
-  icons: {
-    icon: ['/favicon.ico']
-  }
-}
-
   const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <>
        <Head>
-        <title>{metadata.title}</title>
+        <title>Joanna Nieruchomości - Nieruchomości w Tczewie</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" href="./public/favicon.ico"/>
       </Head>
 
       <ScrollProgressBar />

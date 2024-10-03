@@ -1,10 +1,12 @@
+@import '../../styles/variables';
+
 .footer {
     position: relative;
     bottom: 0;
     width: 100%;
 
-    background-color: #333;
-    color: #fff;
+    background-color: $Dark-gray;
+    color: $White;
     text-align: center;
     padding: 1.7rem 0;
 }
@@ -19,13 +21,14 @@
 .footerSection h4 {
     margin-bottom: 1rem;
     font-size: 1.25rem;
-    color: #b79d52;
+    color: $Golden-sand;
     text-transform: uppercase;
 }
 
 .footerSection ul {
     list-style: none;
     padding: 0;
+    text-align: justify;
 }
 
 .footerSection ul li {
@@ -33,13 +36,13 @@
 }
 
 .footerSection ul li a {
-    color: #fff;
+    color: $White;
     text-decoration: none;
     transition: all 0.3s;
 }
 
 .footerSection ul li a:hover {
-    color: #b79d52;
+    color: $Golden-sand;
 }
 
 .footerLogo p {
@@ -52,7 +55,7 @@
 
 .footerLogo img:hover {
     transform: scale(1.1);
-    filter: drop-shadow(0 0 0.625rem #b79d52);
+    filter: drop-shadow(0 0 0.625rem $Golden-sand);
 }
 
 
@@ -62,25 +65,24 @@
 }
 
 .socialMedia a {
-    color: #fff;
+    color: $White;
     font-size: 1.5rem;
 }
 
 
 .facebookIcon {
-    color: #fff;
+    color: $White;
     font-size: 2rem;
     transition: all 0.3s;
 }
 
 .facebookIcon:hover {
-    // color: #0266ff;
-    color: #b79d52;
+    color: $Golden-sand;
     transform: scale(1.2);
 }
 
 .footerBottom {
-    color: #b79d52;
+    color: $Golden-sand;
     font-size: 0.87rem;
 }
 

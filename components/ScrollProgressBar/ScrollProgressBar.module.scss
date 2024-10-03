@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .progressBarContainer {
     position: fixed;
     top: 5.625rem;
@@ -6,12 +8,12 @@
     height: 0.3rem;
     width: 100%;
 
-    background: rgba(255, 255, 255, 0.1);
+    background-color: $Light-overlay;
 }
 
 .progressBar {
     height: 100%;
-    background: linear-gradient(90deg, #c59c58, #f1c27d, #c59c58);
+    background: linear-gradient(90deg, $Golden-bronze, $Light-amber, $Golden-bronze);
     transform-origin: 0%;
     transition: transform 0.1s ease-out;
 }

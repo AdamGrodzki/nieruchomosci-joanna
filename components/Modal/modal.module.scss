@@ -1,8 +1,10 @@
+@import '../../styles/variables';
+
 .modalBackDrop {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: $z-Index-high;
 
     width: 100vw;
     height: 100vh;
@@ -16,8 +18,8 @@
 }
 
 .modalContent {
-    background-color: #fff;
-    border-radius: 0.5rem;
+    background-color: $White;
+    border-radius: $Border-radius;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.4);
     padding: 1.25rem;
     max-width: 31.25rem;

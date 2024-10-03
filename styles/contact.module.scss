@@ -5,7 +5,7 @@
      align-items: center;
      flex-direction: column;
      background-color: $Pale-gray;
-     border-radius: 0.5rem;
+     border-radius: $Border-radius;
      box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
      margin: 6.25rem auto;
      max-width: 1400px;
@@ -63,8 +63,8 @@
 
  .contactForm input,
  .contactForm textarea {
-     border: 1px solid #ccc;
-     border-radius: 0.5rem;
+     border: 1px solid $Light-silver;
+     border-radius: $Border-radius;
      font-family: inherit;
      font-size: 1rem;
      margin-bottom: 1.563rem;
@@ -80,7 +80,7 @@
  .contactForm button {
      background-color: $Dark-gray;
      border: none;
-     border-radius: 0.5rem;
+     border-radius: $Border-radius;
      color: $White;
      cursor: pointer;
      font-family: inherit;
@@ -124,7 +124,7 @@
      color: $Warm-crimson;
      background-color: $Warm-Rose;
      border: 1px solid $Warm-crimson;
-     border-radius: 0.5rem;
+     border-radius: $Border-radius;
      font-size: 0.625rem;
      font-weight: 500;
      margin-bottom: 0.3rem;

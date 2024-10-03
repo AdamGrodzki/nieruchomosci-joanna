@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .container {
     display: flex;
     align-items: center;
@@ -7,8 +9,8 @@
     margin: 0 auto;
     padding: 2rem;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-    border-radius: 0.5rem;
-    background-color: #f7f7f7;
+    border-radius: $Border-radius;
+    background-color: $Pale-gray;
 }
 
 .container svg {
@@ -24,7 +26,7 @@
 }
 
 .searchBar {
-    border-radius: 0.5rem;
+    border-radius: $Border-radius;
     padding: 0.625rem;
 }
 
@@ -49,7 +51,7 @@
     width: 100%;
     padding: 0.625rem;
     border: 1px solid #ddd;
-    border-radius: 0.5rem;
+    border-radius: $Border-radius;
     font-size: 1rem;
 }
 
@@ -77,17 +79,17 @@
 .addressInputWrapper input {
     flex: 1;
     border: 1px solid #ccc;
-    border-radius: 0.5rem;
+    border-radius: $Border-radius;
     font-size: 1rem;
     padding: 0.625rem;
 }
 
 .searchButton {
-    background-color: #333;
+    background-color: $Dark-gray;
     border: none;
     border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    color: #fff;
+    border-radius: $Border-radius;
+    color: $White;
     font-family: inherit;
     font-size: 1.125rem;
     padding: 0.625rem 1rem;
@@ -96,24 +98,24 @@
 }
 
 .searchButton:hover {
-    background-color: #444;
+    background-color: $Neutral-gray;
 }
 
 .searchButton:active {
-    background-color: #333;
+    background-color: $Dark-gray;
 }
 
 .searchButton:focus {
-    background-color: #444;
+    background-color: $Neutral-gray;
 }
 
 .tooltip {
     position: absolute;
     top: 100%;
 
-    background-color: #333;
-    border-radius: 0.5rem;
-    color: #fff;
+    background-color: $Dark-gray;
+    border-radius: $Border-radius;
+    color: $White;
     font-size: 0.75rem;
     margin-top: 0.3rem;
     padding: 0.625rem;
@@ -126,17 +128,17 @@
     margin-top: 0.3rem;
     padding: 0;
     list-style: none;
-    background-color: #fff;
+    background-color: $White;
     border: 1px solid #ccc;
-    border-radius: 0.5rem;
+    border-radius: $Border-radius;
     max-height: 18.75rem;
     overflow-y: auto;
-    z-index: 1000;
+    z-index: $z-Index-high;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
 }
 
 .suggestionItem {
-    background-color: white;
+    background-color: $White;
     border-bottom: 1px solid #ccc;
     padding: 0.625rem;
     cursor: pointer;
@@ -147,7 +149,7 @@
 }
 
 .suggestionItem:hover {
-    background-color: #f0f0f0;
+    background-color: $Light-gray;
 }
 
 

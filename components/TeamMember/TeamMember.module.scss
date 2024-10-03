@@ -1,12 +1,14 @@
+@import "../../styles/variables";
+
 .teamMember {
     position: relative;
 
     display: flex;
     align-items: center;
     flex-direction: column;
-    background: #fff;
+    background-color: $White;
     border: 1px solid #ddd;
-    border-radius: 0.5rem;
+    border-radius: $Border-radius;
     box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.1);
     margin: 1.25rem 0;
     max-width: 37.5rem;
@@ -37,7 +39,7 @@
 }
 
 .imageWrapper img {
-    border-radius: 0.5rem;
+    border-radius: $Border-radius;
     box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.2);
     object-fit: cover;
 }
@@ -50,24 +52,24 @@
 }
 
 .info h2 {
-    color: #333;
+    color: $Dark-gray;
     font-size: 2rem;
     transition: color 0.4s ease;
 }
 
 .info:hover h2 {
-    color: #b79d52;
+    color: $Golden-sand;
 }
 
 .info h3 {
-    color: #666;
+    color: $Gray;
     font-size: 1.2rem;
     font-weight: normal;
     margin: 0.625rem 0;
 }
 
 .info p {
-    color: #444;
+    color: $Neutral-gray;
     font-size: 1rem;
     margin-bottom: 0.3rem;
     line-height: 1.7;
@@ -76,13 +78,13 @@
 .info a {
     position: relative;
 
-    color: #b79d52;
+    color: $Golden-sand;
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s ease;
 
     &:hover {
-        color: #333;
+        color: $Dark-gray;
     }
 }
 
@@ -92,7 +94,7 @@
     left: 0;
     bottom: -0.125rem;
 
-    background-color: #b79d52;
+    background-color: $Golden-sand;
     height: 0.125rem;
     width: 0;
     transition: width 0.3s ease;
@@ -103,7 +105,7 @@
 }
 
 .license {
-    color: #888;
+    color: $Gray;
     font-style: italic;
     margin-top: 1.25rem;
     text-align: end;

@@ -54,8 +54,8 @@
     flex-direction: column;
 
     background-color: $White;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
+    border: 1px solid $Light-silver;
+    border-radius: $Border-radius;
     box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
     max-width: 28.125rem;
     padding: 1.25rem;
@@ -83,7 +83,7 @@
 }
 
 .resultItem img {
-    border-radius: 0.5rem;
+    border-radius: $Border-radius;
     object-fit: cover;
     max-width: 100%;
 }
@@ -95,7 +95,7 @@
 
     background: linear-gradient(135deg, $Dark-gray, $Medium-gray);
     border: none;
-    border-radius: 0.5rem;
+    border-radius: $Border-radius;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     color: $White;
     font-size: 0.875rem;

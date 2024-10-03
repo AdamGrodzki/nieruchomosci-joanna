@@ -1,12 +1,14 @@
+@import '../../styles//variables';
+
 .card {
     position: relative;
     overflow: hidden;
     margin: 1.2rem;
     max-width: 30rem;
 
-    background-color: #fff;
+    background-color: $White;
     border: 1px solid #ddd;
-    border-radius: 0.5rem;
+    border-radius: $Border-radius;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -51,7 +53,7 @@
 .info h4 {
     margin: 0;
     font-size: 1.05rem;
-    color: #333;
+    color: $Dark-gray;
     text-transform: uppercase;
     // height: 50px
 }
@@ -59,13 +61,13 @@
 .info p {
     margin: 1rem;
     font-size: 0.95rem;
-    color: #666;
+    color: $Gray;
 }
 
 
 .price {
-    background-color: #ddd;
-    border-radius: 0.5rem;
+    background-color: $Light-silver;
+    border-radius: $Border-radius;
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
@@ -112,12 +114,12 @@
     position: absolute;
     top: 1rem;
     left: 0;
-    z-index: 10;
+    z-index: $z-Index-high;
 
-    background-color: #c59c58;
-    background: linear-gradient(135deg, #c59c58 0%, #e3c49c 50%, #c59c58 100%);
+    background-color: $Golden-bronze;
+    background: linear-gradient(135deg, $Golden-bronze 0%, $Light-amber 50%, $Golden-bronze 100%);
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2), inset 0 0 0.3rem rgba(255, 255, 255, 0.6);
-    border-radius: 0.5rem;
+    border-radius: $Border-radius;
     font-weight: bold;
     font-size: 1rem;
     padding: 0.625rem;

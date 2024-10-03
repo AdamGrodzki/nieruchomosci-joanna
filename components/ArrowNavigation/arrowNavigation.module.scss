@@ -1,22 +1,24 @@
+@import '../../styles//variables';
+
 .arrowUp {
     display: flex;
     position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;
 
-    background-color: #555;
-    color: white;
+    background-color: $Medium-gray;
+    color: $White;
     font-size: 1.5rem;
     padding: 0.5rem;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: $Border-radius;
 
     box-shadow: 0 0 0.6rem rgba(0, 0, 1);
 
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
-    z-index: 9999;
+    z-index: $z-Index-high;
 
     @media (max-width: 768px) {
         bottom: 3rem;
@@ -25,7 +27,7 @@
 }
 
 .arrowUp:hover {
-    background-color: #444;
+    background-color: $Neutral-gray;
 }
 
 .arrowUp:active {

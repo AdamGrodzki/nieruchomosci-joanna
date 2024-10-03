@@ -1,3 +1,5 @@
+@import '../../styles//variables';
+
 .nav {
     position: fixed;
     top: 0;
@@ -8,7 +10,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0.625rem 1.25rem;
-    background-color: #333;
+    background-color: $Dark-gray;
     text-transform: uppercase;
     letter-spacing: 0.095rem;
     transition: border-bottom 0.4s ease;
@@ -16,7 +18,7 @@
 
 .nav.scrolled {
     border-bottom: 0.25rem solid;
-    border-image: linear-gradient(90deg, #c59c58, #f1c27d, #c59c58) 1;
+    border-image: linear-gradient(90deg, $Golden-bronze, $Light-amber, $Golden-bronze) 1;
     animation: shiny-border 3s linear infinite;
 }
 
@@ -27,7 +29,7 @@
 
 .logo:hover {
     transform: scale(1.1);
-    filter: drop-shadow(0 0 0.625rem #b79d52);
+    filter: drop-shadow(0 0 0.625rem $Golden-sand);
 }
 
 .hamburger {
@@ -46,14 +48,14 @@
 .burgerIcon,
 .timesIcon {
     font-size: 1.5rem;
-    color: #fff;
+    color: $White;
     transition: color 0.3s ease;
     animation: fadeIn 0.4s ease;
 }
 
 .burgerIcon:hover,
 .timesIcon:hover {
-    color: #666;
+    color: $Gray;
 }
 
 
@@ -75,7 +77,7 @@
 }
 
 .listItem {
-    color: #fff;
+    color: $White;
 }
 
 
@@ -83,18 +85,18 @@
     display: flex;
     text-align: center;
     text-decoration: none;
-    color: #fff;
+    color: $White;
     padding: 0.6rem;
-    border-radius: 0.5rem;
+    border-radius: $Border-radius;
     transition: background-color 0.3s ease;
 }
 
 .links:hover {
-    background-color: #555;
+    background-color: $Medium-gray;
 }
 
 .active .links {
-    background-color: #c59c58;
+    background-color: $Golden-bronze;
 }
 
 
@@ -108,11 +110,11 @@
         position: absolute;
         top: 5.5rem;
         right: 0;
-        z-index: 1000;
+        z-index: $z-Index-high;
 
         display: none;
         flex-direction: column;
-        background-color: #333;
+        background-color: $Dark-gray;
         width: 100%;
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
         border-radius: 0 0 0.5rem 0.5rem;
@@ -155,14 +157,14 @@
 
 @keyframes shiny-border {
     0% {
-        border-image-source: linear-gradient(90deg, #c59c58, #f1c27d, #c59c58);
+        border-image-source: linear-gradient(90deg, $Golden-bronze, $Light-amber, $Golden-bronze);
     }
 
     50% {
-        border-image-source: linear-gradient(90deg, #f1c27d, #c59c58, #f1c27d);
+        border-image-source: linear-gradient(90deg, $Light-amber, $Golden-bronze, $Light-amber);
     }
 
     100% {
-        border-image-source: linear-gradient(90deg, #c59c58, #f1c27d, #c59c58);
+        border-image-source: linear-gradient(90deg, $Golden-bronze, $Light-amber, $Golden-bronze);
     }
 }

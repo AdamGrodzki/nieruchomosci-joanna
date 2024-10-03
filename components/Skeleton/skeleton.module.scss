@@ -1,3 +1,5 @@
+@import '../../styles//variables';
+
 .skeleton {
     height: 60vh;
     overflow-x: hidden;
@@ -6,8 +8,8 @@
 }
 
 .skeleton div {
-    background-color: #ddd;
-    border-radius: 0.5rem;
+    background-color: $Light-silver;
+    border-radius: $Border-radius;
     margin: 1.5rem 0;
 }
 
