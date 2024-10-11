@@ -186,3 +186,15 @@
         width: 100%;
     }
 }
+
+.error {
+    color: $Warm-crimson;
+    background-color: $Warm-Rose;
+    border: 1px solid $Warm-crimson;
+    border-radius: $Border-radius;
+    font-size: 0.625rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    padding: 0.3rem;
+    opacity: 0;
+}

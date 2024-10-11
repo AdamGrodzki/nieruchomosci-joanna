@@ -26,7 +26,7 @@ const Contact = () => {
     onSubmit: (values, { resetForm }) => {
       const serviceID = String(process.env.SERVICE_ID);
       const templateID = String(process.env.TEMPLATE_ID);
-      const userID = String(process.env.USER_I);
+      const userID = String(process.env.USER_ID);
 
   
       const templateParams = {

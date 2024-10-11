@@ -10,6 +10,30 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from "@/pages/oferta/slug.module.scss"
 import RichTextRenderer from '@/components/RichTextRenderer/RichTextRenderer';
 
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+
+interface ArrowButtonProps {
+    className?: string;
+    style?: React.CSSProperties;
+    onClick?: () => void;
+  }
+
+  const PrevArrowButton: React.FC<ArrowButtonProps> = ({onClick}) => {  
+    return (
+      <div className={styles.arrowLeft} onClick={onClick}>
+        <FaArrowLeft />
+      </div>
+    );
+  }
+  
+  const NextArrowButton: React.FC<ArrowButtonProps> = ({onClick}) => {
+    return (
+      <div className={styles.arrowRight} onClick={onClick}>
+        <FaArrowRight />
+      </div>
+    );
+  }
+  
 export const getStaticPaths = async () => {
     const res = await client.getEntries({
         content_type: "nieruchomosc"
@@ -44,8 +68,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 
     return {
         props: { nieruchomosci: items[0] },
-        revalidate: 60,
-        // revalidate: 1,
+        revalidate: 1,
     };
 }
 
@@ -88,17 +111,18 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
                     </a>
             );
         },
+        arrows: true,  
         dots: true,
-        arrows: false,
         dotsClass: `slick-dots ${styles.customGallery}`,
         infinite: true,
-        speed: 1500,
+        speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
+        prevArrow: <PrevArrowButton />,
+        nextArrow: <NextArrowButton />,
     };
 
     const formattedPrice = formatPrice(fields.price);
-
 
     return (
         <div className={styles.card}>
@@ -115,6 +139,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
                 <p>Cena za m²: <b>{formatPrice(fields.price / fields.area)}</b></p>
             </div>
 
+                <div className={styles.example}>
             <div className={styles.cardImage}>
                 <Slider {...settingsPhotos}>
                     {photos.map((photo, index) => (
@@ -129,8 +154,8 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
                         </div>
                     ))}
                 </Slider>
+                </div>
             </div>
-            {/* <p className={styles.description}>{documentToReactComponents(fields.description)}</p> */}
             <RichTextRenderer content={fields.description} />
             <p className={styles.contact}>Kontakt: <a href={`tel:${fields.contact}`}>{fields.contact}</a></p>
         </div>

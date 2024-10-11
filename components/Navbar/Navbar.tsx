@@ -27,7 +27,6 @@ const Navbar = () => {
         { name: "Strona Główna", path: "/" },
         { name: "O Nas", path: "/o-nas" },
         { name: "Zgłoś Ofertę", path: "/zglos-oferte" },
-        // { name: 'Zgłoś czego szukasz', path: '/zglos-czego-szukasz' },
         { name: 'Kontakt', path: '/kontakt' },
     ], []);
 

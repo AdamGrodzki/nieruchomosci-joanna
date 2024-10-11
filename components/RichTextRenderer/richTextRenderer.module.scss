@@ -3,11 +3,11 @@
 .richTextContent {
     color: $Dark-gray;
     line-height: 1.6;
-    margin-top: 1.25rem;
+    margin-top: 2rem;
     padding: 1.25rem;
 
     @media (max-width: 480px) {
-        margin-top: 4.375rem;
+        margin-top: 3rem;
         padding: 1rem;
     }
 }

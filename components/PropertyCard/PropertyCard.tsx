@@ -63,9 +63,9 @@ const {
                       }).format(price)}</div>
                     <div>
                       <p >Powierzchnia: <b>{area} m<sup>2</sup></b></p>
-                      <p>
-                        Liczba pokoi: <b>{numberOfRooms > 0 ? numberOfRooms : '❌'}</b>
-                      </p>
+                         {numberOfRooms > 0 && (
+                      <p>Liczba pokoi: <b>{numberOfRooms}</b></p>
+                            )}
                       <p>Oferta zostala utworzona: {formattedDate}</p>
                     </div>
                 </div>

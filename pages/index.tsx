@@ -18,8 +18,8 @@ const Property: React.FC<PropertyProps> = ({nieruchomosci}) => {
     console.log(nieruchomosci);
     return(
         <div>
-            <h2 className={styles.heading}>Najnowsze Oferty</h2>
             <div className={styles.container}>
+                <h2 className={styles.heading}>Najnowsze Oferty</h2>
                 <div className={styles.propertyList}>
                     <Carousel className={styles.carousel}>
                         {nieruchomosci.map(nieruchomosc => (

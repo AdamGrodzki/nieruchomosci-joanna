@@ -33,3 +33,17 @@ export const offerFormValidationSchema = Yup.object({
         .matches(/^(?:\d{3}[- ]?\d{3}[- ]?\d{3})$/, 'Numer telefonu musi mieć 9 cyfr')
         .required('Numer telefonu jest wymagany'),
 });
+
+
+
+export const validationSchemaSearchBar = Yup.object({
+    minArea: Yup.number()
+        .typeError('Wartość musi być liczbą')
+        .min(0, 'Wartość nie może być mniejsza niż 0')
+        .required('Pole jest wymagane'),
+    maxArea: Yup.number()
+        .typeError('Wartość musi być liczbą')
+        .min(0, 'Wartość nie może być mniejsza niż 0')
+        .required('Pole jest wymagane')
+        .moreThan(Yup.ref('minArea'), 'Maksymalna powierzchnia musi być większa niż minimalna'),
+});
