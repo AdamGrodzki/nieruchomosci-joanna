@@ -26,7 +26,7 @@ const Contact = () => {
     onSubmit: (values, { resetForm }) => {
       const serviceID = String(process.env.SERVICE_ID);
       const templateID = String(process.env.TEMPLATE_ID);
-      const userID = String(process.env.USER_ID);
+      const userID = String(process.env.USER_I);
 
   
       const templateParams = {
@@ -65,7 +65,7 @@ const Contact = () => {
     setAlertMessage('');
     setAlertType(null);
   };
-  //CLEAR COMPONENT 404 AFTER 2SEC. 
+  // CLEAR ALERT MESSAGE POP UP AFTER 2SEC. 
   // useEffect(() => {
   //   if (alertMessage) {
   //     const timer = setTimeout(() => {

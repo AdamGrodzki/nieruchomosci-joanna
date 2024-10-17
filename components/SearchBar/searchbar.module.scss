@@ -50,7 +50,7 @@
 .formGroup input {
     width: 100%;
     padding: 0.625rem;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: $Border-radius;
     font-size: 1rem;
 }
@@ -78,10 +78,8 @@
 
 .addressInputWrapper input {
     flex: 1;
-    border: 1px solid #ccc;
     border-radius: $Border-radius;
     font-size: 1rem;
-    padding: 0.625rem;
 }
 
 .searchButton {
@@ -107,18 +105,6 @@
 
 .searchButton:focus {
     background-color: $Neutral-gray;
-}
-
-.tooltip {
-    position: absolute;
-    top: 100%;
-
-    background-color: $Dark-gray;
-    border-radius: $Border-radius;
-    color: $White;
-    font-size: 0.75rem;
-    margin-top: 0.3rem;
-    padding: 0.625rem;
 }
 
 .suggestions {
@@ -152,16 +138,41 @@
     background-color: $Light-gray;
 }
 
+.error {
+    color: $Warm-crimson;
+    background-color: $Warm-Rose;
+    border: 1px solid $Warm-crimson;
+    border-radius: $Border-radius;
+    width: fit-content;
+    font-size: 0.625rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    padding: 0.3rem;
+    opacity: 1;
+}
+
+.formGroup input,
+.addressInputWrapper input {
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 0.625rem;
+    transition: border-color 0.3s ease;
+
+    &.error {
+        border: 1px solid red;
+    }
+
+    &.error:focus {
+        border: 1px solid orange;
+        box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+    }
+}
 
 @media (max-width: 768px) {
     .formRow {
         flex-direction: column;
     }
-}
 
-
-
-@media (max-width: 768px) {
     .container {
         padding: 0.625rem;
     }
@@ -187,14 +198,43 @@
     }
 }
 
-.error {
-    color: $Warm-crimson;
-    background-color: $Warm-Rose;
-    border: 1px solid $Warm-crimson;
+.errorText {
+    color: #B00020;
+    background-color: rgba(255, 224, 224, 0.9);
+    border: 1px solid #B00020;
+    // margin: 0.3rem 0.5rem;
+    margin-top: 0.3rem;
     border-radius: $Border-radius;
-    font-size: 0.625rem;
+    font-size: 0.7rem;
     font-weight: 500;
-    margin-bottom: 0.3rem;
-    padding: 0.3rem;
-    opacity: 0;
+    padding: 0.2rem 0.5rem;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    display: inline-block;
+    width: max-content;
+}
+
+.formGroup input.error:focus+.errorText {
+    border: 1px solid orange;
+}
+
+.formGroup input.error:focus {
+    border: 1px solid orange;
+    box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.errorText {
+    animation: fadeIn 0.4s ease-in-out;
 }
