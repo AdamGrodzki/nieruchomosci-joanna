@@ -20,7 +20,10 @@ const Property: React.FC<PropertyProps> = ({nieruchomosci}) => {
     console.log(nieruchomosci);
     return(
     <>
-            <FeaturedProperties nieruchomosci={nieruchomosci} />
+            {/* <FeaturedProperties nieruchomosci={nieruchomosci} /> */}
+            <div id="featuredSection">
+                <FeaturedProperties nieruchomosci={nieruchomosci} />
+            </div>
         <div>
             <div className={styles.container}>
             <h2 className={styles.heading}>Najnowsze Oferty</h2>

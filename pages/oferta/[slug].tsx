@@ -91,7 +91,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
         dots: true,
         arrows: false,
         dotsClass: `slick-dots ${styles.customGallery}`,
-        infinite: true,
+        infinite: photos.length > 1,
         speed: 1500,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -115,6 +115,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
             </div>
 
             <div className={styles.cardImage}>
+            {photos.length > 0 ? (
                 <Slider {...settingsPhotos}>
                     {photos.map((photo, index) => (
                         <div key={index} className={styles.imageWrapper}>
@@ -128,6 +129,9 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
                         </div>
                     ))}
                 </Slider>
+            ) : (
+                <div className={styles.noImagesMessage}>Brak dostępnych zdjęć</div> 
+            )}
             </div>
             <RichTextRenderer content={fields.description} />
             <p className={styles.contact}>Kontakt: <a href={`tel:${fields.contact}`}>{fields.contact}</a></p>
