@@ -1,6 +1,6 @@
 import styles from "./footer.module.scss"
 import logo from "@/images/logoDark.png"
-import { FaEnvelope, FaFacebook, FaFacebookF, FaInstagram, FaMapMarkerAlt, FaPhone, FaTwitter } from "react-icons/fa";
+import { FaFacebook,} from "react-icons/fa";
 import { BsTelephone } from "react-icons/bs";
 import { MdOutlineMail, MdOutlineLocationOn } from "react-icons/md";
 import Link from "next/link";
