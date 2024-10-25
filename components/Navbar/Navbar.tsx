@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState, useCallback, useRef } from "react";
 import { usePathname } from 'next/navigation';
 import Link from "next/link";
 import Image from "next/image";
@@ -11,28 +11,41 @@ const Navbar = () => {
     const pathname = usePathname();
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
+    const menuRef = useRef<HTMLUListElement>(null);
+
+    const closeMenu = useCallback(() => setMenuOpen(false), []);
+    const toggleMenu = useCallback(() => setMenuOpen(prev => !prev), []);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY >= 20);
-        };
-
+        const handleScroll = () => setIsScrolled(window.scrollY >= 20);
         window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 768) closeMenu();
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, [closeMenu]);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+                closeMenu();
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, [closeMenu]);
 
     const navItems = useMemo(() => [
         { name: "Strona Główna", path: "/" },
         { name: "O Nas", path: "/o-nas" },
         { name: "Zgłoś Ofertę", path: "/zglos-oferte" },
-        // { name: 'Zgłoś czego szukasz', path: '/zglos-czego-szukasz' },
         { name: 'Kontakt', path: '/kontakt' },
     ], []);
-
-    const toggleMenu = useCallback(() => setMenuOpen(prev => !prev), []);
-    const closeMenu = useCallback(() => setMenuOpen(false), []);
 
     return (
         <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`}>
@@ -61,7 +74,7 @@ const Navbar = () => {
                     )}
                 </div>
             </div>
-            <ul className={`${styles.unorderedList} ${menuOpen ? styles.showMenu : ""}`}>
+            <ul ref={menuRef} className={`${styles.unorderedList} ${menuOpen ? styles.showMenu : ""}`}>
                 {navItems.map(item => (
                     <li key={item.path} className={pathname === item.path ? styles.active : styles.listItem}>
                         <Link legacyBehavior href={item.path}>
