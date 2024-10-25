@@ -1,5 +1,6 @@
 import { StaticImageData } from "next/image";
 import { Document } from '@contentful/rich-text-types';
+
 export interface PropertyProps {
     nieruchomosci: Nieruchomosc[];
 }

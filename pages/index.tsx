@@ -5,7 +5,10 @@ import styles from "../styles/index.module.scss"
 import {client} from "@/lib/contentful"
 
 export async function getStaticProps() {
-    const res = await client.getEntries({content_type: "nieruchomosc"})
+    const res = await client.getEntries({
+            content_type: "nieruchomosc", 
+            order: ['-sys.createdAt']
+        });
 
     return {
         props: {nieruchomosci: res.items},

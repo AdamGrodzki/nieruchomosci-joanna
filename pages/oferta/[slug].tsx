@@ -10,9 +10,10 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from "@/pages/oferta/slug.module.scss"
 import RichTextRenderer from '@/components/RichTextRenderer/RichTextRenderer';
 
+
 export const getStaticPaths = async () => {
     const res = await client.getEntries({
-        content_type: "nieruchomosc"
+        content_type: "nieruchomosc",
     });
 
     const paths = res.items.map(item => {
