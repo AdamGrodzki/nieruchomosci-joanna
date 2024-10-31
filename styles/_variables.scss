@@ -35,6 +35,11 @@ $Border-radius-circle: 50%; //circle shape
 $z-Index-low: 1;
 $z-Index-high: 9999;
 
+$transition-default: 0.4s ease;
+$display-flex: flex;
+$full-opacity: 1;
+$no-opacity: 0;
+
 //Media Queries  
 $MediumWidth: 768px;
 $DesktopWidth: 992px;

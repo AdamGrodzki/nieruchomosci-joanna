@@ -61,7 +61,7 @@ const Navbar = () => {
                     )}
                 </div>
             </div>
-            <ul className={`${styles.unorderedList} ${menuOpen ? styles.showMenu : ""}`}>
+            <ul className={`${styles.unorderedList} ${menuOpen ? styles.showMenu : styles.hideMenu}`}>
                 {navItems.map(item => (
                     <li key={item.path} className={pathname === item.path ? styles.active : styles.listItem}>
                         <Link legacyBehavior href={item.path}>
