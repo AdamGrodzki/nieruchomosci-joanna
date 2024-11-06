@@ -91,7 +91,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
         dots: true,
         arrows: false,
         dotsClass: `slick-dots ${styles.customGallery}`,
-        infinite: true,
+        infinite: photos.length > 1,
         speed: 1500,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -108,7 +108,6 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
             </div>
             <h3 className={styles.cardTitle}>{fields.title}</h3>
             <p className={styles.price}>{formattedPrice}</p>
-
             <div className={styles.cardDetails}>
                 <p>Typ budynku: <b>{fields.typeOfProperty}</b></p>
                 <p>Powierzchnia: <b>{fields.area} m²</b></p>
@@ -116,6 +115,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
             </div>
 
             <div className={styles.cardImage}>
+            {photos.length > 0 ? (
                 <Slider {...settingsPhotos}>
                     {photos.map((photo, index) => (
                         <div key={index} className={styles.imageWrapper}>
@@ -129,8 +129,10 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
                         </div>
                     ))}
                 </Slider>
+            ) : (
+                <div className={styles.noImagesMessage}>Brak dostępnych zdjęć</div> 
+            )}
             </div>
-            {/* <p className={styles.description}>{documentToReactComponents(fields.description)}</p> */}
             <RichTextRenderer content={fields.description} />
             <p className={styles.contact}>Kontakt: <a href={`tel:${fields.contact}`}>{fields.contact}</a></p>
         </div>
