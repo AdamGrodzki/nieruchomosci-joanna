@@ -115,7 +115,7 @@
     position: absolute;
     top: 1rem;
     left: 0;
-    z-index: $z-Index-high;
+    z-index: $z-Index-low;
 
     background-color: $Golden-bronze;
     background: linear-gradient(135deg, $Golden-bronze 0%, $Light-amber 50%, $Golden-bronze 100%);
