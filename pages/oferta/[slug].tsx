@@ -138,7 +138,6 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
                 <p>Cena za m²: <b>{formatPrice(fields.price / fields.area)}</b></p>
             </div>
 
-                <div className={styles.example}>
             <div className={styles.cardImage}>
             {photos.length > 0 ? (
                 <Slider {...settingsPhotos}>
@@ -158,10 +157,10 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
                 <div className={styles.noImagesMessage}>Brak dostępnych zdjęć</div> 
             )}
             </div>
-            <RichTextRenderer content={fields.description} />
-            <p className={styles.contact}>Kontakt: <a href={`tel:${fields.contact}`}>{fields.contact}</a></p>
+                <RichTextRenderer content={fields.description} />
+                <p className={styles.contact}>Kontakt: <a href={`tel:${fields.contact}`}>{fields.contact}</a></p>
         </div>
     );
-}
+};
 
 export default PropertyDetails;
