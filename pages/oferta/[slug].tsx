@@ -138,7 +138,6 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
                 <p>Cena za m²: <b>{formatPrice(fields.price / fields.area)}</b></p>
             </div>
 
-                <div className={styles.example}>
             <div className={styles.cardImage}>
             {photos.length > 0 ? (
                 <Slider {...settingsPhotos}>
