@@ -100,32 +100,33 @@ const SubmitOfferForm = () => {
           background={isSuccess ? '#c3e6cb' : '#f5c6cb'}
         />
       )}
+      
 
 <form onSubmit={handleSubmit} className={styles.formContainer}>
 <h2 className={styles.heading}>Zgłoś ofertę</h2>
 
 <div className={styles.formGroup}>
-    {/* <label className={styles.label}>Imię i nazwisko</label> */}
-    <div style={{ position: 'relative' }}>
+    {/* <div style={{ position: 'relative' }}> */}
     <input
-      placeholder='Imię i Nazwisko'
+      placeholder=' '
       className={styles.input}
       type="text"
       name="name"
       value={formik.values.name}
       onChange={formik.handleChange}
       onBlur={formik.handleBlur}
+      autoComplete="off" 
     />
+  <label className={styles.label}>Imię i nazwisko</label>
     {touched.name && errors.name && (
       <div className={`${styles.error} ${styles.errorVisible}`}>
         {errors.name}
       </div>
     )}
-    </div>
+    {/* </div> */}
   </div>
 
 <div className={styles.formGroup}>
-  {/* <label className={styles.label}>Email</label> */}
   <div style={{ position: 'relative' }}>
   <input
     placeholder='Adres email'
@@ -135,6 +136,7 @@ const SubmitOfferForm = () => {
     value={values.email}
     onChange={handleChange}
     onBlur={handleBlur}
+    autoComplete="off" 
   />
  {touched.email && errors.email && (
       <div className={`${styles.error} ${styles.errorVisible}`}>
@@ -145,7 +147,6 @@ const SubmitOfferForm = () => {
 </div>
 
 <div className={styles.formGroup}>
-  {/* <label className={styles.label}>Telefon kontaktowy</label> */}
   <div style={{ position: 'relative' }}>
   <input
     placeholder='Telefon kontaktowy'
@@ -155,6 +156,7 @@ const SubmitOfferForm = () => {
     value={values.phone}
     onChange={handleChange}
     onBlur={handleBlur}
+    autoComplete="off" 
   />
  {touched.phone && errors.phone && (
       <div className={`${styles.error} ${styles.errorVisible}`}>
@@ -165,7 +167,6 @@ const SubmitOfferForm = () => {
 </div>
 
 <div className={styles.formGroup}>
-  {/* <label className={styles.label}>Lokalizacja</label> */}
   <input
     placeholder='Lokalizacja'
     className={styles.input}
@@ -174,11 +175,11 @@ const SubmitOfferForm = () => {
     value={values.location}
     onChange={handleChange}
     required
+    autoComplete="off"
   />
 </div>
 
  <div className={styles.formGroup}>
-   {/* <label className={styles.label}>Liczba pokoi</label> */}
   <input
     placeholder='Liczba pokoi'
     className={styles.input}
@@ -187,11 +188,11 @@ const SubmitOfferForm = () => {
     value={formik.values.numberOfRooms}
     onChange={formik.handleChange}
     required
+    autoComplete="off" 
   />
 </div>
 
 <div className={styles.formGroup}>
-  {/* <label className={styles.label}>Opis</label> */}
   <textarea
     placeholder='Opis...'
     className={styles.textarea}
@@ -238,29 +239,32 @@ const SubmitOfferForm = () => {
 </div>
 
 <div className={styles.formGroup}>
-  <label className={styles.label}>Cena (zł)</label>
+  {/* <label className={styles.label}>Cena (zł)</label> */}
   <input
     className={styles.input}
     type="number"
     name="price"
+    placeholder=' '
     value={values.price}
     onChange={handleChange}
     required
+    autoComplete="off"
   />
+  <label className={styles.label}>Cena (zł)</label>
 </div>
 
 <div className={styles.formGroup}>
-  <label className={styles.label}>Powierzchnia (m²)</label>
   <input
     className={styles.input}
     type="number"
     name="area"
+    placeholder=' '
     value={values.area}
     onChange={handleChange}
     required
   />
+  <label className={styles.label}>Powierzchnia (m²)</label>
 </div>
-
 
 <h3>Zdjęcia</h3>
 <div className={styles.formGroup}>
