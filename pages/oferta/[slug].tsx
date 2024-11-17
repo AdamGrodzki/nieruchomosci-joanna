@@ -139,7 +139,6 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
                 <p>Cena za m²: <b>{formatPrice(fields.price / fields.area)}</b></p>
             </div>
 
-                <div className={styles.example}>
             <div className={styles.cardImage}>
                 <Slider {...settingsPhotos}>
                     {photos.map((photo, index) => (
@@ -154,7 +153,6 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
                         </div>
                     ))}
                 </Slider>
-                </div>
             </div>
             <RichTextRenderer content={fields.description} />
             <p className={styles.contact}>Kontakt: <a href={`tel:${fields.contact}`}>{fields.contact}</a></p>

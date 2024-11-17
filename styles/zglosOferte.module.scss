@@ -22,13 +22,6 @@
     margin-bottom: 1.6rem;
 }
 
-.label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 0.3rem;
-    color: $Medium-gray;
-}
-
 .input,
 .select,
 .textarea {
@@ -103,28 +96,23 @@
 .formGroup>div {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
 }
 
 .error {
     color: $Warm-crimson;
-    background-color: $Warm-Rose;
-    border: 1px solid $Warm-crimson;
-    padding: 0.3rem;
-    border-radius: 0.5rem;
-    font-size: 0.625rem;
-    font-weight: 500;
+    padding: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: opacity 0.3s ease-in;
     opacity: 0;
 }
 
 .errorVisible {
     opacity: 1;
-    width: fit-content;
-    // position: absolute;
-    // top: -1rem;
-    // left: 0;
-    // transform: translateY(0);
-    // animation: shake 0.5s ease-in;
+}
+
+.inputError {
+    border: 2px solid $Warm-crimson;
 }
 
 .formGroup {
@@ -133,24 +121,28 @@
 
 .label {
     position: absolute;
-    top: 35%;
+    top: 45%;
     left: 10px;
-    transform: translateY(-50%);
-    // background-color: white;
-    font-weight: normal;
+    transform: translateY(-100%);
+    background-color: white;
+    font-weight: 400;
     padding: 0 5px;
     pointer-events: none;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
+
+    font-size: 1rem;
+    pointer-events: none;
+    color: $Medium-gray;
 }
 
 .input {
     width: 100%;
-    padding: 10px 10px;
+    padding: 10px;
     border: 1px solid gray;
-    border-radius: 4px;
+    border-radius: 8px;
     font-size: 16px;
     outline: none;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .input:focus {
@@ -160,11 +152,14 @@
 
 .input:focus+.label,
 .input:not(:placeholder-shown)+.label {
-    top: -10px;
+    top: 5px;
     left: 5px;
     font-size: 12px;
+    color: $Dark-gray;
+    background-color: $Pale-gray;
 }
 
+// ------------------------------------------------------------------------
 @keyframes shake {
     0% {
         transform: translateX(-0.3rem);

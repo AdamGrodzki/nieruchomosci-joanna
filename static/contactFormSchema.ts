@@ -18,7 +18,6 @@ export const ContactFormSchema = Yup.object().shape({
         .required('Wiadomość jest wymagana'),
 });
 
-
 export const offerFormValidationSchema = Yup.object({
     name: Yup.string()
         .min(2, 'Imię i nazwisko jest zbyt krótkie')
@@ -32,9 +31,20 @@ export const offerFormValidationSchema = Yup.object({
     phone: Yup.string()
         .matches(/^(?:\d{3}[- ]?\d{3}[- ]?\d{3})$/, 'Numer telefonu musi mieć 9 cyfr')
         .required('Numer telefonu jest wymagany'),
+    location: Yup.string()
+        .required('Lokalizacja jest wymagana'),
+    description: Yup.string()
+        .required("Opis jest wymagany"),
+    price: Yup.number()
+        .min(0, 'Cena musi być większa niż 0')
+        .required('Cena jest wymagana'),
+    area: Yup.number()
+        .min(0, 'Powierzchnia nie może byc ujemna')
+        .required('Powierzchnia jest wymagana'),
+    numberOfRooms: Yup.number()
+        .min(0, 'Liczba pokoi nie może byc ujemna')
+        .required('Liczba pokoi jest wymagane'),
 });
-
-
 
 export const validationSchemaSearchBar = Yup.object({
     minArea: Yup.number()

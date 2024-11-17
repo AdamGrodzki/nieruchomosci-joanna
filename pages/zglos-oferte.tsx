@@ -93,7 +93,7 @@ const SubmitOfferForm = () => {
   return (
     <>
       {modalMessage && (
-        <Modal 
+        <Modal
           message={modalMessage} 
           onClose={handleCloseModal}
           color={isSuccess ? '#155724' : '#721c24'}
@@ -106,15 +106,14 @@ const SubmitOfferForm = () => {
 <h2 className={styles.heading}>Zgłoś ofertę</h2>
 
 <div className={styles.formGroup}>
-    {/* <div style={{ position: 'relative' }}> */}
     <input
+      className={`${styles.input} ${touched.name && errors.name ? styles.inputError : ''}`}
       placeholder=' '
-      className={styles.input}
       type="text"
       name="name"
-      value={formik.values.name}
-      onChange={formik.handleChange}
-      onBlur={formik.handleBlur}
+      value={values.name}
+      onChange={handleChange}
+      onBlur={handleBlur}
       autoComplete="off" 
     />
   <label className={styles.label}>Imię i nazwisko</label>
@@ -123,14 +122,12 @@ const SubmitOfferForm = () => {
         {errors.name}
       </div>
     )}
-    {/* </div> */}
   </div>
 
 <div className={styles.formGroup}>
-  <div style={{ position: 'relative' }}>
   <input
-    placeholder='Adres email'
-    className={styles.input}
+    placeholder=' '
+    className={`${styles.input} ${touched.email && errors.email ? styles.inputError : ''}`}
     type="email"
     name="email"
     value={values.email}
@@ -138,19 +135,18 @@ const SubmitOfferForm = () => {
     onBlur={handleBlur}
     autoComplete="off" 
   />
+  <label className={styles.label}>Adres email</label>
  {touched.email && errors.email && (
       <div className={`${styles.error} ${styles.errorVisible}`}>
         {errors.email}
       </div>
     )}
-    </div>
 </div>
 
 <div className={styles.formGroup}>
-  <div style={{ position: 'relative' }}>
   <input
-    placeholder='Telefon kontaktowy'
-    className={styles.input}
+    placeholder=' '
+    className={`${styles.input} ${touched.phone && errors.phone ? styles.inputError : ''}`}
     type="text"
     name="phone"
     value={values.phone}
@@ -158,55 +154,74 @@ const SubmitOfferForm = () => {
     onBlur={handleBlur}
     autoComplete="off" 
   />
+  <label className={styles.label}>Telefon kontaktowy</label>
  {touched.phone && errors.phone && (
       <div className={`${styles.error} ${styles.errorVisible}`}>
         {errors.phone}
       </div>
     )}
-    </div>
 </div>
 
 <div className={styles.formGroup}>
   <input
-    placeholder='Lokalizacja'
-    className={styles.input}
+    placeholder=' '
+    className={`${styles.input} ${touched.location && errors.location ? styles.inputError : ''}`}
     type="text"
     name="location"
     value={values.location}
     onChange={handleChange}
+    onBlur={handleBlur}
     required
     autoComplete="off"
   />
+  <label className={styles.label}>Lokalizacja</label>
+  {touched.location && errors.location && (
+      <div className={`${styles.error} ${styles.errorVisible}`}>
+        {errors.location}
+      </div>
+    )}
 </div>
 
  <div className={styles.formGroup}>
   <input
-    placeholder='Liczba pokoi'
-    className={styles.input}
+    placeholder=' '
+    className={`${styles.input} ${touched.numberOfRooms && errors.numberOfRooms ? styles.inputError : ''}`}
     type="number"
     name="numberOfRooms"
-    value={formik.values.numberOfRooms}
-    onChange={formik.handleChange}
+    value={values.numberOfRooms}
+    onChange={handleChange}
+    onBlur={handleBlur}
     required
     autoComplete="off" 
   />
+  <label className={styles.label}>Liczba pokoi</label>
+  {touched.numberOfRooms && errors.numberOfRooms && (
+    <div className={`${styles.error} ${styles.errorVisible}`}>
+      {errors.numberOfRooms}
+    </div>
+  )}
 </div>
 
 <div className={styles.formGroup}>
   <textarea
     placeholder='Opis...'
-    className={styles.textarea}
+    className={`${styles.textarea} ${touched.description && errors.description ? styles.inputError : ''}`}
     name="description"
     value={values.description}
     onChange={handleChange}
+    onBlur={handleBlur}
     required
   ></textarea>
+    {touched.description && errors.description && (
+    <div className={`${styles.error} ${styles.errorVisible}`}>
+      {errors.description}
+    </div>
+  )}
 </div>
 
 <h3>Dodatkowe informacje</h3> 
 
 <div className={styles.formGroup}>
-  <label className={styles.label}>Rodzaj nieruchomości</label>
   <select
     className={styles.select}
     name="propertyType"
@@ -214,7 +229,7 @@ const SubmitOfferForm = () => {
     onChange={handleChange}
     required
   >
-    <option value="">Wybierz</option>
+    <option value="">Rodzaj nieruchomości</option>
     <option value="mieszkanie">Mieszkanie</option>
     <option value="dom">Dom</option>
     <option value="działka">Działka</option>
@@ -224,7 +239,6 @@ const SubmitOfferForm = () => {
 </div>
 
 <div className={styles.formGroup}>
-  <label className={styles.label}>Typ transakcji</label>
   <select
     className={styles.select}
     name="transactionType"
@@ -232,38 +246,49 @@ const SubmitOfferForm = () => {
     onChange={handleChange}
     required
   >
-    <option value="">Wybierz</option>
+    <option value="">Typ transakcji</option>
     <option value="sprzedaż">Sprzedaż</option>
     <option value="wynajem">Wynajem</option>
   </select>
 </div>
 
 <div className={styles.formGroup}>
-  {/* <label className={styles.label}>Cena (zł)</label> */}
   <input
-    className={styles.input}
+    className={`${styles.input} ${touched.price && errors.price ? styles.inputError : ''}`}
     type="number"
     name="price"
     placeholder=' '
     value={values.price}
     onChange={handleChange}
+    onBlur={handleBlur}
     required
     autoComplete="off"
   />
   <label className={styles.label}>Cena (zł)</label>
+  {touched.price && errors.price && (
+    <div className={`${styles.error} ${styles.errorVisible}`}>
+      {errors.price}
+    </div>
+  )}
 </div>
 
 <div className={styles.formGroup}>
   <input
-    className={styles.input}
+    className={`${styles.input} ${touched.area && errors.area ? styles.inputError : ''}`}
     type="number"
     name="area"
     placeholder=' '
     value={values.area}
     onChange={handleChange}
+    onBlur={handleBlur}
     required
   />
   <label className={styles.label}>Powierzchnia (m²)</label>
+  {touched.area && errors.area && (
+    <div className={`${styles.error} ${styles.errorVisible}`}>
+      {errors.area}
+      </div>
+  )}
 </div>
 
 <h3>Zdjęcia</h3>
