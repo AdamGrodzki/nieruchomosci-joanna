@@ -194,7 +194,7 @@ const SearchBar = () => {
             )}
             <button type="submit" className={styles.searchButton}>Szukaj</button>
           </div>
-          {formik.touched.address && formik.errors.address && <div className={styles.errorText}>{formik.errors.address}</div>}
+          {formik.touched.address && formik.errors.address && <div className={styles.errorTextAddress}>{formik.errors.address}</div>}
         </div>
       </form>
     </div>
