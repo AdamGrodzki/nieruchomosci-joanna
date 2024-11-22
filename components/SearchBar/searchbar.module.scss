@@ -53,6 +53,7 @@
     border: 1px solid #ccc;
     border-radius: $Border-radius;
     font-size: 1rem;
+    color: $Gray;
 }
 
 .inputGroup {
@@ -239,20 +240,28 @@
     }
 
     .errorText {
-        font-size: 0.6rem;
-        width: 150px;
-        margin-left: 8.75px;
-        margin-right: 8.75px;
-        padding: 0.4rem;
-        text-align: left;
+        color: #B00020;
+        background-color: rgba(255, 224, 224, 0.9);
+        border: 1px solid #B00020;
+        margin-top: 0.3rem;
+        border-radius: $Border-radius;
+        font-size: 0.7rem;
+        font-weight: 500;
+        padding: 0.2rem 0.5rem;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+        display: inline-block;
+        width: max-content;
     }
 
-    .errorTextAddress {
-        font-size: 0.6rem;
-        width: 200px;
-        margin-left: 16px;
-        margin-right: 16px;
-        padding: 0.4rem;
-        text-align: left;
+    .formGroup input.error:focus+.errorText {
+        border: 1px solid orange;
+    }
+
+    .formGroup input.error:focus {
+        border: 1px solid orange;
+        box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
     }
 }

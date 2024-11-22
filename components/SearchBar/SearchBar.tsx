@@ -5,6 +5,7 @@ import { IoSearchCircleOutline } from 'react-icons/io5';
 import styles from './searchbar.module.scss';
 import { useFormik } from 'formik';
 import { SearchBarSchema } from '@/static/contactFormSchema';
+import Select from '../Select';
 import cx from 'clsx'; 
 
 const SearchBar = () => {
@@ -28,6 +29,19 @@ const SearchBar = () => {
       router.push(`searchResults/?${params.toString()}`);
     },
   });
+
+  const propertyTypes = [
+    { value: 'Mieszkanie', label: 'Mieszkania' },
+    { value: 'Dom', label: 'Domy' },
+    { value: 'Działka', label: 'Działki' },
+    { value: 'Lokal', label: 'Lokale' },
+    { value: 'Obiekt', label: 'Obiekty' },
+  ];
+
+  const transactionTypes = [
+    { value: 'Sprzedaż', label: 'Sprzedaż' },
+    { value: 'Wynajem', label: 'Wynajem' },
+  ];
 
   const fetchAddressSuggestions = useCallback(async (address: string) => {
     if (address.length < 3) {
@@ -73,35 +87,28 @@ const SearchBar = () => {
       <form className={styles.searchBar} onSubmit={formik.handleSubmit}>
         <div className={styles.formRow}>
           <div className={styles.formGroup}>
-            <label htmlFor="typeOfProperty">Rodzaj nieruchomości</label>
-            <select 
-              id="typeOfProperty"
-              {...formik.getFieldProps('typeOfProperty')}
-              className={cx({ [styles.error]: formik.touched.typeOfProperty && formik.errors.typeOfProperty })}
-            >
-              <option value="">Wybierz rodzaj</option>
-              <option value="Mieszkanie">Mieszkania</option>
-              <option value="Dom">Domy</option>
-              <option value="Działka">Działki</option>
-              <option value="Lokal">Lokale</option>
-              <option value="Obiekt">Obiekty</option>
-            </select>
-            {formik.touched.typeOfProperty && formik.errors.typeOfProperty && <div className={styles.error}>{formik.errors.typeOfProperty}</div>}
+            <Select
+          dataSource={propertyTypes}
+          id="typeOfProperty"
+          name="Rodzaj nieruchomości"
+          value={formik.values.typeOfProperty}
+          onChange={formik.handleChange}
+          error={formik.errors.typeOfProperty}
+          touched={formik.touched.typeOfProperty}
+            />
           </div>
           
           <div className={styles.formGroup}>
-            <label htmlFor="transactionType">Typ transakcji</label>
-            <select 
-              id="transactionType"
-              {...formik.getFieldProps('transactionType')}
-              className={cx({ [styles.error]: formik.touched.transactionType && formik.errors.transactionType })}
-            >
-              <option value="">Wybierz typ</option>
-              <option value="Sprzedaż">Sprzedaż</option>
-              <option value="Wynajem">Wynajem</option>
-            </select>
-            {formik.touched.transactionType && formik.errors.transactionType && <div className={styles.error}>{formik.errors.transactionType}</div>}
-          </div>
+          <Select
+          dataSource={transactionTypes}
+          id="transactionType"
+          name="Typ transakcji"
+          value={formik.values.transactionType}
+          onChange={formik.handleChange}
+          error={formik.errors.transactionType}
+          touched={formik.touched.transactionType}
+        />
+      </div>
         </div>
         
         <div className={styles.formRow}>
