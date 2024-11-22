@@ -64,19 +64,18 @@ const Contact = () => {
     setAlertMessage('');
     setAlertType(null);
   };
-  
-  // CLEAR ALERT MESSAGE POP UP AFTER 4SEC. 
+
+  //CLEAR COMPONENT 404 AFTER 2SEC. 
   useEffect(() => {
     if (alertMessage) {
       const timer = setTimeout(() => {
         setAlertMessage('');
         setAlertType(null);
-      }, 4000);
+      }, 2000);
 
       return () => clearTimeout(timer);
     }
   }, [alertMessage]);
-
 
   return (
     <div className={styles.contactContainer}>

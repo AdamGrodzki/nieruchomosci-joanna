@@ -39,4 +39,3 @@ const PageTransition: FC<PageTransitionProps> = ({ children }) => {
 };
 
 export default PageTransition;
-
