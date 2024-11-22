@@ -28,7 +28,6 @@ const Contact = () => {
       const templateID = String(process.env.TEMPLATE_ID);
       const userID = String(process.env.USER_ID);
 
-  
       const templateParams = {
         name: values.name,
         email: values.email,

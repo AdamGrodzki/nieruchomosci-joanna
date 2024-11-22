@@ -157,10 +157,10 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
                 <div className={styles.noImagesMessage}>Brak dostępnych zdjęć</div> 
             )}
             </div>
-            <RichTextRenderer content={fields.description} />
-            <p className={styles.contact}>Kontakt: <a href={`tel:${fields.contact}`}>{fields.contact}</a></p>
+                <RichTextRenderer content={fields.description} />
+                <p className={styles.contact}>Kontakt: <a href={`tel:${fields.contact}`}>{fields.contact}</a></p>
         </div>
     );
-}
+};
 
 export default PropertyDetails;
