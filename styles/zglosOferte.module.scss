@@ -11,6 +11,10 @@
     padding: 3.125rem;
 }
 
+.formContainer h3 {
+    margin-bottom: 10px;
+}
+
 .heading {
     color: $Dark-gray;
     margin-bottom: 1.25rem;
@@ -48,6 +52,7 @@
 .submitButton {
     width: 100%;
     padding: 0.625rem;
+    margin-top: 15px;
     background-color: $Dark-gray;
     color: $White;
     border: none;
@@ -61,32 +66,6 @@
 .submitButton:hover {
     background-color: $Neutral-gray;
 }
-
-.fileInput {
-    background-color: $Soft-White;
-    color: $Dark-gray;
-    cursor: pointer;
-    font-size: 0.875rem;
-    margin: 0.625rem 0;
-    font-family: inherit;
-}
-
-.fileInput::-webkit-file-upload-button {
-    background-color: $Dark-gray;
-    color: $White;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-size: 0.875rem;
-    transition: background-color 0.3s ease;
-}
-
-
-.fileInput::-webkit-file-upload-button:hover {
-    background-color: $Neutral-gray;
-}
-
 
 .note {
     font-size: 0.875rem;
@@ -111,7 +90,7 @@
     opacity: 1;
 }
 
-.inputError {
+.formContainer .inputError {
     border: 2px solid $Warm-crimson;
 }
 
@@ -121,9 +100,9 @@
 
 .label {
     position: absolute;
-    top: 45%;
+    top: 32%;
     left: 10px;
-    transform: translateY(-100%);
+    transform: translateY(-50%);
     background-color: white;
     font-weight: 400;
     padding: 0 5px;
@@ -152,11 +131,58 @@
 
 .input:focus+.label,
 .input:not(:placeholder-shown)+.label {
-    top: 5px;
+    top: 0px;
     left: 5px;
     font-size: 12px;
     color: $Dark-gray;
     background-color: $Pale-gray;
+}
+
+.emailContainer {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    color: $Dark-gray;
+    line-height: 1.6;
+
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 13px;
+        padding: 10px;
+        line-height: 1.4;
+    }
+}
+
+.emailContainer a {
+    color: $Golden-bronze;
+    text-decoration: none;
+    font-weight: 600;
+
+    @media (max-width: 480px) {
+        font-size: 14px;
+    }
+}
+
+.emailContainer a:hover {
+    text-decoration: underline;
+}
+
+.emailContainer p {
+    margin: 0 0 10px;
+
+    @media (max-width: 480px) {
+
+        margin-bottom: 5px;
+    }
 }
 
 // ------------------------------------------------------------------------

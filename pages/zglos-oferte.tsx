@@ -5,10 +5,11 @@ import emailjs from 'emailjs-com';
 import Modal from '@/components/Modal/Modal';
 import styles from '@/styles/zglosOferte.module.scss';
 
+import { FaEnvelope } from "react-icons/fa";
+
 const SubmitOfferForm = () => {
   const [modalMessage, setModalMessage] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [imagePreviews, setImagePreviews] = useState<string[]>([]);
 
   const formik = useFormik({
     initialValues: {
@@ -22,23 +23,19 @@ const SubmitOfferForm = () => {
       transactionType: '',
       price: '',
       area: '',
-      images: [],
     },
     validationSchema: offerFormValidationSchema,
     onSubmit: async (values) => {
       console.log("Submitted:", values)
       try {
-        const imageUrls = Array.from(values.images).map((file) => URL.createObjectURL(file));
 
         const templateParams = {
           ...values,
-          images: imageUrls.join(', '),
         };
-        console.log("Template,", templateParams);
 
         const serviceID = String(process.env.SERVICE_ID);
         const templateOfferID = String(process.env.TEMPLATE_OFFER_ID);
-        const userID = String(process.env.USER_I);
+        const userID = String(process.env.USER_ID);
 
         const response = await emailjs.send(
           serviceID,
@@ -56,7 +53,6 @@ const SubmitOfferForm = () => {
         
         if(response.status === 200) { 
           formik.resetForm();
-          setImagePreviews([]);
       }
     } catch(error) {
       console.log('Error', error);
@@ -291,21 +287,14 @@ const SubmitOfferForm = () => {
   )}
 </div>
 
-<h3>Zdjęcia</h3>
-<div className={styles.formGroup}>
-  <input
-    className={styles.fileInput}
-    type="file"
-    name='images'
-    multiple
-    accept="image/*"
-    onChange={(event) => {
-      if (event.currentTarget.files) {
-        formik.setFieldValue('images', Array.from(event.currentTarget.files));
-      }
-    }}
-  />
-  <p className={styles.note}>Uwaga: Możesz przesłać kilka zdjęć jednocześnie!</p>
+<div className={styles.emailContainer}>
+    <p>Zdjęcia ofert prosimy wysyłać na:</p>
+    <p>
+      <a href="mailto:joanna@nieruchomosci.pl">joanna@nieruchomosci.pl</a>
+    </p>
+    <p>
+      <a href="mailto:sebastian@nieruchomosci.pl">sebastian@nieruchomosci.pl</a>
+    </p>
 </div>
 
 <button className={styles.submitButton} type="submit">
