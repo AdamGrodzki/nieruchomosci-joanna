@@ -1,12 +1,12 @@
-import React, {useMemo} from 'react';
-import Link from "next/link";
-import Image from "next/image";
-import { PropertyCardProps } from "@/static/data";
-import styles from "@/components/PropertyCard/propertyCard.module.scss"
-import { FaLocationDot } from "react-icons/fa6";
+import React, { useMemo, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { PropertyCardProps } from '@/static/data';
+import styles from '@/components/PropertyCard/propertyCard.module.scss';
+import { FaLocationDot } from 'react-icons/fa6';
 
-const PropertyCard: React.FC<PropertyCardProps> = ({nieruchomosc}) => {
-const {
+const PropertyCard: React.FC<PropertyCardProps> = ({ nieruchomosc }) => {
+  const {
     title,
     address,
     gallery,
@@ -24,7 +24,7 @@ const {
   }, [createdAt]);
 
   const isNewOffer = diffDays <= 7;
-  
+
   const formattedDate = useMemo(() => {
     return new Intl.DateTimeFormat('pl-PL', {
       year: 'numeric',
@@ -33,45 +33,57 @@ const {
     }).format(createdAt);
   }, [createdAt]);
 
+  const [loading, setLoading] = useState(false);
 
-    return (
-      <div className={styles.card}>
-          {isNewOffer && <div className={styles.newOfferBadge}>Nowość!</div>}
-            <div className={styles.featured}>
-              <Link href={`/oferta/${slug}`} prefetch={true} legacyBehavior>
-              <a>
-                <Image 
-                  src={"https:" + gallery.fields.file.url}
-                  height={400}
-                  width={600}
-                  alt={gallery.fields.title || "Property Image"}
-                  priority={false}
-                />
-                 </a>
-              </Link>
-            </div>
+  const handleLinkClick = () => {
+    setLoading(true); 
+  };
 
-            <div className={styles.content}>
-                <div className={styles.info}>
-                    <h4>{title}</h4>
-                    <p><FaLocationDot /> {address}</p>
-                    <div className={styles.price}>
-                      {new Intl.NumberFormat('pl-PL', 
-                      { 
-                        style: 'currency',
-                        currency: 'PLN',  
-                      }).format(price)}</div>
-                    <div>
-                      <p >Powierzchnia: <b>{area} m<sup>2</sup></b></p>
-                         {numberOfRooms > 0 && (
-                      <p>Liczba pokoi: <b>{numberOfRooms}</b></p>
-                            )}
-                      <p>Oferta zostala utworzona: {formattedDate}</p>
-                    </div>
-                </div>
-            </div>
+  return (
+    <div className={styles.card}>
+      {isNewOffer && <div className={styles.newOfferBadge}>Nowość!</div>}
+      <div className={styles.featured}>
+        <Link href={`/oferta/${slug}`} prefetch={true} legacyBehavior>
+          <a onClick={handleLinkClick}>
+            <Image
+              src={'https:' + gallery.fields.file.url}
+              height={400}
+              width={600}
+              alt={gallery.fields.title || 'Property Image'}
+              priority={false}
+            />
+            {loading && (
+              <div className={styles.loaderOverlay}>
+                <div className={styles.loader}></div>
+              </div>
+            )}
+          </a>
+        </Link>
+      </div>
+
+      <div className={styles.content}>
+        <div className={styles.info}>
+          <h4>{title}</h4>
+          <p>
+            <FaLocationDot /> {address}
+          </p>
+          <div className={styles.price}>
+            {new Intl.NumberFormat('pl-PL', {
+              style: 'currency',
+              currency: 'PLN',
+            }).format(price)}
+          </div>
+          <div>
+            <p>
+              Powierzchnia: <b>{area} m<sup>2</sup></b>
+            </p>
+            {numberOfRooms > 0 && <p>Liczba pokoi: <b>{numberOfRooms}</b></p>}
+            <p>Oferta została utworzona: {formattedDate}</p>
+          </div>
         </div>
-     );
-}
- 
+      </div>
+    </div>
+  );
+};
+
 export default PropertyCard;
