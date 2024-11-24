@@ -1,6 +1,6 @@
 import styles from "./footer.module.scss"
 import logo from "@/images/logoDark.png"
-import { FaFacebook } from "react-icons/fa";
+import { FaFacebook,} from "react-icons/fa";
 import { BsTelephone } from "react-icons/bs";
 import { MdOutlineMail, MdOutlineLocationOn } from "react-icons/md";
 import Link from "next/link";
@@ -63,7 +63,7 @@ const Footer = () => {
                 &copy; {new Date().getFullYear()} Wszystkie prawa zastrzeżone | Joanna nieruchomości
             </div>
         </footer>
-     );
+    )
 }
  
 export default Footer;
