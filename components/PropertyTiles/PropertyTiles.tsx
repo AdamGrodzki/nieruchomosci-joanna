@@ -44,7 +44,6 @@ const PropertyTiles: React.FC = () => {
                         src={img}
                         alt={`${type} card`}
                         />
-            
                 <h2>{type}</h2>
                 </div>
                 

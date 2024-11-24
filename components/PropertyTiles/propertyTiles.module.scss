@@ -23,7 +23,9 @@
     transform: scale(1);
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
     cursor: pointer;
+
 
     &:hover .front {
         transform: rotateY(180deg);
@@ -46,12 +48,12 @@
 }
 
 .tile:hover {
-    transform: scale(1.15);
+    transform: scale(1.1);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .tile:hover img {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .front,
@@ -115,8 +117,8 @@
     }
 
     .tile img {
-        height: 8.75rem;
-        width: 8.75rem;
+        height: 7rem;
+        width: 7rem;
     }
 
     .tile h2 {
@@ -150,8 +152,8 @@
     }
 
     .tile img {
-        height: 5.625rem;
-        width: 5.625rem;
+        height: 5.5rem;
+        width: 5.5rem;
     }
 
     .tile h2 {

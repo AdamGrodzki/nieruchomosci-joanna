@@ -105,7 +105,6 @@ const SubmitOfferForm = () => {
 <h2 className={styles.heading}>Zgłoś ofertę</h2>
 
 <div className={styles.formGroup}>
-    {/* <label className={styles.label}>Imię i nazwisko</label> */}
     <div style={{ position: 'relative' }}>
     <input
       placeholder='Imię i Nazwisko'
@@ -125,7 +124,6 @@ const SubmitOfferForm = () => {
   </div>
 
 <div className={styles.formGroup}>
-  {/* <label className={styles.label}>Email</label> */}
   <div style={{ position: 'relative' }}>
   <input
     placeholder='Adres email'
@@ -145,7 +143,6 @@ const SubmitOfferForm = () => {
 </div>
 
 <div className={styles.formGroup}>
-  {/* <label className={styles.label}>Telefon kontaktowy</label> */}
   <div style={{ position: 'relative' }}>
   <input
     placeholder='Telefon kontaktowy'
@@ -165,7 +162,6 @@ const SubmitOfferForm = () => {
 </div>
 
 <div className={styles.formGroup}>
-  {/* <label className={styles.label}>Lokalizacja</label> */}
   <input
     placeholder='Lokalizacja'
     className={styles.input}
@@ -178,7 +174,6 @@ const SubmitOfferForm = () => {
 </div>
 
  <div className={styles.formGroup}>
-   {/* <label className={styles.label}>Liczba pokoi</label> */}
   <input
     placeholder='Liczba pokoi'
     className={styles.input}
@@ -191,7 +186,6 @@ const SubmitOfferForm = () => {
 </div>
 
 <div className={styles.formGroup}>
-  {/* <label className={styles.label}>Opis</label> */}
   <textarea
     placeholder='Opis...'
     className={styles.textarea}

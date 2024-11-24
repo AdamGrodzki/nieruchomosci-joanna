@@ -46,3 +46,10 @@
 .arrowRight {
     right: -3.125rem;
 }
+
+@media (max-width: 768px) {
+    .customDots {
+        margin: -3.5rem 0;
+        height: 100px;
+    }
+}

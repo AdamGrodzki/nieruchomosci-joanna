@@ -1,8 +1,9 @@
-import { PropertyProps } from "@/static/data";
-import PropertyCard from "@/components/PropertyCard/PropertyCard";
 import Carousel from "@/components/Carousel/Carousel";
-import styles from "../styles/index.module.scss"
-import {client} from "@/lib/contentful"
+import FeaturedProperties from "@/components/FeaturedProperties/FeaturedProperties";
+import PropertyCard from "@/components/PropertyCard/PropertyCard";
+import styles from "../styles/index.module.scss";
+import {client} from "@/lib/contentful";
+import { Nieruchomosc, PropertyProps} from "@/static/data";
 
 export async function getStaticProps() {
     const res = await client.getEntries({
@@ -11,21 +12,26 @@ export async function getStaticProps() {
         });
 
     return {
-        props: {nieruchomosci: res.items},
-        revalidate: 60,
-        // revalidate: 1,
+        props: {
+        nieruchomosci: res.items,
+        },
+        revalidate: 1,
     };
 }
 
 const Property: React.FC<PropertyProps> = ({nieruchomosci}) => {
     console.log(nieruchomosci);
     return(
+    <>
+            <div id="featuredSection">
+                <FeaturedProperties nieruchomosci={nieruchomosci} />
+            </div>
         <div>
-            <h2 className={styles.heading}>Najnowsze Oferty</h2>
             <div className={styles.container}>
+            <h2 className={styles.heading}>Najnowsze Oferty</h2>
                 <div className={styles.propertyList}>
                     <Carousel className={styles.carousel}>
-                        {nieruchomosci.map(nieruchomosc => (
+                        {nieruchomosci.map((nieruchomosc: Nieruchomosc) => (
                         <PropertyCard 
                         key={nieruchomosc.sys.id} 
                         nieruchomosc={nieruchomosc}
@@ -35,6 +41,7 @@ const Property: React.FC<PropertyProps> = ({nieruchomosci}) => {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

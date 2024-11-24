@@ -123,7 +123,7 @@ const SearchResults = () => {
     <>
       <div className={styles.container}>
     {loading ? (
-      <h1 className={styles.title}><TbLoader2 className={styles.fiLoader}/></h1>
+      <h1 className={styles.title}><TbLoader2 className={styles.initialSpinner}/></h1>
     ) : (
       <h1 className={styles.title}>
         Wyniki wyszukiwania: <span>{results.length}</span>
