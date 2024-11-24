@@ -5,7 +5,6 @@ import emailjs from 'emailjs-com';
 import Modal from '@/components/Modal/Modal';
 import styles from '@/styles/zglosOferte.module.scss';
 
-import { FaEnvelope } from "react-icons/fa";
 
 const SubmitOfferForm = () => {
   const [modalMessage, setModalMessage] = useState<string | null>(null);
