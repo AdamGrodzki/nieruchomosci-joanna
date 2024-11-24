@@ -16,10 +16,9 @@ interface LayoutProps {
   return (
     <>
        <Head>
-        <title>Joanna Nieruchomości - Nieruchomości w Tczewie</title>
+        <title>Joanna Nieruchomości </title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
         <link rel="icon" href="./public/favicon.ico"/>
       </Head>
 

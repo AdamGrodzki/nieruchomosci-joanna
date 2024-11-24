@@ -33,3 +33,34 @@ export const offerFormValidationSchema = Yup.object({
         .matches(/^(?:\d{3}[- ]?\d{3}[- ]?\d{3})$/, 'Numer telefonu musi mieć 9 cyfr')
         .required('Numer telefonu jest wymagany'),
 });
+
+export const SearchBarSchema = Yup.object().shape({
+    typeOfProperty: Yup.string()
+      .oneOf(['Mieszkanie', 'Dom', 'Działka', 'Lokal', 'Obiekt'], 'Wybierz poprawny rodzaj nieruchomości'),
+    transactionType: Yup.string()
+      .oneOf(['Sprzedaż', 'Wynajem'], 'Wybierz poprawny typ transakcji'),
+    
+    minPrice: Yup.number()
+      .typeError('Cena musi być liczbą')
+      .min(0, 'Cena nie może być ujemna')
+      .nullable(),
+    
+    maxPrice: Yup.number()
+      .typeError('Cena musi być liczbą')
+      .moreThan(Yup.ref('minPrice'), 'Maksymalna cena musi być większa niż minimalna cena')
+      .nullable(),
+  
+    minArea: Yup.number()
+      .typeError('Powierzchnia musi być liczbą')
+      .min(0, 'Powierzchnia nie może być ujemna')
+      .nullable(),
+    
+    maxArea: Yup.number()
+      .typeError('Powierzchnia musi być liczbą')
+      .moreThan(Yup.ref('minArea'), 'Maksymalna powierzchnia musi być większa niż minimalna powierzchnia')
+      .nullable(),
+    
+    address: Yup.string()
+      .min(3, 'Adres musi mieć przynajmniej 3 znaki')
+      .nullable(),
+  });
