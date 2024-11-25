@@ -2,15 +2,23 @@ import "@/styles/globals.scss";
 import { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import Layout from "@/components/LayoutPage/Layout";
-import HomeContent from "@/components/HomeContent";
+import LandingPage from "@/components/LandingPage/LandingPage";
+import SearchBar from "@/components/SearchBar/SearchBar";
+import PropertyTiles from "@/components/PropertyTiles/PropertyTiles";
 
 const App = ({Component, pageProps}: AppProps) => {
     const router = useRouter();
-    const isHomePage = router.pathname === "/";
+    // const isHomePage = router.pathname === "/";
 
     return (
         <Layout>
-          {isHomePage && <HomeContent/>}
+            {/* {isHomePage && ( */}
+                <>
+                    <LandingPage />
+                    <SearchBar />
+                    <PropertyTiles />
+                </>
+            {/* )} */}
             <Component {...pageProps} />
         </Layout>
      );
