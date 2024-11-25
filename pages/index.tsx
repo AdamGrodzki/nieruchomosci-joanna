@@ -12,10 +12,8 @@ export async function getStaticProps() {
         });
 
     return {
-        props: {
-        nieruchomosci: res.items,
-        },
-        revalidate: 1,
+        props: {nieruchomosci: res.items},
+        revalidate: 100,
     };
 }
 
