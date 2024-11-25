@@ -65,7 +65,6 @@ const Contact = () => {
     setAlertType(null);
   };
 
-  //CLEAR COMPONENT 404 AFTER 2SEC. 
   useEffect(() => {
     if (alertMessage) {
       const timer = setTimeout(() => {

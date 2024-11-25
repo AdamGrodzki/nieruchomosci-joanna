@@ -39,8 +39,7 @@ export const offerFormValidationSchema = Yup.object({
         .min(0, 'Cena musi być większa niż 0')
         .required('Cena jest wymagana'),
     area: Yup.number()
-        .min(0, 'Powierzchnia nie może byc ujemna')
-        .required('Powierzchnia jest wymagana'),
+        .min(0, 'Powierzchnia nie może byc ujemna'),
     numberOfRooms: Yup.number()
         .min(0, 'Liczba pokoi nie może byc ujemna')
         .required('Liczba pokoi jest wymagane'),
