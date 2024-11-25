@@ -8,17 +8,17 @@ import PropertyTiles from "@/components/PropertyTiles/PropertyTiles";
 
 const App = ({Component, pageProps}: AppProps) => {
     const router = useRouter();
-    // const isHomePage = router.pathname === "/";
+    const isHomePage = router.pathname === "/";
 
     return (
         <Layout>
-            {/* {isHomePage && ( */}
+            {isHomePage && (
                 <>
-                    <LandingPage />
+                   <LandingPage />
                     <SearchBar />
                     <PropertyTiles />
                 </>
-            {/* )} */}
+            )}
             <Component {...pageProps} />
         </Layout>
      );
