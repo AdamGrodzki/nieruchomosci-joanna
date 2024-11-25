@@ -25,7 +25,6 @@ const SubmitOfferForm = () => {
     },
     validationSchema: offerFormValidationSchema,
     onSubmit: async (values) => {
-      console.log("Submitted:", values)
       try {
 
         const templateParams = {
@@ -54,7 +53,6 @@ const SubmitOfferForm = () => {
           formik.resetForm();
       }
     } catch(error) {
-      console.log('Error', error);
       setModalMessage('Wystąpił błąd podczas zgłaszania oferty.');
       setIsSuccess(false)
     }

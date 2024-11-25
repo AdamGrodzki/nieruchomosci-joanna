@@ -6,7 +6,10 @@ import {client} from "@/lib/contentful";
 import { Nieruchomosc, PropertyProps} from "@/static/data";
 
 export async function getStaticProps() {
-    const res = await client.getEntries({content_type: "nieruchomosc"});
+    const res = await client.getEntries({
+            content_type: "nieruchomosc", 
+            order: ['-sys.createdAt']
+        });
 
     return {
         props: {
@@ -17,16 +20,14 @@ export async function getStaticProps() {
 }
 
 const Property: React.FC<PropertyProps> = ({nieruchomosci}) => {
-    console.log(nieruchomosci);
     return(
     <>
-            {/* <FeaturedProperties nieruchomosci={nieruchomosci} /> */}
             <div id="featuredSection">
                 <FeaturedProperties nieruchomosci={nieruchomosci} />
             </div>
         <div>
             <div className={styles.container}>
-            <h2 className={styles.heading}>Najnowsze Oferty</h2>
+            <h2 className={styles.heading}>Oferty Nieruchomości</h2>
                 <div className={styles.propertyList}>
                     <Carousel className={styles.carousel}>
                         {nieruchomosci.map((nieruchomosc: Nieruchomosc) => (

@@ -38,7 +38,6 @@ const Contact = () => {
       emailjs
         .send(serviceID, templateID, templateParams, userID)
         .then((response) => {
-          console.log('SUCCESS!', response.status, response.text);
           setAlertMessage('Wiadomość została wysłana pomyślnie!');
           setAlertType('success');
           resetForm(); 
