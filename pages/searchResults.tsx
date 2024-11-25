@@ -94,7 +94,6 @@ const SearchResults = () => {
 
     try {
       const { items } = await client.getEntries(query);
-      console.log("items", items);
       setResults(items);
     } catch (error) {
       console.error("Error fetching items:", error);
@@ -109,8 +108,6 @@ const SearchResults = () => {
     }
   }, [router.isReady, getItems]);
 
-  console.log("searchParams", searchParams);
-
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('pl-PL', {
         style: 'currency',
@@ -123,7 +120,7 @@ const SearchResults = () => {
     <>
       <div className={styles.container}>
     {loading ? (
-      <h1 className={styles.title}><TbLoader2 className={styles.fiLoader}/></h1>
+      <h1 className={styles.title}><TbLoader2 className={styles.initialSpinner}/></h1>
     ) : (
       <h1 className={styles.title}>
         Wyniki wyszukiwania: <span>{results.length}</span>

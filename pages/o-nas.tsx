@@ -8,22 +8,22 @@ import { TeamMemberProps } from "@/static/data";
 
 const teamMembers: TeamMemberProps[] = [
     {
-      name: 'Joanna Kowalska',
+      name: 'Joanna Kruczek',
       title: 'Właściciel, pośrednik w obrocie nieruchomościami, obsługa nieruchomości, marketing, sprzedaż, dialog z klientem',
       description: 'Ludzkość w połączeniu z profesjonalizmem to podstawa sukcesu. Zgodnie z tą dewizą do każdej sprzedaży nieruchomości podchodzimy bardzo indywidualnie i z sercem. Dokładamy wszelkich starań, aby sprzedaż Twojej nieruchomości była wspaniałym doświadczeniem.',
-      email: 'joanna@estateapp.com',
-      phone: '123 456 789',
+      email: 'joanna@nieruchomoscijoanna.pl',
+      phone: '884 849 400',
       image: joannaAvatar,
-      license: '21605'
+      license: '29135'
     },
     {
-      name: 'Sebastian Kowalski',
+      name: 'Sebastia Kruczek',
       title: 'Właściciel, pośrednik w obrocie nieruchomościami, obsługa nieruchomości, marketing, sprzedaż, dialog z klientem',
       description: 'Z doświadczenia wiem jak ważny jest stały kontakt z właścicielem i zainteresowanymi stronami. Cieszę się, że jestem łącznikiem między nimi i dbam o to, aby każdy miał pod ręką wszystkie istotne informacje, aby osiągnąć możliwie najlepszy wynik dla obu stron',
-      email: 'sebastian@estateapp.com',
-      phone: '987 654 321',
+      email: 'sebastian@nieruchomoscijoanna.pl',
+      phone: '603 372 701',
       image: sebastianAvatar,
-      license: '10101'
+      license: '29136'
     },
   ];
   

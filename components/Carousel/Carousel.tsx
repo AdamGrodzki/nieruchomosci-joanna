@@ -38,7 +38,7 @@ const NextArrowButton: React.FC<ArrowButtonProps> = ({onClick}) => {
 
 const Carousel: React.FC<CarouselProps> = ({ children }) => {
   const settings = {
-    dots: true,
+    dots: false,
     arrows: true,
     infinite: true,
     speed: 500,

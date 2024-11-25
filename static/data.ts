@@ -1,5 +1,6 @@
 import { StaticImageData } from "next/image";
 import { Document } from '@contentful/rich-text-types';
+
 export interface PropertyProps {
     nieruchomosci: Nieruchomosc[];
 }
@@ -37,6 +38,7 @@ export interface Nieruchomosc {
         slug: string;
         area: number;
         transactionType: string;
+        special: boolean;
     };
     sys: {
         createdAt: string;
@@ -45,6 +47,13 @@ export interface Nieruchomosc {
 };
 export interface PropertyCardProps {
     nieruchomosc: Nieruchomosc;
+}
+export interface PropertyProps {
+    nieruchomosci: Nieruchomosc[];
+}
+
+export interface FeaturedPropertiesProps {
+    nieruchomosci: Nieruchomosc[];
 }
 
 export interface Photo {
@@ -58,6 +67,7 @@ export interface Photo {
 export interface PropertyDetailsProps {
     nieruchomosci: {
         fields: {
+            special: boolean;
             address: string;
             area: number;
             contact: string;

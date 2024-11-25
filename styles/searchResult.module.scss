@@ -40,10 +40,15 @@
     width: 100%;
 }
 
-.fiLoader {
+.fiLoader,
+.initialSpinner {
     margin-left: 0.625rem;
 
     animation: spin 1s linear infinite;
+}
+
+.initialSpinner {
+    opacity: 0;
 }
 
 

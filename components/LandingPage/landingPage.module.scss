@@ -22,7 +22,7 @@
     flex: 0 0 100%;
 
     position: relative;
-    height: 100vh;
+    height: 75vh;
 }
 
 .emblaImage {
@@ -80,6 +80,10 @@
 }
 
 @media (max-width: 768px) {
+    .parentContainer {
+        height: 70vh;
+    }
+
     .hero img {
         height: auto;
     }

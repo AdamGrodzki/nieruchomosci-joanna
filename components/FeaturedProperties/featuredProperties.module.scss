@@ -1,0 +1,84 @@
+@import '../../styles/variables';
+
+
+.featuredSection {
+    margin-bottom: 50px;
+    padding: 1.5rem;
+    background-color: $Pale-gray;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    h2 {
+        color: $Dark-gray;
+        font-size: 2rem;
+        font-weight: bold;
+        letter-spacing: 0.125rem;
+        text-align: center;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        text-wrap: wrap;
+    }
+}
+
+.noOffer {
+    color: black;
+    text-align: center;
+    padding-bottom: 50px;
+    padding-top: 20px;
+
+    @media (max-width: 768px) {
+        padding-bottom: 30px;
+    }
+}
+
+.featuredList {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    width: 100%;
+    max-width: 1600px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+.propertyWrapper {
+    position: relative;
+}
+
+.specialOfferBadge {
+    color: $Black;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: $Border-radius;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    background: linear-gradient(135deg, #c59c58 0%, #f1c27d 50%, #c59c58 100%);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2), inset 0 0 0.3rem rgba(255, 255, 255, 0.6);
+
+    animation: pulse 3s infinite;
+    transform: rotate(30deg);
+
+    @media (max-width: 768px) {
+        top: 45px;
+        right: 5px;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px #c59c58;
+    }
+
+    50% {
+        box-shadow: 0 0 20px #f1c27d;
+    }
+
+    100% {
+        box-shadow: 0 0 10px #c59c58;
+    }
+}

@@ -98,10 +98,6 @@
     }
 }
 
-.contact {
-    padding: 1.25rem;
-}
-
 .contact a {
     color: $Medium-gray;
     transition: all ease 0.4s;
@@ -170,6 +166,15 @@
 
 .arrowRight {
     right: 10px;
+}
+
+.noImagesMessage {
+    text-align: center;
+    font-size: 1.5rem;
+    color: $Dark-gray;
+    margin: 50px 0;
+    padding: 150px 0;
+    font-weight: 500;
 }
 
 @media (max-width: 768px) {
@@ -249,10 +254,6 @@
 
     .cardImage {
         width: 100%;
-    }
-
-    .cardImage img {
-        width: fit-content;
     }
 
     .customGallery {
