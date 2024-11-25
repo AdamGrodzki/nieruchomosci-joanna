@@ -2,7 +2,6 @@
 
 .carouselContainer {
     position: relative;
-    padding: 0 0.625rem;
     cursor: grab;
 }
 
@@ -11,7 +10,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0.625rem;
 }
 
 .customDots li button::before {
@@ -48,8 +46,25 @@
 }
 
 @media (max-width: 768px) {
+    .carouselContainer {
+        margin-bottom: 2rem;
+
+    }
+
     .customDots {
-        margin: -3.5rem 0;
-        height: 100px;
+        margin-bottom: -2rem;
+    }
+
+    .arrowLeft,
+    .arrowRight {
+        top: 33.6rem;
+    }
+
+    .arrowLeft {
+        left: 6rem;
+    }
+
+    .arrowRight {
+        right: 6rem;
     }
 }

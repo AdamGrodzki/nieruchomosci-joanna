@@ -26,3 +26,9 @@
     width: 100%;
     max-width: 1600px;
 }
+
+@media (max-width: 768px) {
+    .heading {
+        margin-bottom: 0.5rem;
+    }
+}

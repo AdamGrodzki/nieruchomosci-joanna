@@ -97,63 +97,71 @@ const Contact = () => {
 
       <div className={styles.contactContent}>
 <form onSubmit={handleSubmit} className={styles.contactForm}>
-  <div style={{ position: 'relative' }}>
+  <div className={styles.inputContainer}>
     <input
+      className={`${styles.input} ${touched.name && errors.name ? styles.inputError : ''}`}
       type="text"
       name="name"
-      placeholder="Imię i Nazwisko"
+      placeholder=""
       value={values.name}
       onChange={handleChange}
       onBlur={handleBlur}
     />
-    {touched.name && errors.name && (
+      <label className={styles.label}>Imie i nazwisko</label>
+ {touched.name && errors.name && (
       <div className={`${styles.error} ${styles.errorVisible}`}>
         {errors.name}
       </div>
     )}
   </div>
 
-  <div style={{ position: 'relative' }}>
+  <div className={styles.inputContainer}>
     <input
+      className={`${styles.input} ${touched.phone && errors.phone ? styles.inputError : ''}`}
       type="tel"
       name="phone"
-      placeholder="Telefon kontaktowy"
+      placeholder=""
       value={values.phone}
       onChange={handleChange}
       onBlur={handleBlur}
     />
-    {touched.phone && errors.phone && (
+     <label className={styles.label}>Telefon kontaktowy</label>
+ {touched.phone && errors.phone && (
       <div className={`${styles.error} ${styles.errorVisible}`}>
         {errors.phone}
       </div>
     )}
   </div>
 
-  <div style={{ position: 'relative' }}>
+  <div className={styles.inputContainer}>
     <input
+      className={`${styles.input} ${touched.email && errors.email ? styles.inputError : ''}`}
       type="email"
       name="email"
-      placeholder="Adres Email"
+      placeholder=" "
       value={values.email}
       onChange={handleChange}
       onBlur={handleBlur}
     />
-    {touched.email && errors.email && (
+       <label className={styles.label}>Adres Email</label>
+ {touched.email && errors.email && (
       <div className={`${styles.error} ${styles.errorVisible}`}>
         {errors.email}
       </div>
     )}
   </div>
 
-  <div style={{ position: 'relative' }}>
+  <div className={styles.inputContainer}>
     <textarea
+      className={`${styles.input} ${touched.message && errors.message ? styles.inputError : ''}`}
       name="message"
       placeholder="Treść wiadomości..."
       value={values.message}
       onChange={handleChange}
       onBlur={handleBlur}
     />
-    {touched.message && errors.message && (
+     <label className={styles.label}></label>
+ {touched.message && errors.message && (
       <div className={`${styles.error} ${styles.errorVisible}`}>
         {errors.message}
       </div>
@@ -167,7 +175,7 @@ const Contact = () => {
         <div className={styles.contactImage}>
           <Image
             src={logoDark}
-            alt="Kontakt"
+            alt="Kontakt logo"
             width={500}
             height={300}
             objectFit="cover"

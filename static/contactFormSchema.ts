@@ -18,7 +18,6 @@ export const ContactFormSchema = Yup.object().shape({
         .required('Wiadomość jest wymagana'),
 });
 
-
 export const offerFormValidationSchema = Yup.object({
     name: Yup.string()
         .min(2, 'Imię i nazwisko jest zbyt krótkie')
@@ -32,35 +31,47 @@ export const offerFormValidationSchema = Yup.object({
     phone: Yup.string()
         .matches(/^(?:\d{3}[- ]?\d{3}[- ]?\d{3})$/, 'Numer telefonu musi mieć 9 cyfr')
         .required('Numer telefonu jest wymagany'),
+    location: Yup.string()
+        .required('Lokalizacja jest wymagana'),
+    description: Yup.string()
+        .required("Opis jest wymagany"),
+    price: Yup.number()
+        .min(0, 'Cena musi być większa niż 0')
+        .required('Cena jest wymagana'),
+    area: Yup.number()
+        .min(0, 'Powierzchnia nie może byc ujemna'),
+    numberOfRooms: Yup.number()
+        .min(0, 'Liczba pokoi nie może byc ujemna')
+        .required('Liczba pokoi jest wymagane'),
 });
 
 export const SearchBarSchema = Yup.object().shape({
     typeOfProperty: Yup.string()
-      .oneOf(['Mieszkanie', 'Dom', 'Działka', 'Lokal', 'Obiekt'], 'Wybierz poprawny rodzaj nieruchomości'),
+        .oneOf(['Mieszkanie', 'Dom', 'Działka', 'Lokal', 'Obiekt'], 'Wybierz poprawny rodzaj nieruchomości'),
     transactionType: Yup.string()
-      .oneOf(['Sprzedaż', 'Wynajem'], 'Wybierz poprawny typ transakcji'),
-    
+        .oneOf(['Sprzedaż', 'Wynajem'], 'Wybierz poprawny typ transakcji'),
+
     minPrice: Yup.number()
-      .typeError('Cena musi być liczbą')
-      .min(0, 'Cena nie może być ujemna')
-      .nullable(),
-    
+        .typeError('Cena musi być liczbą')
+        .min(0, 'Cena nie może być ujemna')
+        .nullable(),
+
     maxPrice: Yup.number()
-      .typeError('Cena musi być liczbą')
-      .moreThan(Yup.ref('minPrice'), 'Maksymalna cena musi być większa niż minimalna cena')
-      .nullable(),
-  
+        .typeError('Cena musi być liczbą')
+        .moreThan(Yup.ref('minPrice'), 'Maksymalna cena musi być większa niż minimalna cena')
+        .nullable(),
+
     minArea: Yup.number()
-      .typeError('Powierzchnia musi być liczbą')
-      .min(0, 'Powierzchnia nie może być ujemna')
-      .nullable(),
-    
+        .typeError('Powierzchnia musi być liczbą')
+        .min(0, 'Powierzchnia nie może być ujemna')
+        .nullable(),
+
     maxArea: Yup.number()
-      .typeError('Powierzchnia musi być liczbą')
-      .moreThan(Yup.ref('minArea'), 'Maksymalna powierzchnia musi być większa niż minimalna powierzchnia')
-      .nullable(),
-    
+        .typeError('Powierzchnia musi być liczbą')
+        .moreThan(Yup.ref('minArea'), 'Maksymalna powierzchnia musi być większa niż minimalna powierzchnia')
+        .nullable(),
+
     address: Yup.string()
-      .min(3, 'Adres musi mieć przynajmniej 3 znaki')
-      .nullable(),
-  });
+        .min(3, 'Adres musi mieć przynajmniej 3 znaki')
+        .nullable(),
+});

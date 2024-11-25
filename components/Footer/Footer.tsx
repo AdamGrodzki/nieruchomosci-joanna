@@ -32,19 +32,19 @@ const Footer = () => {
                 </li>
                 <li>
                     <BsTelephone aria-hidden="true"/>
-                    <a href="tel: 123 456 789"> 123 456 789</a>
+                    <a href="tel: 884 849 400"> 884 849 400</a>
                 </li>
                 <li>
                     <BsTelephone aria-hidden="true"/> 
-                    <a href="tel: 987 654 321"> 987 654 321</a>
+                    <a href="tel: 603 372 701 "> 603 372 701 </a>
                 </li>
                 <li>
                     <MdOutlineMail aria-hidden="true"/> 
-                    <a href="mailto:joanna@estateapp.com"> joanna@estateapp.com</a>
+                    <a href="mailto:joanna@estateapp.com"> joanna@nieruchomoscijoanna.pl</a>
                 </li>
                 <li>
                     <MdOutlineMail aria-hidden="true"/> 
-                    <a href="mailto:sebastian@estateapp.com"> sebastian@estateapp.com</a>
+                    <a href="mailto:sebastian@estateapp.com"> sebastian@nieruchomoscijoanna.pl</a>
                 </li>
             </ul>
 
