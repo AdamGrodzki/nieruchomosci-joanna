@@ -4,11 +4,12 @@ import Image, { StaticImageData } from 'next/image';
 import styles from './landingPage.module.scss';
 
 import logo from "../../images/logoDark.png"; 
-import carouselImage1 from "../../images/kitchen.jpg";
-import carouselImage2 from "../../images/living-room2.jpg";
-import carouselImage3 from "../../images/living-room3.jpg";
+import carouselImage1 from "../../images/heroImage1.jpg";
+import carouselImage2 from "../../images/heroImage2.jpg";
+import carouselImage3 from "../../images/heroImage3.jpg";
+import carouselImage4 from "../../images/heroImage4.jpg";
 
-const images: StaticImageData[]= [ carouselImage1, carouselImage2, carouselImage3];
+const images: StaticImageData[]= [ carouselImage1, carouselImage2, carouselImage3, carouselImage4];
 
 const LandingPage = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
