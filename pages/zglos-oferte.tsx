@@ -36,7 +36,7 @@ const SubmitOfferForm = () => {
 
         const serviceID = String(process.env.SERVICE_ID);
         const templateOfferID = String(process.env.TEMPLATE_OFFER_ID);
-        const userID = String(process.env.USER_I);
+        const userID = String(process.env.USER_ID);
 
         const response = await emailjs.send(
           serviceID,

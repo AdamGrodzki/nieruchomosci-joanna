@@ -114,7 +114,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ nieruchomosci }) => {
         dots: true,
         dotsClass: `slick-dots ${styles.customGallery}`,
         infinite: photos.length > 1,
-        speed: 1500,
+        speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
         prevArrow: <PrevArrowButton />,

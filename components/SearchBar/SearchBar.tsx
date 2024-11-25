@@ -5,7 +5,7 @@ import { IoSearchCircleOutline } from 'react-icons/io5';
 import styles from './searchbar.module.scss';
 import { useFormik } from 'formik';
 import { SearchBarSchema } from '@/static/contactFormSchema';
-import Select from '../Select';
+import Select from '../../static/Select';
 import cx from 'clsx'; 
 
 const SearchBar = () => {
