@@ -54,7 +54,6 @@ const Navbar = () => {
         }
     }, []);
 
-    // Elementy nawigacji
     const navItems = useMemo(() => [
         { name: "Strona Główna", path: "/" },
         { name: 'Oferty wyróżnione', anchor: true },  
@@ -95,8 +94,7 @@ const Navbar = () => {
                     )}
                 </div>
             </div>
-
-            <ul className={`${styles.unorderedList} ${menuOpen ? styles.showMenu : ""}`}>
+            <ul className={`${styles.unorderedList} ${menuOpen ? styles.showMenu : styles.hideMenu}`}>
                 {navItems.map(item => (
                     <li key={item.name} className={pathname === item.path ? styles.active : styles.listItem}>
                         {item.anchor ? (
