@@ -20,7 +20,6 @@ export async function getStaticProps() {
 }
 
 const Property: React.FC<PropertyProps> = ({nieruchomosci}) => {
-    console.log(nieruchomosci);
     return(
     <>
             <div id="featuredSection">

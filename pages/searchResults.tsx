@@ -94,7 +94,6 @@ const SearchResults = () => {
 
     try {
       const { items } = await client.getEntries(query);
-      console.log("items", items);
       setResults(items);
     } catch (error) {
       console.error("Error fetching items:", error);
@@ -108,8 +107,6 @@ const SearchResults = () => {
       getItems();
     }
   }, [router.isReady, getItems]);
-
-  console.log("searchParams", searchParams);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('pl-PL', {
