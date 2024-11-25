@@ -54,7 +54,6 @@ const Navbar = () => {
         }
     }, []);
 
-    // Elementy nawigacji
     const navItems = useMemo(() => [
         { name: "Strona Główna", path: "/" },
         { name: 'Oferty wyróżnione', anchor: true },  
