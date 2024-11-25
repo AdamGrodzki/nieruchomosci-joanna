@@ -11,7 +11,6 @@ import styles from "@/pages/oferta/slug.module.scss"
 import RichTextRenderer from '@/components/RichTextRenderer/RichTextRenderer';
 
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-
 interface ArrowButtonProps {
     className?: string;
     style?: React.CSSProperties;
@@ -36,7 +35,7 @@ interface ArrowButtonProps {
   
 export const getStaticPaths = async () => {
     const res = await client.getEntries({
-        content_type: "nieruchomosc"
+        content_type: "nieruchomosc",
     });
 
     const paths = res.items.map(item => {

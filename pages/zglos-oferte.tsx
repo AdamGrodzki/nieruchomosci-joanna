@@ -26,7 +26,6 @@ const SubmitOfferForm = () => {
     },
     validationSchema: offerFormValidationSchema,
     onSubmit: async (values) => {
-      console.log("Submitted:", values)
       try {
         const imageUrls = Array.from(values.images).map((file) => URL.createObjectURL(file));
 
@@ -34,7 +33,6 @@ const SubmitOfferForm = () => {
           ...values,
           images: imageUrls.join(', '),
         };
-        console.log("Template,", templateParams);
 
         const serviceID = String(process.env.SERVICE_ID);
         const templateOfferID = String(process.env.TEMPLATE_OFFER_ID);
@@ -59,7 +57,6 @@ const SubmitOfferForm = () => {
           setImagePreviews([]);
       }
     } catch(error) {
-      console.log('Error', error);
       setModalMessage('Wystąpił błąd podczas zgłaszania oferty.');
       setIsSuccess(false)
     }
