@@ -81,7 +81,6 @@ export interface PropertyDetailsProps {
     };
 }
 
-//interface for teamMember and o-nas component.
 export interface TeamMemberProps {
     name: string;
     title: string;
