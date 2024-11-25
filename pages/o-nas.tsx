@@ -1,8 +1,6 @@
 import TeamMember from "@/components/TeamMember/TeamMember";
 import joannaAvatar from "../images/JoannaAvatar.jpg"
 import sebastianAvatar from "../images/SebastianAvatar.png"
-import heroGraphic from "@/images/desk.jpg";
-import Image from "next/image";
 import styles from "@/styles/aboutUs.module.scss"
 import { TeamMemberProps } from "@/static/data";
 
@@ -30,18 +28,10 @@ const teamMembers: TeamMemberProps[] = [
 const teamMember: React.FC = () => {  
   return (
     <div className={styles.container}>
-      <div className={styles.heroWrapper}>
-        <Image 
-          src={heroGraphic} 
-          alt='Hero Graphic'
-        />
-      <div className={styles.overlay}>
         <div className={styles.content}>
           <h1>O nas</h1>
           <p>Witamy na stronie naszego zespołu. Tutaj możesz dowiedzieć się więcej o naszych oddanych profesjonalistach.</p>
-        </div>
-      </div>
-      </div>
+          </div>
       <div className={styles.cardContainer}>
       {teamMembers.map(member => (
         <TeamMember

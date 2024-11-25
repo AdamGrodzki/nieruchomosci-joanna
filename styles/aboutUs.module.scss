@@ -2,78 +2,50 @@
 
 .container {
     background-color: $Pale-gray;
-}
-
-.heroWrapper {
-    position: relative;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 85vh;
-    width: 100%;
-}
-
-.heroWrapper img {
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.4);
-    height: 100%;
-    width: 100%;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $Overlay-gray;
-    height: 100%;
-    width: 100%;
-    text-align: center;
+    padding-top: 50px;
 }
 
 .content {
     color: $Dark-gray;
-    background-color: $Light-overlay;
-    backdrop-filter: blur(1.875rem);
+    background-color: $White;
     border-radius: $Border-radius;
     box-shadow: 0.625rem 0.625rem 1.25rem rgba(0, 0, 0, 0.4);
     font-size: 1.125rem;
-    padding: 1.875rem;
+    padding: 3rem;
+    margin: 1rem 0;
+
+    text-align: center;
 }
 
 .content h1 {
     text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.content p {
+    font-size: 20px;
+    border-bottom: 2px solid $Golden-bronze;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .cardContainer {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.25rem;
+    padding: 0.5rem;
 }
 
 @media (max-width: 768px) {
-
     .cardContainer {
         height: auto;
         flex-direction: column;
         text-wrap: wrap;
     }
 
-    .heroWrapper {
-        height: 60vh;
-    }
-
-    .heroWrapper img {
-        object-fit: cover;
-    }
-
     .content {
         font-size: 1rem;
-        margin: 0 3.125rem;
-        padding: 1.25rem;
+        margin: 0rem;
+        padding: 2.25rem;
     }
 }
