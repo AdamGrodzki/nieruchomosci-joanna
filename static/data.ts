@@ -3,7 +3,6 @@ import { Document } from '@contentful/rich-text-types';
 export interface PropertyProps {
     nieruchomosci: Nieruchomosc[];
 }
-
 export interface GalleryItem {
     fields: {
         title: string;
@@ -12,7 +11,6 @@ export interface GalleryItem {
         };
     };
 }
-
 export interface GalleryPhoto {
     photos: Array<{
         fields: {
@@ -24,7 +22,6 @@ export interface GalleryPhoto {
         };
     }>;
 }
-
 export interface Nieruchomosc {
     length: number;
     fields: {
@@ -46,7 +43,6 @@ export interface Nieruchomosc {
         id: string;
     }
 };
-
 export interface PropertyCardProps {
     nieruchomosc: Nieruchomosc;
 }
@@ -59,7 +55,6 @@ export interface Photo {
         title: string;
     };
 }
-
 export interface PropertyDetailsProps {
     nieruchomosci: {
         fields: {
@@ -75,8 +70,6 @@ export interface PropertyDetailsProps {
         };
     };
 }
-
-//interface for teamMember and o-nas component.
 export interface TeamMemberProps {
     name: string;
     title: string;

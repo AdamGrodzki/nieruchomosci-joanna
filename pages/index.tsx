@@ -9,8 +9,7 @@ export async function getStaticProps() {
 
     return {
         props: {nieruchomosci: res.items},
-        revalidate: 60,
-        // revalidate: 1,
+        revalidate: 100,
     };
 }
 

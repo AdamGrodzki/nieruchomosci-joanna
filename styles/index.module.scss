@@ -5,8 +5,6 @@
     font-size: 2rem;
     font-weight: bold;
     letter-spacing: 0.125rem;
-    // margin: 0.5rem;
-    // padding: 1rem;
     text-align: center;
     text-transform: uppercase;
 }
@@ -15,7 +13,6 @@
     background-color: $Pale-gray;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     padding: 2.5rem;
-    // margin: 15px 0;
 }
 
 .propertyList {
@@ -31,10 +28,5 @@
 @media (max-width: 768px) {
     .heading {
         margin-bottom: 0.5rem;
-    }
-
-    .container {
-        // padding: 2rem 1.5rem;
-        // padding: 3rem;
     }
 }

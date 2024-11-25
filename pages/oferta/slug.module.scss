@@ -1,7 +1,5 @@
 @import "../../styles//variables";
 
-.example {}
-
 .card {
     position: relative;
     top: 4rem;
@@ -119,7 +117,6 @@
     border-bottom-right-radius: $Border-radius;
     border-bottom-left-radius: $Border-radius;
     margin: -2rem 0;
-    // padding: 0.15rem 0;
 
     display: flex !important;
     padding: 5px 0;
@@ -127,7 +124,6 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
-    // height: 150px;
 
     li {
         height: 3.75rem;
@@ -135,7 +131,6 @@
 
         display: flex;
         justify-content: center;
-        // align-items: center;
     }
 
     img {
@@ -257,7 +252,7 @@
     }
 
     .cardImage img {
-        // width: fit-content;
+        width: fit-content;
     }
 
     .customGallery {
@@ -272,7 +267,6 @@
     .imageWrapper img {
         background-repeat: no-repeat;
         height: 28.125rem;
-        // object-fit: cover;
     }
 
     .contact {
