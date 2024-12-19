@@ -1,22 +1,27 @@
-import { useEffect, useMemo, useState, useCallback } from "react";
-import { usePathname } from 'next/navigation';
+import { useEffect, useMemo, useState, useCallback, useRef } from "react";
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
+import logo from "../../images/logoDark.png";
 import { CiMenuBurger } from "react-icons/ci";
 import { FaTimes } from "react-icons/fa";
-import logo from "../../images/logoDark.png";
 import styles from "@/components/Navbar/navbar.module.scss";
-import { useRouter } from "next/router";  
 
 const Navbar = () => {
     const pathname = usePathname();
     const [menuOpen, setMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const router = useRouter(); 
-    
+    const router = useRouter();
+    const menuRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY >= 20);
+            if (window.scrollY >= 20) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -27,48 +32,71 @@ const Navbar = () => {
 
     const scrollToSection = (id: string) => {
         const section = document.getElementById(id);
-
-        if (!section) return;  
-
-        const yOffset = -50; 
-        const y = section.offsetTop + yOffset; 
-
-        window.scrollTo({ top: y, behavior: "smooth" });
-    };
-
-    const handleScroll = (e:any) => {
-        e.preventDefault();
-        if (router.pathname === "/") {
-            scrollToSection("featuredSection");
-        } else {
-            router.push('/#featuredSection').then(() => {
-                scrollToSection("featuredSection");
-            });
+        if (section) {
+            const yOffset = -50;
+            const y = section.offsetTop + yOffset;
+            window.scrollTo({ top: y, behavior: "smooth" });
         }
     };
+
+    const handleScroll = useCallback(
+        (e: React.MouseEvent) => {
+            e.preventDefault();
+            const sectionId = "featuredSection";
+            if (router.pathname === "/") {
+                scrollToSection(sectionId);
+            } else {
+                router.push("/#featuredSection").then(() => {
+                    scrollToSection(sectionId);
+                });
+            }
+        },
+        [router]
+    );
 
     useEffect(() => {
-        const scrollTo = new URLSearchParams(window.location.search).get("/#featuredSection");
-        if (scrollTo) {
-            scrollToSection(scrollTo);
-        }
+        const handleClickOutside = (e: any) => {
+            if (menuRef.current && !menuRef.current.contains(e.target)) {
+                setMenuOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
     }, []);
 
-    const navItems = useMemo(() => [
-        { name: "Strona Główna", path: "/" },
-        { name: 'Oferty wyróżnione', anchor: true },  
-        { name: "O Nas", path: "/o-nas" },
-        { name: "Zgłoś Ofertę", path: "/zglos-oferte" },
-        { name: 'Kontakt', path: '/kontakt' },
-    ], []);
+    useEffect(() => {
+        const handleBackNavigation = () => {
+            setMenuOpen(false);
+        };
 
-    const toggleMenu = useCallback(() => setMenuOpen(prev => !prev), []);
+        window.addEventListener("popstate", handleBackNavigation);
+
+        return () => {
+            window.removeEventListener("popstate", handleBackNavigation);
+        };
+    }, []);
+
+    const navItems = useMemo(
+        () => [
+            { name: "Strona Główna", path: "/" },
+            { name: "Oferty wyróżnione", anchor: true },
+            { name: "O Nas", path: "/o-nas" },
+            { name: "Zgłoś Ofertę", path: "/zglos-oferte" },
+            { name: "Kontakt", path: "/kontakt" },
+        ],
+        []
+    );
+
+    const toggleMenu = useCallback(() => setMenuOpen((prev) => !prev), []);
     const closeMenu = useCallback(() => setMenuOpen(false), []);
 
     return (
-        <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`}>
+        <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ""}`} ref={menuRef}>
             <Link href="/">
-                <Image        
+                <Image
                     className={styles.logo}
                     src={logo}
                     width={160}
@@ -78,13 +106,14 @@ const Navbar = () => {
                 />
             </Link>
 
-            <div 
-                className={styles.hamburger} 
-                onClick={toggleMenu} 
-                aria-label="Toggle menu" 
-                role="button" 
+            <div
+                className={styles.hamburger}
+                onClick={toggleMenu}
+                aria-label="Toggle menu"
+                role="button"
                 tabIndex={0}
-                onKeyPress={(e) => e.key === 'Enter' && toggleMenu()}
+                onKeyPress={(e) => e.key === "Enter" && toggleMenu()}
+                aria-expanded={menuOpen ? "true" : "false"}
             >
                 <div className={styles.menuIcon}>
                     {menuOpen ? (
@@ -94,17 +123,22 @@ const Navbar = () => {
                     )}
                 </div>
             </div>
+
             <ul className={`${styles.unorderedList} ${menuOpen ? styles.showMenu : styles.hideMenu}`}>
-                {navItems.map(item => (
+                {navItems.map((item) => (
                     <li key={item.name} className={pathname === item.path ? styles.active : styles.listItem}>
                         {item.anchor ? (
-                            <a className={styles.links} onClick={handleScroll}>{item.name}</a> 
+                            <a className={styles.links} onClick={handleScroll}>
+                                {item.name}
+                            </a>
                         ) : (
-                            item.path ? (
-                            <Link legacyBehavior href={item.path}>
-                                <a className={styles.links} onClick={closeMenu}>{item.name}</a>
-                            </Link>
-                            ) : null
+                            item.path && (
+                                <Link legacyBehavior href={item.path}>
+                                    <a className={styles.links} onClick={closeMenu}>
+                                        {item.name}
+                                    </a>
+                                </Link>
+                            )
                         )}
                     </li>
                 ))}

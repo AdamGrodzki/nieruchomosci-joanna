@@ -1,7 +1,7 @@
 import TeamMember from "@/components/TeamMember/TeamMember";
 import joannaAvatar from "../images/JoannaAvatar.jpg"
 import sebastianAvatar from "../images/SebastianAvatar.png"
-import heroGraphic from "@/images/desk.jpg";
+import heroGraphic from "@/images/mapa_Tczew.png";
 import Image from "next/image";
 import styles from "@/styles/aboutUs.module.scss"
 import { TeamMemberProps } from "@/static/data";
@@ -19,7 +19,7 @@ const teamMembers: TeamMemberProps[] = [
     {
       name: 'Sebastia Kruczek',
       title: 'Właściciel, pośrednik w obrocie nieruchomościami, obsługa nieruchomości, marketing, sprzedaż, dialog z klientem',
-      description: 'Z doświadczenia wiem jak ważny jest stały kontakt z właścicielem i zainteresowanymi stronami. Cieszę się, że jestem łącznikiem między nimi i dbam o to, aby każdy miał pod ręką wszystkie istotne informacje, aby osiągnąć możliwie najlepszy wynik dla obu stron',
+      description: 'Z doświadczenia wiem jak ważny jest stały kontakt z właścicielem i zainteresowanymi stronami. Cieszę się, że jestem łącznikiem między nimi i dbam o to, aby każdy miał pod ręką wszystkie istotne informacje, aby osiągnąć możliwie najlepszy wynik dla obu stron.',
       email: 'sebastian@nieruchomoscijoanna.pl',
       phone: '603 372 701',
       image: sebastianAvatar,

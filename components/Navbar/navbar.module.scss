@@ -19,7 +19,7 @@
 .nav.scrolled {
     border-bottom: 0.25rem solid;
     border-image: linear-gradient(90deg, $Golden-bronze, $Light-amber, $Golden-bronze) 1;
-    animation: shiny-border 3s linear infinite;
+    animation: shinyBorder 3s linear infinite;
 }
 
 .logo {
@@ -50,7 +50,7 @@
     font-size: 1.5rem;
     color: $White;
     transition: color 0.3s ease;
-    animation: fadeIn 0.4s ease;
+    animation: fadeIn 0.3s ease;
 }
 
 .burgerIcon:hover,
@@ -66,11 +66,14 @@
     margin: 0;
     padding: 0;
     gap: 0.4rem;
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
 
 }
 
 .showMenu {
     opacity: $full-opacity;
+    display: flex;
     transform: translateX(0);
 }
 
@@ -123,25 +126,21 @@
         border-radius: 0 0 0.5rem 0.5rem;
 
         opacity: 0;
-        transform: translateX(100%);
-        transition: transform 0.4s ease-out, opacity 0.4s ease-out;
-
+        visibility: hidden;
+        transition: transform 0.4s ease-out, visibility 0.1s ease-out;
         padding: 1rem 0;
 
     }
 
     .showMenu {
-        display: flex;
         opacity: 0.95;
+        visibility: visible;
         height: 100vh;
         width: 100%;
         max-width: 80%;
-        transform: translateX(0);
-
     }
 
     .hideMenu {
-        transform: translateX(100%);
         opacity: 0;
         height: 100vh;
     }
@@ -163,17 +162,15 @@
 @keyframes fadeIn {
     0% {
         opacity: 0;
-        transform: translateX(-0.625rem);
     }
 
     100% {
         opacity: 1;
-        transform: translateX(0);
     }
 }
 
 
-@keyframes shiny-border {
+@keyframes shinyBorder {
     0% {
         border-image-source: linear-gradient(90deg, $Golden-bronze, $Light-amber, $Golden-bronze);
     }

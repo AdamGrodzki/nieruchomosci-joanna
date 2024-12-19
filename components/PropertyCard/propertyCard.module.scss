@@ -43,6 +43,7 @@
 .content {
     padding: 1rem;
     height: 300px;
+    width: 100%;
 }
 
 .info {
@@ -58,10 +59,9 @@
 
 .info p {
     margin: 1rem;
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: $Gray;
 }
-
 
 .price {
     background-color: $Light-silver;
@@ -69,7 +69,7 @@
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
-    padding: 1.6rem;
+    padding: 1.2rem;
 }
 
 .loaderOverlay {
@@ -94,14 +94,22 @@
     animation: spin 1s linear infinite;
 }
 
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
+.newOfferBadge {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    z-index: $z-Index-low;
 
-    100% {
-        transform: rotate(360deg);
-    }
+    background-color: $Golden-bronze;
+    background: linear-gradient(135deg, $Golden-bronze 0%, $Light-amber 50%, $Golden-bronze 100%);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2), inset 0 0 0.3rem rgba(255, 255, 255, 0.6);
+    border-radius: $Border-radius;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.625rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transform: rotate(340deg) translateZ(0);
 }
 
 
@@ -125,12 +133,12 @@
     }
 
     .info p {
-        margin: 0.6rem;
-        font-size: 0.8rem;
+        margin: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .info h4 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     .content {
@@ -139,20 +147,12 @@
     }
 }
 
-.newOfferBadge {
-    position: absolute;
-    top: 1rem;
-    left: 0;
-    z-index: $z-Index-low;
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
 
-    background-color: $Golden-bronze;
-    background: linear-gradient(135deg, $Golden-bronze 0%, $Light-amber 50%, $Golden-bronze 100%);
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2), inset 0 0 0.3rem rgba(255, 255, 255, 0.6);
-    border-radius: $Border-radius;
-    font-weight: bold;
-    font-size: 1rem;
-    padding: 0.625rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    transform: rotate(340deg) translateZ(0);
+    100% {
+        transform: rotate(360deg);
+    }
 }

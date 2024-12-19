@@ -6,7 +6,6 @@ import ScrollProgressBar from '../ScrollProgressBar/ScrollProgressBar';
 const variants = {
   hidden: { opacity: 0},
   enter: { opacity: 1},
-  exit: { opacity: 0},
 };
 
 interface PageTransitionProps {
@@ -21,16 +20,15 @@ const PageTransition: FC<PageTransitionProps> = ({ children }) => {
   return (
     <>
       <ScrollProgressBar />
-      <AnimatePresence mode="wait" initial={false}>
+      <AnimatePresence mode='wait' initial={false}>
       <motion.div
         key={key}
         variants={variants}
         initial="hidden"
         animate="enter"
         role="region"
-        exit="exit"
-        transition={{ type: 'easeInOut', duration: 0.5 }}
-        style={{ position: 'relative' }}
+        transition={{ type: 'easeInOut', duration: 0.3 }}
+        style={{ position: 'relative'}}
       >
       {children}
       </motion.div>

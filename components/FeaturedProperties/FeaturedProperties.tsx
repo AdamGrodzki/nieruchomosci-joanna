@@ -3,7 +3,6 @@ import PropertyCard from '../PropertyCard/PropertyCard';
 import styles from '@/components/FeaturedProperties/featuredProperties.module.scss'
 import { FeaturedPropertiesProps, Nieruchomosc} from "@/static/data";
 
-
 const FeaturedProperties: React.FC<FeaturedPropertiesProps> = ({ nieruchomosci }) => {
     const featuredNieruchomosci = nieruchomosci.filter((nieruchomosc: Nieruchomosc) => nieruchomosc.fields.special === true);
 
