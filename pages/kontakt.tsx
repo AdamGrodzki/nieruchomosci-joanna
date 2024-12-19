@@ -82,7 +82,11 @@ const Contact = () => {
         <p>Jeśli masz pytania lub chcesz lepiej poznać naszą ofertę – zadzwoń lub napisz. Możesz też umówić się na spotkanie z nami przy przepysznej kawie.</p>
         <p>
           <FaMobileAlt />
-          <a href="tel:123 456 789"> 123 456 789</a>
+          <a href="tel:884 849 400"> 884 849 400</a> 
+        </p>
+        <p>
+        <FaMobileAlt />
+        <a href="tel:603 372 701"> 603 372 701</a>
         </p>
       </div>
 

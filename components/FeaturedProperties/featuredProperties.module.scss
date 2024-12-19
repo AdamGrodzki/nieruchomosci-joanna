@@ -1,6 +1,5 @@
 @import '../../styles/variables';
 
-
 .featuredSection {
     margin-bottom: 50px;
     padding: 1.5rem;
@@ -24,12 +23,13 @@
 
 .noOffer {
     color: black;
+    text-transform: uppercase;
+    border: 2px solid $Golden-bronze;
     text-align: center;
-    padding-bottom: 50px;
-    padding-top: 20px;
+    padding: 50px;
 
     @media (max-width: 768px) {
-        padding-bottom: 30px;
+        padding: 30px;
     }
 }
 
@@ -42,12 +42,27 @@
 
     @media (max-width: 768px) {
         flex-direction: column;
+        align-items: center;
     }
 }
 
 .propertyWrapper {
     position: relative;
+    width: 500px;
+
+    @media (max-width: 768px) {
+        width: 370px;
+    }
 }
+.propertyWrapper p {
+    font-size: 0.8rem;
+    margin: 1.25rem;
+}
+
+.propertyWrapper h4 {
+    font-size: 1rem;
+}
+
 
 .specialOfferBadge {
     color: $Black;
@@ -59,26 +74,11 @@
     right: 10px;
     background: linear-gradient(135deg, #c59c58 0%, #f1c27d 50%, #c59c58 100%);
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2), inset 0 0 0.3rem rgba(255, 255, 255, 0.6);
-
-    animation: pulse 3s infinite;
+    will-change: transform;
     transform: rotate(30deg);
 
     @media (max-width: 768px) {
         top: 45px;
         right: 5px;
-    }
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 10px #c59c58;
-    }
-
-    50% {
-        box-shadow: 0 0 20px #f1c27d;
-    }
-
-    100% {
-        box-shadow: 0 0 10px #c59c58;
     }
 }

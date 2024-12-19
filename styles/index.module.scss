@@ -31,4 +31,15 @@
     .heading {
         margin-bottom: 0.5rem;
     }
+
+    .container {
+        margin: 0 20px;
+        // padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 0 5px;
+    }
 }

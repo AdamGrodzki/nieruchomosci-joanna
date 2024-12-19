@@ -1,222 +1,253 @@
- @import './variables.scss';
+@import './variables.scss';
 
- .contactContainer {
-     display: flex;
-     align-items: center;
-     flex-direction: column;
-     background-color: $Pale-gray;
-     border-radius: $Border-radius;
-     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-     margin: 6.25rem auto;
-     max-width: 1400px;
-     min-height: 70vh;
-     padding: 3.125rem;
- }
+/* ============================= */
+/*           Container           */
+/* ============================= */
 
- .contactHeader {
-     margin-bottom: 2.5rem;
-     text-align: center;
- }
+.contactContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: $Pale-gray;
+    border-radius: $Border-radius;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    margin: 6.25rem auto;
+    max-width: 1400px;
+    min-height: 70vh;
+    padding: 3.125rem;
+}
 
- .contactHeader h1 {
-     color: $Dark-gray;
-     font-size: 2.5rem;
-     margin: 0.625rem 0;
-     text-transform: uppercase;
- }
+@media (max-width: 768px) {
+    .contactContainer {
+        margin: 2rem 0;
+    }
+}
 
- .contactHeader p {
-     color: $Medium-gray;
-     font-size: 1.1rem;
-     margin-bottom: 0.3rem;
- }
+/* ============================= */
+/*            Header             */
+/* ============================= */
 
- .contactHeader a {
-     color: $Black;
-     font-weight: bold;
-     text-decoration: none;
- }
+.contactHeader {
+    margin-bottom: 2.5rem;
+    text-align: center;
 
- .contactHeader a:hover {
-     text-decoration: underline;
- }
+    h1 {
+        color: $Dark-gray;
+        font-size: 2.5rem;
+        margin: 0.625rem 0;
+        text-transform: uppercase;
+    }
 
- .contactContent {
-     display: flex;
-     align-items: center;
-     flex-direction: column-reverse;
-     gap: 4.375rem;
- }
+    p {
+        color: $Medium-gray;
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+    }
 
- @media (min-width: 768px) {
-     .contactContent {
-         flex-direction: row;
-     }
- }
+    a {
+        color: $Black;
+        font-weight: bold;
+        text-decoration: none;
 
- .contactForm {
-     display: flex;
-     flex-direction: column;
-     max-width: 31.25rem;
-     width: 100%;
- }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
 
- .contactForm input,
- .contactForm textarea {
-     border: 1px solid $Light-silver;
-     border-radius: $Border-radius;
-     font-family: inherit;
-     font-size: 1rem;
-     margin: 0.5rem 0;
-     padding: 1rem;
-     width: 100%;
- }
+/* ============================= */
+/*           Content             */
+/* ============================= */
 
- .contactForm textarea {
-     height: 12.5rem;
-     resize: none;
- }
+.contactContent {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 4.375rem;
 
- .contactForm button {
-     background-color: $Dark-gray;
-     border: none;
-     border-radius: $Border-radius;
-     color: $White;
-     cursor: pointer;
-     font-family: inherit;
-     font-size: 1.1rem;
-     padding: 1rem;
-     transition: all 0.3s ease;
- }
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+}
 
- .contactForm button:hover {
-     background-color: $Neutral-gray;
- }
+/* ============================= */
+/*            Form               */
+/* ============================= */
 
- .contactForm button:focus {
-     background-color: $Neutral-gray;
-     box-shadow: 0.125rem 0.25rem 0.625rem rgba(0, 0, 0, 0.3);
-     outline: none;
- }
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 31.25rem;
+    width: 100%;
 
- .contactForm button:active {
-     transform: scale(0.98);
- }
+    input,
+    textarea {
+        border: 1px solid $Light-silver;
+        border-radius: $Border-radius;
+        font-family: inherit;
+        font-size: 1rem;
+        margin: 0.5rem 0;
+        padding: 1rem;
+        width: 100%;
+    }
 
- .contactImage {
-     position: relative;
+    textarea {
+        height: 12.5rem;
+        resize: none;
+    }
 
-     border-radius: 0.5rem;
-     filter: drop-shadow(0 0 0.625rem $Golden-sand);
-     max-width: 62.5rem;
-     width: 100%;
- }
+    button {
+        background-color: $Dark-gray;
+        border: none;
+        border-radius: $Border-radius;
+        color: $White;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 1.1rem;
+        padding: 1rem;
+        transition: all 0.3s ease;
 
- .contactImage img {
-     height: auto;
-     object-fit: cover;
-     width: 100%;
-     animation: pulse 2.5s infinite;
- }
+        &:hover {
+            background-color: $Neutral-gray;
+        }
 
- @keyframes pulse {
+        &:focus {
+            background-color: $Neutral-gray;
+            box-shadow: 0.125rem 0.25rem 0.625rem rgba(0, 0, 0, 0.3);
+            outline: none;
+        }
 
-     0%,
-     100% {
-         transform: scale(1);
-     }
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+}
 
-     50% {
-         transform: scale(1.1);
-     }
- }
+/* ============================= */
+/*            Images             */
+/* ============================= */
 
- @keyframes shake {
-     0% {
-         transform: translateX(-0.3rem);
-     }
+.contactImage {
+    position: relative;
+    border-radius: 0.5rem;
+    filter: drop-shadow(0 0 0.625rem $Golden-sand);
+    max-width: 62.5rem;
+    width: 100%;
 
-     25% {
-         transform: translateX(0.3rem);
-     }
+    img {
+        height: auto;
+        object-fit: cover;
+        width: 100%;
+        animation: pulse 2.5s infinite;
+    }
+}
 
-     50% {
-         transform: translateX(-0.3rem);
-     }
+/* ============================= */
+/*          Animations           */
+/* ============================= */
 
-     75% {
-         transform: translateX(0.3rem);
-     }
+@keyframes pulse {
 
-     100% {
-         transform: translateX(0);
-     }
- }
+    0%,
+    100% {
+        transform: scale(1);
+    }
 
+    50% {
+        transform: scale(1.1);
+    }
+}
 
- .inputContainer {
-     position: relative;
- }
+@keyframes shake {
+    0% {
+        transform: translateX(-0.3rem);
+    }
 
- .contactForm .inputError {
-     border: 2px solid red;
- }
+    25% {
+        transform: translateX(0.3rem);
+    }
 
- .error {
-     color: $Warm-crimson;
-     padding: 0.4rem;
-     font-size: 0.8rem;
-     font-weight: bold;
-     transition: opacity 0.3s ease-in;
-     opacity: 0;
-     margin-bottom: 0.5rem;
+    50% {
+        transform: translateX(-0.3rem);
+    }
 
- }
+    75% {
+        transform: translateX(0.3rem);
+    }
 
- .errorVisible {
-     opacity: 1;
- }
+    100% {
+        transform: translateX(0);
+    }
+}
 
- .formGroup {
-     position: relative;
- }
+/* ============================= */
+/*            Inputs             */
+/* ============================= */
 
- .label {
-     position: absolute;
-     top: 30%;
-     left: 10px;
-     transform: translateY(-10%);
-     background-color: white;
-     font-weight: 400;
-     padding: 0 5px;
-     pointer-events: none;
-     transition: all 0.3s ease;
+.inputContainer {
+    position: relative;
+}
 
-     font-size: 1rem;
-     pointer-events: none;
-     color: $Medium-gray;
- }
+.contactForm .inputError {
+    border: 2px solid red;
+}
 
- .input {
-     width: 100%;
-     padding: 10px;
-     border: 1px solid gray;
-     border-radius: 8px;
-     font-size: 16px;
-     outline: none;
-     transition: all 0.3s ease;
- }
+.error {
+    color: $Warm-crimson;
+    padding: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: opacity 0.3s ease-in;
+    opacity: 0;
+    margin-bottom: 0.5rem;
+}
 
- .input:focus {
-     border-color: $Golden-bronze;
-     outline: none;
- }
+.errorVisible {
+    opacity: 1;
+}
 
- .input:focus+.label,
- .input:not(:placeholder-shown)+.label {
-     top: 0px;
-     left: 5px;
-     font-size: 12px;
-     color: $Dark-gray;
-     background-color: $Pale-gray;
- }
+/* ============================= */
+/*           Form Group          */
+/* ============================= */
+
+.formGroup {
+    position: relative;
+}
+
+.label {
+    position: absolute;
+    top: 30%;
+    left: 10px;
+    transform: translateY(-10%);
+    background-color: $White;
+    font-weight: 400;
+    padding: 0 5px;
+    pointer-events: none;
+    font-size: 1rem;
+    color: $Medium-gray;
+    transition: all 0.3s ease;
+}
+
+.input {
+    width: 100%;
+    padding: 100px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+
+    &:focus {
+        border-color: $Golden-bronze;
+        outline: none;
+    }
+
+    &:focus+.label,
+    &:not(:placeholder-shown)+.label {
+        top: 0px;
+        left: 5px;
+        font-size: 12px;
+        color: $Dark-gray;
+        background-color: $Pale-gray;
+    }
+}
