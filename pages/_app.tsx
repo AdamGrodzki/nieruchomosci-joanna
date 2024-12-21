@@ -18,7 +18,7 @@ const Loader = () => (
         top: 0,
         left: 0,
         width: "100%",
-        zIndex: 9999
+        zIndex: 99999,
     }}>
         <div className="spinner"></div>
     </div>
@@ -30,14 +30,26 @@ const App = ({ Component, pageProps }: AppProps) => {
     const isHomePage = router.pathname === "/";
 
     useEffect(() => {
-        const handleStart = () => setIsLoading(true);
-        const handleComplete = () => setIsLoading(false);
+        let timeout: NodeJS.Timeout;
+
+        const handleStart = () => {
+            setIsLoading(true);
+            timeout = setTimeout(() => {
+                setIsLoading(false);
+            }, 5000); // Timeout ustawiony na 5 sekund
+        };
+
+        const handleComplete = () => {
+            clearTimeout(timeout);
+            setIsLoading(false);
+        };
 
         router.events.on("routeChangeStart", handleStart);
         router.events.on("routeChangeComplete", handleComplete);
         router.events.on("routeChangeError", handleComplete);
 
         return () => {
+            clearTimeout(timeout);
             router.events.off("routeChangeStart", handleStart);
             router.events.off("routeChangeComplete", handleComplete);
             router.events.off("routeChangeError", handleComplete);
