@@ -3,10 +3,8 @@ import { useRouter } from 'next/router';
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { TbLoader2 } from "react-icons/tb";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import styles from "@/styles/searchResult.module.scss";
-
 interface SearchParams {
   typeOfProperty: string;
   address: string;
@@ -33,13 +31,11 @@ const SearchResults = () => {
     maxArea: '',
   });
 
-
   const [results, setResults] = useState<any[]>([]);
-  const [loading, setLoading] = useState(false);
-
+  const [isDataLoaded, setIsDataLoaded] = useState<boolean>(false); 
   const getItems = useCallback(async () => {
-    setLoading(true);
     setResults([]);
+    setIsDataLoaded(false);
 
     const resetSearchParams = {
       typeOfProperty: '',
@@ -91,14 +87,13 @@ const SearchResults = () => {
       resetSearchParams.price = router.query.maxPrice as string;
     }
   
-
     try {
       const { items } = await client.getEntries(query);
       setResults(items);
     } catch (error) {
       console.error("Error fetching items:", error);
     } finally {
-      setLoading(false);
+      setIsDataLoaded(true); 
     }
   }, [router.query]);
 
@@ -114,52 +109,43 @@ const SearchResults = () => {
         currency: 'PLN',
         minimumFractionDigits: 2,
     }).format(price);
-};
+  };
 
   return (
-    <>
-      <div className={styles.container}>
-    {loading ? (
-      <h1 className={styles.title}><TbLoader2 className={styles.initialSpinner}/></h1>
-    ) : (
+    <div className={styles.container}>
       <h1 className={styles.title}>
         Wyniki wyszukiwania: <span>{results.length}</span>
       </h1>
-)}
       <div className={styles.resultsContainer}>
-        {loading ? (
-          <p className={styles.loading}>Ładowanie...<TbLoader2 className={styles.fiLoader} /></p>
+        {isDataLoaded && results.length === 0 ? (
+          <p className={styles.noResults}>Brak wyników wyszukiwania.</p>
         ) : (
-          results.length > 0 ? (
-            results.map(result => (
-              <div key={result.sys.id} className={styles.resultItem}>
-                <h2>{result.fields.title}</h2>
-                <p>Typ: <b>{result.fields.typeOfProperty}</b></p>
-                <p>Lokalizacja: <b>{result.fields.address}</b></p>
-                <p>Cena: <b>{formatPrice(result.fields.price)}</b></p>
-                <p>Powierzchnia: <b>{result.fields.area}m<sup>2</sup></b></p>
-                <p>Typ transakcji: <b>{result.fields.transactionType}</b></p>
+          results.map(result => (
+            <div key={result.sys.id} className={styles.resultItem}>
+              <h2>{result.fields.title}</h2>
+              <p>Typ: <b>{result.fields.typeOfProperty}</b></p>
+              <p>Lokalizacja: <b>{result.fields.address}</b></p>
+              <p>Cena: <b>{formatPrice(result.fields.price)}</b></p>
+              <p>Powierzchnia: <b>{result.fields.area}m<sup>2</sup></b></p>
+              <p>Typ transakcji: <b>{result.fields.transactionType}</b></p>
 
-                <Image
-                  src={"https:" + result.fields.gallery.fields.file.url}
-                  alt="img"
-                  height={200}
-                  width={300}
-                  priority={true}
-                />
+              <Image
+                src={"https:" + result.fields.gallery.fields.file.url}
+                alt="img"
+                height={200}
+                width={300}
+                priority={true}
+              />
               <Link legacyBehavior href={`/oferta/${result.fields.slug}`}>
-              <button className={styles.detailsButton}>Szczegóły <MdKeyboardDoubleArrowRight /></button>
-              </Link> 
-              </div>
-            ))
-          ) : (
-            <p className={styles.noResults}>Brak wyników wyszukiwania.</p>
-            
-          )
+                <button className={styles.detailsButton}>
+                  Szczegóły <MdKeyboardDoubleArrowRight />
+                </button>
+              </Link>
+            </div>
+          ))
         )}
       </div>
-      </div>
-    </>
+    </div>
   );
 };
 

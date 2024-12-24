@@ -6,27 +6,12 @@ import Layout from "@/components/LayoutPage/Layout";
 import LandingPage from "@/components/LandingPage/LandingPage";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import PropertyTiles from "@/components/PropertyTiles/PropertyTiles";
-
-const Loader = () => (
-    <div style={{
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#fff",
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        zIndex: 99999,
-    }}>
-        <div className="spinner"></div>
-    </div>
-);
+import Loader from "@/components/Loader/Loader";
 
 const App = ({ Component, pageProps }: AppProps) => {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
+    const [isTransitioning, setIsTransitioning] = useState(false);
     const isHomePage = router.pathname === "/";
 
     useEffect(() => {
@@ -34,14 +19,16 @@ const App = ({ Component, pageProps }: AppProps) => {
 
         const handleStart = () => {
             setIsLoading(true);
+            setIsTransitioning(true);
             timeout = setTimeout(() => {
                 setIsLoading(false);
-            }, 5000); // Timeout ustawiony na 5 sekund
+            }, 8000); 
         };
 
         const handleComplete = () => {
             clearTimeout(timeout);
             setIsLoading(false);
+            setIsTransitioning(false);
         };
 
         router.events.on("routeChangeStart", handleStart);
@@ -57,7 +44,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     }, [router]);
 
     return (
-        <Layout>
+        <Layout isTransitioning={isTransitioning}>
             {isLoading && <Loader />}
             {!isLoading && isHomePage && (
                 <>
