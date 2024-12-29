@@ -6,12 +6,13 @@ import styles from './searchbar.module.scss';
 import { useFormik } from 'formik';
 import { SearchBarSchema } from '@/static/contactFormSchema';
 import Select from '../../static/Select';
-import cx from 'clsx'; 
+import cx from 'clsx';
 
 const SearchBar = () => {
   const router = useRouter();
   const suggestionsRef = useRef<HTMLUListElement>(null);
   const [addressSuggestions, setAddressSuggestions] = useState<string[]>([]);
+  const [activeIndex, setActiveIndex] = useState<number>(-1);
 
   const formik = useFormik({
     initialValues: {
@@ -58,6 +59,7 @@ const SearchBar = () => {
       const { items } = await client.getEntries(query);
       const suggestions = items.map(item => item.fields.address as string);
       setAddressSuggestions(suggestions);
+      setActiveIndex(-1); 
     } catch (error) {
       console.error('Error fetching address suggestions:', error);
     }
@@ -72,11 +74,52 @@ const SearchBar = () => {
 
   useEffect(() => {
     document.addEventListener('pointerdown', handleClickOutside);
-    
+
     return () => {
       document.removeEventListener('pointerdown', handleClickOutside);
     };
   }, [handleClickOutside]);
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (!addressSuggestions.length) return;
+
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+        setActiveIndex((prevIndex) =>
+          prevIndex < addressSuggestions.length - 1 ? prevIndex + 1 : 0
+        );
+        break;
+      case 'ArrowUp':
+        e.preventDefault();
+        setActiveIndex((prevIndex) =>
+          prevIndex > 0 ? prevIndex - 1 : addressSuggestions.length - 1
+        );
+        break;
+      case 'Enter':
+        e.preventDefault();
+        if (activeIndex >= 0 && activeIndex < addressSuggestions.length) {
+          formik.setFieldValue('address', addressSuggestions[activeIndex]);
+          setAddressSuggestions([]);
+        }
+        break;
+      case 'Tab':
+        if (activeIndex >= 0 && activeIndex < addressSuggestions.length) {
+          formik.setFieldValue('address', addressSuggestions[activeIndex]);
+        }
+        setAddressSuggestions([]);
+        break;
+      default:
+        break;
+    }
+  };
+
+  useEffect(() => {
+    if (activeIndex >= 0 && suggestionsRef.current) {
+      const activeItem = suggestionsRef.current.children[activeIndex] as HTMLElement;
+      activeItem?.scrollIntoView({ block: 'nearest' });
+    }
+  }, [activeIndex]);
 
   return (
     <div className={styles.container}>
@@ -85,9 +128,9 @@ const SearchBar = () => {
         Znajdź swoją wymarzoną nieruchomość
       </h2>
       <form className={styles.searchBar} onSubmit={formik.handleSubmit}>
-        <div className={styles.formRow}>
-          <div className={styles.formGroup}>
-            <Select
+      <div className={styles.formRow}>
+           <div className={styles.formGroup}>
+             <Select
           dataSource={propertyTypes}
           id="typeOfProperty"
           name="Rodzaj nieruchomości"
@@ -160,32 +203,35 @@ const SearchBar = () => {
             {formik.touched.maxArea && formik.errors.maxArea && <span className={styles.errorText}>{formik.errors.maxArea}</span>}
           </div>
         </div>
-
         <div className={styles.formGroupLocation}>
           <label htmlFor="address">Lokalizacja</label>
           <div className={styles.addressInputWrapper}>
-            <input 
-               id="address"
-               type="text"
-               placeholder="Wpisz lokalizację"
-               {...formik.getFieldProps('address')}
-               onChange={(e) => {
-                 formik.handleChange(e);
-                 fetchAddressSuggestions(e.target.value);
-               }}
-               className={cx({ [styles.error]: formik.touched.address && formik.errors.address })}
+            <input
+            autoComplete='off'
+              id="address"
+              type="text"
+              placeholder="Wpisz lokalizację"
+              {...formik.getFieldProps('address')}
+              onChange={(e) => {
+                formik.handleChange(e);
+                fetchAddressSuggestions(e.target.value);
+              }}
+              onKeyDown={handleKeyDown}
+              className={cx({ [styles.error]: formik.touched.address && formik.errors.address })}
             />
-         
+
             {addressSuggestions.length > 0 && (
               <ul className={styles.suggestions} ref={suggestionsRef}>
                 {addressSuggestions.map((suggestion, index) => (
-                  <li 
-                    key={index} 
+                  <li
+                    key={index}
                     onClick={() => {
                       formik.setFieldValue('address', suggestion);
                       setAddressSuggestions([]);
                     }}
-                    className={styles.suggestionItem}
+                    className={cx(styles.suggestionItem, {
+                      [styles.active]: index === activeIndex,
+                    })}
                   >
                     {suggestion}
                   </li>
@@ -194,7 +240,9 @@ const SearchBar = () => {
             )}
             <button type="submit" className={styles.searchButton}>Szukaj</button>
           </div>
-          {formik.touched.address && formik.errors.address && <div className={styles.errorTextAddress}>{formik.errors.address}</div>}
+          {formik.touched.address && formik.errors.address && (
+            <div className={styles.errorTextAddress}>{formik.errors.address}</div>
+          )}
         </div>
       </form>
     </div>

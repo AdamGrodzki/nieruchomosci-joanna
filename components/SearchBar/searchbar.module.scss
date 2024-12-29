@@ -129,14 +129,15 @@
     border-bottom: 1px solid #ccc;
     padding: 0.625rem;
     cursor: pointer;
+
+    &:hover,
+    &.active {
+        background-color: $Light-gray;
+    }
 }
 
 .suggestionItem:last-child {
     border-bottom: none;
-}
-
-.suggestionItem:hover {
-    background-color: $Light-gray;
 }
 
 .error {

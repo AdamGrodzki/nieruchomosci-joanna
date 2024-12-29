@@ -10,9 +10,10 @@ import styles from "@/components/LayoutPage/layout.module.scss"
 
 interface LayoutProps {
   children: ReactNode;
+  isTransitioning: boolean;
 }
 
-  const Layout: FC<LayoutProps> = ({ children }) => {
+  const Layout: FC<LayoutProps> = ({ children, isTransitioning }) => {
   return (
     <>
        <Head>
@@ -32,6 +33,7 @@ interface LayoutProps {
       <PageTransition>
       {children}
         </PageTransition>
+        {isTransitioning && children}
       </main>
 
       <ArrowNavigation />

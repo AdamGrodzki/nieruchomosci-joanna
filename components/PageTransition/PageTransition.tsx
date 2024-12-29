@@ -4,7 +4,7 @@ import { ReactNode, FC, useMemo } from 'react';
 import ScrollProgressBar from '../ScrollProgressBar/ScrollProgressBar';
 
 const variants = {
-  hidden: { opacity: 0},
+  // hidden: { opacity: 0},
   enter: { opacity: 1},
 };
 
@@ -24,10 +24,10 @@ const PageTransition: FC<PageTransitionProps> = ({ children }) => {
       <motion.div
         key={key}
         variants={variants}
-        initial="hidden"
+        // initial="hidden"
         animate="enter"
         role="region"
-        transition={{ type: 'easeInOut', duration: 0.3 }}
+        transition={{ type: 'easeInOut', duration: 0.5}}
         style={{ position: 'relative'}}
       >
       {children}
