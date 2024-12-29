@@ -113,39 +113,48 @@ const SearchResults = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>
-        Wyniki wyszukiwania: <span>{results.length}</span>
-      </h1>
-      <div className={styles.resultsContainer}>
-        {isDataLoaded && results.length === 0 ? (
-          <p className={styles.noResults}>Brak wyników wyszukiwania.</p>
-        ) : (
-          results.map(result => (
-            <div key={result.sys.id} className={styles.resultItem}>
-              <h2>{result.fields.title}</h2>
-              <p>Typ: <b>{result.fields.typeOfProperty}</b></p>
-              <p>Lokalizacja: <b>{result.fields.address}</b></p>
-              <p>Cena: <b>{formatPrice(result.fields.price)}</b></p>
-              <p>Powierzchnia: <b>{result.fields.area}m<sup>2</sup></b></p>
-              <p>Typ transakcji: <b>{result.fields.transactionType}</b></p>
-
-              <Image
-                src={"https:" + result.fields.gallery.fields.file.url}
-                alt="img"
-                height={200}
-                width={300}
-                priority={true}
-              />
-              <Link legacyBehavior href={`/oferta/${result.fields.slug}`}>
-                <button className={styles.detailsButton}>
-                  Szczegóły <MdKeyboardDoubleArrowRight />
-                </button>
-              </Link>
-            </div>
-          ))
-        )}
+    {!
+    isDataLoaded ? (
+      <div className={styles.loader}>
+        <div className={styles.spinner}></div>
       </div>
-    </div>
+    ) : (
+      <>
+        <h1 className={styles.title}>
+          Wyniki wyszukiwania: <span>{results.length}</span>
+        </h1>
+        <div className={styles.resultsContainer}>
+          {results.length === 0 ? (
+            <p className={styles.noResults}>Brak wyników wyszukiwania.</p>
+          ) : (
+            results.map(result => (
+              <div key={result.sys.id} className={styles.resultItem}>
+                <h2>{result.fields.title}</h2>
+                <p>Typ: <b>{result.fields.typeOfProperty}</b></p>
+                <p>Lokalizacja: <b>{result.fields.address}</b></p>
+                <p>Cena: <b>{formatPrice(result.fields.price)}</b></p>
+                <p>Powierzchnia: <b>{result.fields.area}m<sup>2</sup></b></p>
+                <p>Typ transakcji: <b>{result.fields.transactionType}</b></p>
+  
+                <Image
+                  src={"https:" + result.fields.gallery.fields.file.url}
+                  alt="img"
+                  height={200}
+                  width={300}
+                  priority={true}
+                />
+                <Link legacyBehavior href={`/oferta/${result.fields.slug}`}>
+                  <button className={styles.detailsButton}>
+                    Szczegóły <MdKeyboardDoubleArrowRight />
+                  </button>
+                </Link>
+              </div>
+            ))
+          )}
+        </div>
+      </>
+    )}
+  </div>
   );
 };
 

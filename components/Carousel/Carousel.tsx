@@ -54,6 +54,12 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
     nextArrow: <NextArrowButton />,
     responsive: [
       {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,

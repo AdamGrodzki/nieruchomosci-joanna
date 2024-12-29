@@ -18,6 +18,14 @@
         display: flex;
         justify-content: center;
         text-wrap: wrap;
+
+        @media (max-width: 768px) {
+            font-size: 1.75rem;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 1.5rem;
+        }
     }
 }
 
@@ -31,14 +39,25 @@
     @media (max-width: 768px) {
         padding: 30px;
     }
+
+    @media (max-width: 480px) {
+        padding: 20px;
+        font-size: 0.875rem;
+    }
 }
 
 .featuredList {
     display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
     justify-content: center;
     width: 100%;
     max-width: 1600px;
+
+    @media (max-width: 1024px) {
+        max-width: 1200px;
+        justify-content: center;
+    }
 
     @media (max-width: 768px) {
         flex-direction: column;
@@ -50,19 +69,43 @@
     position: relative;
     width: 500px;
 
+    @media (max-width: 1024px) {
+        flex: 0 1 calc(50% - 1rem);
+        margin: 0.5rem;
+    }
+
     @media (max-width: 768px) {
         width: 370px;
+        flex: none;
+    }
+
+    @media (max-width: 480px) {
+        width: 100%;
     }
 }
+
 .propertyWrapper p {
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin: 1rem;
+
+    @media (max-width: 1024px) {
+        font-size: 1rem;
+        margin: 0.75rem;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 0.9rem;
+        margin: 1rem;
+    }
 }
 
 .propertyWrapper h4 {
     font-size: 1rem;
-}
 
+    @media (max-width: 480px) {
+        font-size: 0.9rem;
+    }
+}
 
 .specialOfferBadge {
     color: $Black;
@@ -72,7 +115,7 @@
     position: absolute;
     top: 40px;
     right: 10px;
-    background: linear-gradient(135deg, #c59c58 0%, #f1c27d 50%, #c59c58 100%);
+    background: linear-gradient(135deg, $Golden-bronze 0%, $Light-amber 50%, $Golden-bronze 100%);
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2), inset 0 0 0.3rem rgba(255, 255, 255, 0.6);
     will-change: transform;
     transform: rotate(30deg);
@@ -80,5 +123,11 @@
     @media (max-width: 768px) {
         top: 45px;
         right: 5px;
+    }
+
+    @media (max-width: 480px) {
+        top: 35px;
+        right: 3px;
+        font-size: 0.75rem;
     }
 }

@@ -207,6 +207,7 @@ const SearchBar = () => {
           <label htmlFor="address">Lokalizacja</label>
           <div className={styles.addressInputWrapper}>
             <input
+            autoComplete='off'
               id="address"
               type="text"
               placeholder="Wpisz lokalizację"
