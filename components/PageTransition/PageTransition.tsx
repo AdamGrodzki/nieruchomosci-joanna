@@ -2,10 +2,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { ReactNode, FC, useMemo } from 'react';
 import ScrollProgressBar from '../ScrollProgressBar/ScrollProgressBar';
+import { exit } from 'process';
 
 const variants = {
-  // hidden: { opacity: 0},
+  hidden: { opacity: 0},
   enter: { opacity: 1},
+  exit: {opacity: 1},
 };
 
 interface PageTransitionProps {
@@ -24,10 +26,11 @@ const PageTransition: FC<PageTransitionProps> = ({ children }) => {
       <motion.div
         key={key}
         variants={variants}
-        // initial="hidden"
+        exit="exit"
+        initial="hidden"
         animate="enter"
         role="region"
-        transition={{ type: 'easeInOut', duration: 0.5}}
+        transition={{ type: 'easeInOut', duration: 0.8}}
         style={{ position: 'relative'}}
       >
       {children}
