@@ -33,7 +33,7 @@ const Navbar = () => {
     const scrollToSection = (id: string) => {
         const section = document.getElementById(id);
         if (section) {
-            const yOffset = -50;
+            const yOffset = -70;
             const y = section.offsetTop + yOffset;
             window.scrollTo({ top: y, behavior: "smooth" });
         }

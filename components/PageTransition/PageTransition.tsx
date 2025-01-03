@@ -9,8 +9,8 @@ const PageTransition = ({ children }: PageTransitionProps) => {
     const [animationState, setAnimationState] = useState('fadeEnter');
 
     useEffect(() => {
-        setAnimationState('fadeEnter-active');
-        const timer = setTimeout(() => setAnimationState('fadeExit-active'), 500);
+        setAnimationState('fadeEnterActive');
+        const timer = setTimeout(() => setAnimationState('fadeExitActive'), 200);
         return () => clearTimeout(timer);
     }, [children]);
 
