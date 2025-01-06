@@ -10,18 +10,18 @@ import styles from "@/components/Navbar/navbar.module.scss";
 
 const Navbar = () => {
     const pathname = usePathname();
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
     const router = useRouter();
     const menuRef = useRef<HTMLDivElement>(null);
+    
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
 
+    const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+    // Obsługuje przewijanie i zmienia stan na podstawie scrolla
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY >= 20) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
+            setIsScrolled(window.scrollY >= 20);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -30,15 +30,17 @@ const Navbar = () => {
         };
     }, []);
 
-    const scrollToSection = (id: string) => {
+    // Funkcja przewijania do sekcji
+    const scrollToSection = useCallback((id: string) => {
         const section = document.getElementById(id);
         if (section) {
-            const yOffset = -70;
+            const yOffset = -70; // Zmienna dla dostosowania offsetu
             const y = section.offsetTop + yOffset;
             window.scrollTo({ top: y, behavior: "smooth" });
         }
-    };
+    }, []);
 
+    // Obsługuje kliknięcie w "Oferty wyróżnione"
     const handleScroll = useCallback(
         (e: React.MouseEvent) => {
             e.preventDefault();
@@ -50,10 +52,14 @@ const Navbar = () => {
                     scrollToSection(sectionId);
                 });
             }
+
+            // Zamknięcie menu po kliknięciu w "Oferty wyróżnione"
+            closeMenu();
         },
-        [router]
+        [router, scrollToSection, closeMenu] // Dodajemy closeMenu jako zależność
     );
 
+    // Obsługuje kliknięcie na zewnątrz menu, aby je zamknąć
     useEffect(() => {
         const handleClickOutside = (e: any) => {
             if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -67,18 +73,7 @@ const Navbar = () => {
         };
     }, []);
 
-    useEffect(() => {
-        const handleBackNavigation = () => {
-            setMenuOpen(false);
-        };
-
-        window.addEventListener("popstate", handleBackNavigation);
-
-        return () => {
-            window.removeEventListener("popstate", handleBackNavigation);
-        };
-    }, []);
-
+    // Zmienna nawigacyjna
     const navItems = useMemo(
         () => [
             { name: "Strona Główna", path: "/" },
@@ -90,8 +85,20 @@ const Navbar = () => {
         []
     );
 
+    // Przełączenie menu
     const toggleMenu = useCallback(() => setMenuOpen((prev) => !prev), []);
-    const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+      // Zamknięcie menu po kliknięciu przycisku cofnięcia
+      useEffect(() => {
+        const handlePopState = () => {
+            setMenuOpen(false);
+        };
+
+        window.addEventListener("popstate", handlePopState);
+        return () => {
+            window.removeEventListener("popstate", handlePopState);
+        };
+    }, []);
 
     return (
         <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ""}`} ref={menuRef}>
