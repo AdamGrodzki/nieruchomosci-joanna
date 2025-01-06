@@ -30,8 +30,8 @@ interface LayoutProps {
         <Navbar />
       </header>
       <main className={styles.pageContent}>
-      <PageTransition>
-      {children}
+        <PageTransition>
+          {children}
         </PageTransition>
         {isTransitioning && children}
       </main>

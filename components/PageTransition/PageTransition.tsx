@@ -1,39 +1,24 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { useRouter } from 'next/router';
-import { ReactNode, FC, useMemo } from 'react';
-import ScrollProgressBar from '../ScrollProgressBar/ScrollProgressBar';
-
-const variants = {
-  // hidden: { opacity: 0},
-  enter: { opacity: 1},
-};
+import { ReactNode, useState, useEffect } from 'react';
+import styles from './pageTransition.module.scss';
 
 interface PageTransitionProps {
-  children: ReactNode;
+    children: ReactNode;
 }
 
-const PageTransition: FC<PageTransitionProps> = ({ children }) => {
-  const router = useRouter();
+const PageTransition = ({ children }: PageTransitionProps) => {
+    const [animationState, setAnimationState] = useState('fadeEnter');
 
-  const key = useMemo(() => router.route, [router.route]);
+    useEffect(() => {
+        setAnimationState('fadeEnterActive');
+        const timer = setTimeout(() => setAnimationState('fadeExitActive'), 200);
+        return () => clearTimeout(timer);
+    }, [children]);
 
-  return (
-    <>
-      <ScrollProgressBar />
-      <AnimatePresence mode='wait' initial={false}>
-      <motion.div
-        key={key}
-        variants={variants}
-        // initial="hidden"
-        animate="enter"
-        role="region"
-        transition={{ type: 'easeInOut', duration: 0.5}}
-        style={{ position: 'relative'}}
-      >
-      {children}
-      </motion.div>
-    </AnimatePresence>
-  </>
-  );
+    return (
+        <div className={`${styles.transitionContainer} ${styles[animationState]}`}>
+            {children}
+        </div>
+    );
 };
+
 export default PageTransition;
