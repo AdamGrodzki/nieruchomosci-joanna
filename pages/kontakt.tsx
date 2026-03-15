@@ -22,11 +22,11 @@ const Contact = () => {
       phone: '',
       message: '',
     },
-    validationSchema: ContactFormSchema, 
+    validationSchema: ContactFormSchema,
     onSubmit: (values, { resetForm }) => {
-      const serviceID = String(process.env.SERVICE_ID);
-      const templateID = String(process.env.TEMPLATE_ID);
-      const userID = String(process.env.USER_ID);
+      const serviceID = String(process.env.NEXT_PUBLIC_SERVICE_ID);
+      const templateID = String(process.env.NEXT_PUBLIC_TEMPLATE_ID);
+      const userID = String(process.env.NEXT_PUBLIC_USER_ID);
 
       const templateParams = {
         name: values.name,
@@ -40,7 +40,7 @@ const Contact = () => {
         .then((response) => {
           setAlertMessage('Wiadomość została wysłana pomyślnie!');
           setAlertType('success');
-          resetForm(); 
+          resetForm();
         })
         .catch((err) => {
           console.error('Error', err);
@@ -82,7 +82,7 @@ const Contact = () => {
         <p>Jeśli masz pytania lub chcesz lepiej poznać naszą ofertę – zadzwoń lub napisz. Możesz też umówić się na spotkanie z nami przy przepysznej kawie.</p>
         <p>
           <FaMobileAlt />
-          <a href="tel:884 849 400"> 884 849 400</a> 
+          <a href="tel:884 849 400"> 884 849 400</a>
         </p>
         <p>
         <FaMobileAlt />
@@ -129,7 +129,7 @@ const Contact = () => {
       onChange={handleChange}
       onBlur={handleBlur}
     />
-     <label className={styles.label}>Telefon kontaktowy</label>
+            <label className={styles.label}>Telefon kontaktowy</label>
  {touched.phone && errors.phone && (
       <div className={`${styles.error} ${styles.errorVisible}`}>
         {errors.phone}

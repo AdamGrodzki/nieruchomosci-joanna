@@ -32,7 +32,7 @@ const SubmitOfferForm = () => {
         };
 
         const serviceID = String(process.env.SERVICE_ID);
-        const templateOfferID = String(process.env.TEMPLATE_OFFER_ID);
+        const templateOfferID = String(process.env.NEXT_PUBLIC_TEMPLATE_OFFER_ID);
         const userID = String(process.env.USER_ID);
 
         const response = await emailjs.send(
@@ -42,14 +42,14 @@ const SubmitOfferForm = () => {
           userID
         );
 
-        const message = response.status === 200 
+        const message = response.status === 200
         ? 'Oferta została zgłoszona pomyślnie!'
         : 'Wystąpił błąd podczas zgłaszania oferty.';
 
         setModalMessage(message)
         setIsSuccess(response.status === 200)
         
-        if(response.status === 200) { 
+        if (response.status === 200) {
           formik.resetForm();
       }
     } catch(error) {

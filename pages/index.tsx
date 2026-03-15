@@ -7,7 +7,7 @@ import { Nieruchomosc, PropertyProps} from "@/static/data";
 
 export async function getStaticProps() {
     const res = await client.getEntries({
-            content_type: "nieruchomosc", 
+        content_type: "nieruchomosc",
             order: ['-sys.createdAt']
         });
 
@@ -29,8 +29,8 @@ const Property: React.FC<PropertyProps> = ({nieruchomosci}) => {
                 <div className={styles.propertyList}>
                     <Carousel className={styles.carousel}>
                         {nieruchomosci.map((nieruchomosc: Nieruchomosc) => (
-                        <PropertyCard 
-                        key={nieruchomosc.sys.id} 
+                        <PropertyCard
+                        key={nieruchomosc.sys.id}
                         nieruchomosc={nieruchomosc}
                         />
                         ))}
